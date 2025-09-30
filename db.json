@@ -1,77 +1,228 @@
 {
+  "customers": [
+    {
+      "id": 1,
+      "name": "Akmal Karimov",
+      "email": "akmal.karimov@mail.com",
+      "phone": "+998901112233",
+      "address": "Tashkent, Uzbekistan"
+    },
+    {
+      "id": 2,
+      "name": "Dilnoza Rasulova",
+      "email": "dilnoza.rasulova@mail.com",
+      "phone": "+998909887766",
+      "address": "Samarkand, Uzbekistan"
+    },
+    {
+      "id": 3,
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan"
+    },
+    {
+      "id": 4,
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan"
+    },
+    {
+      "id": 5,
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan"
+    },
+    {
+      "id": 6,
+      "name": "Gulbahor Xudoyberdieva",
+      "email": "gulbahor.x@mail.com",
+      "phone": "+998931234567",
+      "address": "Fergana, Uzbekistan"
+    },
+    {
+      "id": 7,
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+998941112244",
+      "address": "Khiva, Uzbekistan"
+    },
+    {
+      "id": 8,
+      "name": "Sevara Olimova",
+      "email": "sevara.ol@mail.com",
+      "phone": "+998998877665",
+      "address": "Jizzakh, Uzbekistan"
+    },
+    {
+      "id": 9,
+      "name": "Sherzod Usmonov",
+      "email": "sherzod.u@mail.com",
+      "phone": "+998935550099",
+      "address": "Navoiy, Uzbekistan"
+    },
+    {
+      "id": 10,
+      "name": "Madina Akbarova",
+      "email": "madina.ak@mail.com",
+      "phone": "+998977771212",
+      "address": "Tashkent, Uzbekistan"
+    }
+  ],
   "products": [
     {
       "id": 1,
-      "name": "iPhone 15",
-      "price": 1200,
-      "category": "Electronics",
+      "name": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S24",
+      "price": 1099.99,
+      "stock": 30,
+      "category": "Smartphones",
+      "brand": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "MacBook Air M2",
+      "price": 1499.0,
       "stock": 15,
-      "createdAt": "2024-09-01"
+      "category": "Laptops",
+      "brand": "Apple"
     },
     {
-      "id": 2,
-      "name": "Nike Air Max",
-      "price": 220,
-      "category": "Shoes",
+      "id": 4,
+      "name": "Dell XPS 13",
+      "price": 1299.0,
+      "stock": 20,
+      "category": "Laptops",
+      "brand": "Dell"
+    },
+    {
+      "id": 5,
+      "name": "Sony WH-1000XM5",
+      "price": 399.99,
+      "stock": 50,
+      "category": "Headphones",
+      "brand": "Sony"
+    },
+    {
+      "id": 6,
+      "name": "AirPods Pro 2",
+      "price": 249.99,
       "stock": 40,
-      "createdAt": "2024-09-05"
+      "category": "Headphones",
+      "brand": "Apple"
     },
     {
-      "id": 3,
-      "name": "MacBook Pro",
-      "price": 2500,
+      "id": 7,
+      "name": "Canon EOS R7",
+      "price": 1799.0,
+      "stock": 10,
+      "category": "Cameras",
+      "brand": "Canon"
+    },
+    {
+      "id": 8,
+      "name": "Nike Air Max 270",
+      "price": 199.99,
+      "stock": 100,
+      "category": "Shoes",
+      "brand": "Nike"
+    },
+    {
+      "id": 9,
+      "name": "Adidas Ultraboost 22",
+      "price": 179.99,
+      "stock": 85,
+      "category": "Shoes",
+      "brand": "Adidas"
+    },
+    {
+      "id": 10,
+      "name": "Samsung 55\" QLED TV",
+      "price": 899.99,
+      "stock": 12,
       "category": "Electronics",
-      "stock": 7,
-      "createdAt": "2024-09-10"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "Akmal",
-      "email": "akmal@example.com",
-      "role": "admin",
-      "active": true
-    },
-    {
-      "id": 2,
-      "name": "Sarvar",
-      "email": "sarvar@example.com",
-      "role": "user",
-      "active": true
-    },
-    {
-      "id": 3,
-      "name": "John Doe",
-      "email": "john@example.com",
-      "role": "user",
-      "active": false
+      "brand": "Samsung"
     }
   ],
   "orders": [
     {
       "id": 1,
-      "userId": 2,
-      "productId": 1,
-      "quantity": 1,
-      "totalPrice": 1200,
-      "status": "pending",
-      "createdAt": "2024-09-15"
+      "customerId": 1,
+      "status": "Completed",
+      "totalAmount": 2599.98,
+      "createdAt": "2025-09-01"
     },
     {
       "id": 2,
-      "userId": 3,
-      "productId": 2,
-      "quantity": 2,
-      "totalPrice": 440,
-      "status": "completed",
-      "createdAt": "2024-09-18"
+      "customerId": 2,
+      "status": "Pending",
+      "totalAmount": 399.99,
+      "createdAt": "2025-09-02"
+    },
+    {
+      "id": 3,
+      "customerId": 3,
+      "status": "Shipped",
+      "totalAmount": 1099.99,
+      "createdAt": "2025-09-03"
+    },
+    {
+      "id": 4,
+      "customerId": 4,
+      "status": "Cancelled",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-04"
+    },
+    {
+      "id": 5,
+      "customerId": 5,
+      "status": "Completed",
+      "totalAmount": 1499.0,
+      "createdAt": "2025-09-05"
+    },
+    {
+      "id": 6,
+      "customerId": 6,
+      "status": "Pending",
+      "totalAmount": 249.99,
+      "createdAt": "2025-09-06"
+    },
+    {
+      "id": 7,
+      "customerId": 7,
+      "status": "Completed",
+      "totalAmount": 1799.0,
+      "createdAt": "2025-09-07"
+    },
+    {
+      "id": 8,
+      "customerId": 8,
+      "status": "Shipped",
+      "totalAmount": 899.99,
+      "createdAt": "2025-09-08"
+    },
+    {
+      "id": 9,
+      "customerId": 9,
+      "status": "Completed",
+      "totalAmount": 199.99,
+      "createdAt": "2025-09-09"
+    },
+    {
+      "id": 10,
+      "customerId": 10,
+      "status": "Pending",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-10"
     }
-  ],
-  "categories": [
-    { "id": 1, "name": "Electronics" },
-    { "id": 2, "name": "Shoes" },
-    { "id": 3, "name": "Clothes" },
-    { "id": 4, "name": "Books" }
   ]
 }
