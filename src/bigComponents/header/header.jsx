@@ -2,12 +2,13 @@ import React from "react";
 import mainLogo from "../../bigComponents/header/img/mainLogo.png";
 import userLogo from "../../bigComponents/header/img/userLogo.png";
 
-export default function Header() {
+export default function Header({namePage}) {
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-white shadow-sm">
       <div className="flex items-center space-x-3">
         <img src={mainLogo} alt="logo" className="w-[183] h-[36]" />
         <span className="text-lg text-gray-700">Services</span>
+        <span className="text-lg text-gray-700">{namePage}</span>
       </div>
 
       <div className="flex items-center space-x-4">
