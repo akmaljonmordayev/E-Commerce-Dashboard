@@ -1,6 +1,8 @@
 import React from "react";
 import mainLogo from "../../bigComponents/header/img/mainLogo.png";
 import userLogo from "../../bigComponents/header/img/userLogo.png";
+import { IoMdSettings } from "react-icons/io";
+import { FaBell } from "react-icons/fa";
 
 export default function Header({namePage}) {
   return (
@@ -22,11 +24,11 @@ export default function Header({namePage}) {
         </div>
 
         <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 cursor-pointer">
-          <i className="fas fa-cog text-gray-500"></i>
+          <IoMdSettings className="text-[22px] text-[#718EBF]" />
         </div>
 
         <div className="w-9 h-9 flex items-center justify-center rounded-full bg-pink-100 cursor-pointer relative">
-          <i className="fas fa-bell text-pink-500"></i>
+          <FaBell className="text-[22px] text-[#FE5C73]" />
         </div>
 
         <div>
