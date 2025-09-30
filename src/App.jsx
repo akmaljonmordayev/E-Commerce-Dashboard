@@ -1,5 +1,11 @@
 import "./App.css";
 import React from "react";
+
+import Header from "./bigComponents/header/header";
+
+
+
+
 import Layout from "./bigComponents/Lay_Out/LayOut";
 import HomePage from "./pages/Home/home";
 import { Route, Routes } from "react-router-dom";
@@ -39,6 +45,7 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
     </>
   );
 }
