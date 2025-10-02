@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function AdminLogo({ variant = "full", onClick }) {
   return (
     <button className="admin-logo" onClick={onClick}>
@@ -29,5 +28,5 @@ export default function AdminLogo({ variant = "full", onClick }) {
         </div>
       )}
     </button>
-     );
-    }
+  );
+}
