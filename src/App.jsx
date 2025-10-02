@@ -14,6 +14,8 @@ import Analytics from "./pages/Analytics/Analytics";
 function App() {
   return (
     <>
+
+
       <Routes>
         <Route
           path="/"
@@ -69,6 +71,7 @@ function App() {
           }
         />
       </Routes>
+
     </>
   );
 }

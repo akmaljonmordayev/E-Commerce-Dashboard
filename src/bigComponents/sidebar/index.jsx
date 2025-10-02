@@ -1,10 +1,11 @@
 import React from "react";
+import SidebarNavigation from "../../smallComponents/sideBarNavigation";
 
 function Sidebar() {
   return (
-    <div>
-      <h1>Sidebar</h1>
-    </div>
+    <>
+      <SidebarNavigation />
+    </>
   );
 }
 

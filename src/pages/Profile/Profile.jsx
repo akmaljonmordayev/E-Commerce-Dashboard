@@ -1,5 +1,7 @@
 import React from "react";
+
 import Header from "../../bigComponents/header/header";
+
 function Profile() {
   return (
     <div>

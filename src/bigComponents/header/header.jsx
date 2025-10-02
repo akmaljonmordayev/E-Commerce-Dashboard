@@ -4,6 +4,7 @@ import userLogo from "../../bigComponents/header/img/userLogo.png";
 
 import { IoMdSettings } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
+
 import { Link } from "react-router-dom";
 
 export default function Header({ namePage }) {
@@ -11,10 +12,14 @@ export default function Header({ namePage }) {
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-white shadow-sm">
       <div className="flex items-center space-x-3">
+
+        <img src={mainLogo} alt="logo" className="w-[183] h-[36]" />
+
         <Link to={"/"}>
           {" "}
           <img src={mainLogo} alt="logo" className="w-[183] h-[36]" />
         </Link>
+
 
         <span className="text-lg text-gray-700">
           {lastPage === "/" ? "Home" : lastPage.slice(1) + "_page"}
@@ -33,6 +38,14 @@ export default function Header({ namePage }) {
 
         <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 cursor-pointer">
           <IoMdSettings className="text-[22px] text-[#718EBF]" />
+
+        </div>
+
+        <div className="w-9 h-9 flex items-center justify-center rounded-full bg-pink-100 cursor-pointer relative">
+          <FaBell className="text-[22px] text-[#FE5C73]" />
+
+          <i className="fas fa-cog text-gray-500"></i>
+
         </div>
 
         <div className="w-9 h-9 flex items-center justify-center rounded-full bg-pink-100 cursor-pointer relative">
