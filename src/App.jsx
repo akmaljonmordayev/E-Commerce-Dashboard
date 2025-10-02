@@ -14,6 +14,7 @@ import Analytics from "./pages/Analytics/Analytics";
 function App() {
   return (
     <>
+<<<<<<< HEAD
       <Routes>
         <Route
           path="/"
@@ -69,6 +70,14 @@ function App() {
           }
         />
       </Routes>
+=======
+      <h1 className="text-[red]">ADMIN PANEL</h1>
+      <h2>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis atque
+        recusandae nisi porro in minus totam? Magni repudiandae at soluta.
+      </h2>
+      <h5>Helloooooooo</h5>
+>>>>>>> 13e9b86efc29b8327843b9ae0fe3f52d3f679c23
     </>
   );
 }
