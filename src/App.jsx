@@ -14,11 +14,64 @@ import Analytics from "./pages/Analytics/Analytics";
 function App() {
   return (
     <>
-      <h1 className="text-[red]">ADMIN PANEL</h1>
-      <h2>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis atque
-        recusandae nisi porro in minus totam? Magni repudiandae at soluta.
-      </h2>
+
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              {" "}
+              <HomePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <Layout>
+              {" "}
+              <ProductPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <Layout>
+              {" "}
+              <UsersPage />
+            </Layout>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/archieve"
+          element={
+            <Layout>
+              <Archieve />
+            </Layout>
+          }
+        />
+        <Route
+          path="/categories"
+          element={
+            <Layout>
+              <Categories />
+            </Layout>
+          }
+        />
+        <Route
+          path="/analytics"
+          element={
+            <Layout>
+              <Analytics />
+            </Layout>
+          }
+        />
+      </Routes>
+
     </>
   );
 }
