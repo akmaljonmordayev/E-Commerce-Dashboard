@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 function SidebarNavigation() {
   const [isOpen, setIsOpen] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const menuItems = [
-    { label: "Dashboard" },
-    { label: "Transactions" },
-    { label: "Accounts" },
-    { label: "Investments" },
-    { label: "Credit Cards" },
-    { label: "Loans" },
-    { label: "Services" },
-    { label: "My Privileges" },
-    { label: "Setting" },
+    { label: "Home" },
+    { label: "Products" },
+    { label: "Users" },
+    { label: "Archieve" },
+    { label: "Categories" },
+    { label: "Analytics" },
   ];
 
   const toggleSidebar = () => {
@@ -29,18 +27,23 @@ function SidebarNavigation() {
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <ul className="menu">
           {menuItems.map((item, index) => (
-            <li
-              key={index}
-              className={`menu-item ${activeIndex === index ? "active" : ""}`}
-              onClick={() => handleItemClick(index)}
+            <Link
+              to={item.label == "Home" ? "/" : `/${item.label.toLowerCase()}`}
             >
-              <span className="icon">{item.icon}</span>
-              <span className="label">{item.label}</span>
-            </li>
+              {" "}
+              <li
+                key={index}
+                className={`menu-item ${activeIndex === index ? "active" : ""}`}
+                onClick={() => handleItemClick(index)}
+              >
+                <span className="icon">{item.icon}</span>
+                <span className="label">{item.label}</span>
+              </li>
+            </Link>
           ))}
-    </ul>
-  </div>
-</div>
+        </ul>
+      </div>
+    </div>
   );
 }
 
