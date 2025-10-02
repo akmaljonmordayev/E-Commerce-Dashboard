@@ -14,8 +14,6 @@ import Analytics from "./pages/Analytics/Analytics";
 function App() {
   return (
     <>
-
-
       <Routes>
         <Route
           path="/"
@@ -45,7 +43,14 @@ function App() {
           }
         />
         <Route path="*" element={<NotFound />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <Layout>
+              <Profile />
+            </Layout>
+          }
+        />
         <Route
           path="/archieve"
           element={
@@ -71,7 +76,6 @@ function App() {
           }
         />
       </Routes>
-
     </>
   );
 }
