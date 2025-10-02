@@ -11,6 +11,7 @@ import Profile from "./pages/Profile/Profile";
 import Archieve from "./pages/Archieve/Archieve";
 import Categories from "./pages/Categories/Categories";
 import Analytics from "./pages/Analytics/Analytics";
+import Settings from "./pages/Settings/Settings";
 function App() {
   return (
     <>
@@ -72,6 +73,14 @@ function App() {
           element={
             <Layout>
               <Analytics />
+            </Layout>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <Layout>
+              <Settings />
             </Layout>
           }
         />

@@ -8,7 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaBoxArchive } from "react-icons/fa6";
 import { FaCartArrowDown } from "react-icons/fa";
-
+import { IoMdSettings } from "react-icons/io";
 
 
 function SidebarNavigation() {
@@ -17,11 +17,11 @@ function SidebarNavigation() {
 
   const menuItems = [
     { label: "Home", icon: <FaHome /> },
-    { label: "Products", icon:<FaCartArrowDown />
- },
+    { label: "Products", icon: <FaCartArrowDown /> },
     { label: "Users", icon: <FaUserShield /> },
-    { label: "Categories", icon: <FaBoxArchive /> },  
+    { label: "Categories", icon: <FaBoxArchive /> },
     { label: "Analytics", icon: <SiSimpleanalytics /> },
+    { label: "Settings", icon: <IoMdSettings /> },
     { label: "Archieve", icon: <MdDelete /> },
     { label: "Profile", icon: <CgProfile /> },
   ];

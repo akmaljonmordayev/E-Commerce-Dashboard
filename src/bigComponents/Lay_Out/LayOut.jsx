@@ -24,7 +24,9 @@ export default function Layout({ children }) {
           onClick={toggleSidebarOpen}
         >
           <LayoutDashboard size={24} />
-          <h1 className="text-lg font-bold">Admin Panel</h1>
+          <h1 className="text-lg font-bold">
+            {isSidebarOpen ? "Hide Menu" : "Show Menu"}
+          </h1>
         </div>
         <button
           onClick={toggleSidebarPosition}
