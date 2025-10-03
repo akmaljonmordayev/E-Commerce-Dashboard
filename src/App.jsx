@@ -12,12 +12,14 @@ import Archieve from "./pages/Archieve/Archieve";
 import Categories from "./pages/Categories/Categories";
 import Analytics from "./pages/Analytics/Analytics";
 import Settings from "./pages/Settings/Settings";
+import WelcomePage from "./bigComponents/welcomePage/WelcomePage";
 function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<WelcomePage />} />
         <Route
-          path="/"
+          path="/dashboard"
           element={
             <Layout>
               {" "}

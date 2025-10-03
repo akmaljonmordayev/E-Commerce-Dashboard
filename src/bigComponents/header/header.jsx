@@ -19,7 +19,7 @@ export default function Header({ namePage }) {
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-white shadow-sm">
       <div className="flex items-center space-x-3">
-        <Link to={"/"}>
+        <Link to={"/dashboard"}>
           {" "}
           <img src={mainLogo} alt="logo" className="w-[183] h-[36]" />
         </Link>

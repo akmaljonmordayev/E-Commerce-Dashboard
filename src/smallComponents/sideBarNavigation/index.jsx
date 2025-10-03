@@ -16,7 +16,7 @@ function SidebarNavigation() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const menuItems = [
-    { label: "Home", icon: <FaHome /> },
+    { label: "Dashboard", icon: <FaHome /> },
     { label: "Products", icon: <FaCartArrowDown /> },
     { label: "Users", icon: <FaUserShield /> },
     { label: "Categories", icon: <FaBoxArchive /> },
@@ -40,7 +40,7 @@ function SidebarNavigation() {
         <ul className="menu">
           {menuItems.map((item, index) => (
             <Link
-              to={item.label == "Home" ? "/" : `/${item.label.toLowerCase()}`}
+              to={item.label == "Home" ? "/dashboard" : `/${item.label.toLowerCase()}`}
             >
               {" "}
               <li
