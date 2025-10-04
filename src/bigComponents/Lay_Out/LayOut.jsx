@@ -18,13 +18,15 @@ export default function Layout({ children }) {
   return (
     <div className="h-screen flex flex-col">
       <Header />
-      <header className="bg-blue-600 text-white p-4 flex justify-between items-center shadow">
+      <header className="bg-slate-700 text-white p-4 flex justify-between items-center shadow">
         <div
           className="flex items-center gap-2 cursor-pointer"
           onClick={toggleSidebarOpen}
         >
           <LayoutDashboard size={24} />
-          <h1 className="text-lg font-bold">Admin Panel</h1>
+          <h1 className="text-lg font-bold">
+            {isSidebarOpen ? "Hide Menu" : "Show Menu"}
+          </h1>
         </div>
         <button
           onClick={toggleSidebarPosition}
