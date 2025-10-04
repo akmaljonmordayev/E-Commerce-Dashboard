@@ -40,7 +40,7 @@
 }
 
 .menu-item.active {
-  background-color: #2a64f7;
+  background-color:rgb(111, 140, 169);
   color: white;
   box-shadow: 0 0 10px rgba(42, 100, 247, 0.6);
 }
