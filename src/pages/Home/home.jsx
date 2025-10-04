@@ -11,17 +11,33 @@ function HomePage() {
     error: errorCustomers,
   } = useGet("/customers");
 
-  if (loadingCustomers) return <Loader />;
-  if (errorCustomers) return <ErrorMessage message={error} />;
+  const {
+    data: products,
+    loading: loadingProducts,
+    error: errorProducts,
+  } = useGet("/products");
+  const {
+    data: orders,
+    loading: loadingOrders,
+    error: errorOrders,
+  } = useGet("/orders");
+
+  if ((loadingCustomers || loadingProducts, loadingOrders)) return <Loader />;
+  if ((errorCustomers || errorProducts, errorOrders))
+    return <ErrorMessage message={error} />;
   console.log(customers);
 
   return (
-    <div>
+    <div className="flex gap-[30px] justify-evenly flex-wrap">
+      <ProductCard
+        title="Total Products"
+        count={products ? products.length : 0}
+      />
       <ProductCard
         title="Total Customers"
-        count={customers ? customers.length : null}
+        count={customers ? customers.length : 0}
       />
-      <ProductCard title="Total Users" count={3400} />
+       <ProductCard title="Total Orders" count={orders ? orders.length : 0} />
     </div>
   );
 }
