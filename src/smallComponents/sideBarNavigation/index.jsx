@@ -9,7 +9,7 @@ import { MdDelete } from "react-icons/md";
 import { FaBoxArchive } from "react-icons/fa6";
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
-
+import { IoAccessibilitySharp } from "react-icons/io5";
 
 function SidebarNavigation() {
   const [isOpen, setIsOpen] = useState(true);
@@ -19,6 +19,7 @@ function SidebarNavigation() {
     { label: "Dashboard", icon: <FaHome /> },
     { label: "Products", icon: <FaCartArrowDown /> },
     { label: "Users", icon: <FaUserShield /> },
+    { label: "Customers", icon: <IoAccessibilitySharp /> },
     { label: "Categories", icon: <FaBoxArchive /> },
     { label: "Analytics", icon: <SiSimpleanalytics /> },
     { label: "Settings", icon: <IoMdSettings /> },
@@ -40,7 +41,11 @@ function SidebarNavigation() {
         <ul className="menu">
           {menuItems.map((item, index) => (
             <Link
-              to={item.label == "Home" ? "/dashboard" : `/${item.label.toLowerCase()}`}
+              to={
+                item.label == "Home"
+                  ? "/dashboard"
+                  : `/${item.label.toLowerCase()}`
+              }
             >
               {" "}
               <li
