@@ -90,9 +90,11 @@ export default function WelcomePage() {
                   Login
                 </Button>
               </Link>
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold shadow-md">
-                Sign up
-              </Button>
+              <Link to={"signup"}>
+                <Button className="bg-blue-500 w-[290px] hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold shadow-md">
+                  Sign up
+                </Button>
+              </Link>
               <Button className="flex items-center justify-center gap-2 bg-white text-gray-800 hover:bg-gray-200 py-3 px-6 rounded-lg font-semibold shadow-md">
                 <Chrome className="w-5 h-5" /> Sign in with Google
               </Button>

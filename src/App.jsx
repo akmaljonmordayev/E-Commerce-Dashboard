@@ -15,12 +15,15 @@ import Settings from "./pages/Settings/Settings";
 import WelcomePage from "./bigComponents/welcomePage/WelcomePage";
 import Login from "./bigComponents/logIn";
 import ProtectedRoute from "./bigComponents/ProtectedRoute";
+import Customers from "./pages/Customers/Customers";
+import Signup from "./bigComponents/signup/Signup";
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/dashboard"
           element={
@@ -101,6 +104,16 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <Settings />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/customers"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Customers />
               </Layout>
             </ProtectedRoute>
           }
