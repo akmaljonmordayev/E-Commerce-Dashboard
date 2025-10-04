@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import api from "../../axios";
-
-export function useGet(endpoint) {
+import axios from "axios";
+import { api } from "../../service/axios";
+function useGet(endpoint) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -23,3 +22,5 @@ export function useGet(endpoint) {
 
   return { data, loading, error };
 }
+
+export default useGet;
