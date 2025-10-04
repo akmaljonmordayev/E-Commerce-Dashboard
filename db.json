@@ -326,5 +326,28 @@
       "surname": "helloyev",
       "password": 12345
     }
-  ]
+  ],
+  "archieve": {
+    "usersArchieve": [
+      {
+        "id": 1,
+        "name": "Akmal",
+        "date": "2025-10-04"
+      }
+    ],
+    "productsArchieve": [
+      {
+        "id": 101,
+        "title": "Telefon",
+        "date": "2025-10-02"
+      }
+    ],
+    "customersArchieve": [
+      {
+        "id": 201,
+        "fullname": "Ali Valiyev",
+        "date": "2025-10-01"
+      }
+    ]
+  }
 }

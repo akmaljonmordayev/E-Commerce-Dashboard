@@ -9,7 +9,6 @@ import ProductPage from "./pages/Products/product";
 import NotFound from "./bigComponents/notFound";
 import Profile from "./pages/Profile/Profile";
 import Archieve from "./pages/Archieve/Archieve";
-import Categories from "./pages/Categories/Categories";
 import Analytics from "./pages/Analytics/Analytics";
 import Settings from "./pages/Settings/Settings";
 import WelcomePage from "./bigComponents/welcomePage/WelcomePage";
@@ -17,6 +16,7 @@ import Login from "./bigComponents/logIn";
 import ProtectedRoute from "./bigComponents/ProtectedRoute";
 import Customers from "./pages/Customers/Customers";
 import Signup from "./bigComponents/signup/Signup";
+import Orders from "./pages/Orders/Orders";
 function App() {
   return (
     <>
@@ -79,11 +79,11 @@ function App() {
           }
         />
         <Route
-          path="/categories"
+          path="/orders"
           element={
             <ProtectedRoute>
               <Layout>
-                <Categories />
+                <Orders />
               </Layout>
             </ProtectedRoute>
           }

@@ -20,7 +20,7 @@ function SidebarNavigation() {
     { label: "Products", icon: <FaCartArrowDown /> },
     { label: "Users", icon: <FaUserShield /> },
     { label: "Customers", icon: <IoAccessibilitySharp /> },
-    { label: "Categories", icon: <FaBoxArchive /> },
+    { label: "Orders", icon: <FaBoxArchive /> },
     { label: "Analytics", icon: <SiSimpleanalytics /> },
     { label: "Settings", icon: <IoMdSettings /> },
     { label: "Archieve", icon: <MdDelete /> },
