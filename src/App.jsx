@@ -13,77 +13,96 @@ import Categories from "./pages/Categories/Categories";
 import Analytics from "./pages/Analytics/Analytics";
 import Settings from "./pages/Settings/Settings";
 import WelcomePage from "./bigComponents/welcomePage/WelcomePage";
+import Login from "./bigComponents/logIn";
+import ProtectedRoute from "./bigComponents/ProtectedRoute";
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard"
           element={
-            <Layout>
-              {" "}
-              <HomePage />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                {" "}
+                <HomePage />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/products"
           element={
-            <Layout>
-              {" "}
-              <ProductPage />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                {" "}
+                <ProductPage />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/users"
           element={
-            <Layout>
-              {" "}
-              <UsersPage />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                {" "}
+                <UsersPage />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/profile"
           element={
-            <Layout>
-              <Profile />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Profile />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/archieve"
           element={
-            <Layout>
-              <Archieve />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Archieve />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/categories"
           element={
-            <Layout>
-              <Categories />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Categories />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/analytics"
           element={
-            <Layout>
-              <Analytics />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Analytics />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/settings"
           element={
-            <Layout>
-              <Settings />
-            </Layout>
+            <ProtectedRoute>
+              <Layout>
+                <Settings />
+              </Layout>
+            </ProtectedRoute>
           }
         />
       </Routes>

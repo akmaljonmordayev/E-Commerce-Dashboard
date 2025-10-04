@@ -85,7 +85,7 @@ export default function WelcomePage() {
             </h2>
 
             <div className="flex flex-col gap-4 w-72">
-              <Link to={"/dashboard"}>
+              <Link to={"/login"}>
                 <Button className="bg-red-500 w-[290px] hover:bg-red-600 text-white py-3 px-6 rounded-lg font-semibold shadow-md">
                   Login
                 </Button>
