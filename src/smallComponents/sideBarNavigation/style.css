@@ -1,0 +1,59 @@
+.sidebar {
+  height: 100%;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0);
+  z-index: 1050;
+  overflow-y: auto;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.sidebar:not(.open) {
+  transform: translateX(-100%);
+}
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.menu-item {
+  padding: 8px 12px;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  user-select: none;
+}
+
+.menu-item .icon {
+  margin-right: 14px;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item.active {
+  background-color:rgb(111, 140, 169);
+  color: white;
+  box-shadow: 0 0 10px rgba(42, 100, 247, 0.6);
+}
+
+.menu-item.active .icon {
+  color: white;
+}
+
+.menu-item:hover {
+  background-color: #e6f0ff;
+  color: #2a64f7;
+}
+
+.menu-item:hover .icon {
+  color: #2a64f7;
+}
