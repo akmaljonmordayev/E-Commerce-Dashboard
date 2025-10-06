@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { api } from "../../service/axios";
+import api from "../../service/axios/index";
 
-function useGet(endpoint) {
+export default function useGet(endpoint) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -28,5 +28,3 @@ function useGet(endpoint) {
 
   return { data, loading, error };
 }
-
-export default useGet;
