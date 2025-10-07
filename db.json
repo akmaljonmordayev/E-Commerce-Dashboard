@@ -106,7 +106,7 @@
     },
     {
       "id": "3",
-      "name": "MacBook Air M2",
+      "name": "MacBook Air M4",
       "price": 1499,
       "stock": 15,
       "category": "Laptops",
@@ -159,14 +159,6 @@
       "stock": 85,
       "category": "Shoes",
       "brand": "Adidas"
-    },
-    {
-      "id": "10",
-      "name": "Samsung 55\" QLED TV",
-      "price": 899.99,
-      "stock": 12,
-      "category": "Electronics",
-      "brand": "Samsung"
     }
   ],
   "orders": [
