@@ -69,9 +69,41 @@
       "email": "madina.ak@mail.com",
       "phone": "+998977771212",
       "address": "Tashkent, Uzbekistan"
+    },
+    {
+      "id": "a8b2",
+      "name": "fire212345678",
+      "email": "f2124695@gmail.com",
+      "phone": "+998 93 105 03 31",
+      "address": "toshkent",
+      "password": "12345678"
+    },
+    {
+      "id": "9bc2",
+      "name": "fire212345678",
+      "email": "firdavsbek347@gmail.com",
+      "phone": "+998 93 105 03 31",
+      "address": "toshkent",
+      "password": "12345678"
     }
   ],
   "products": [
+    {
+      "id": 1,
+      "name": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S24",
+      "price": 1099.99,
+      "stock": 30,
+      "category": "Smartphones",
+      "brand": "Samsung"
+    },
     {
       "id": "3",
       "name": "MacBook Air M4",
