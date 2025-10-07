@@ -22,7 +22,6 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validatsiya
     if (!formData.name || !formData.email || !formData.phone || !formData.address || !formData.password) {
       setError("Barcha maydonlarni to'ldiring!");
       return;
