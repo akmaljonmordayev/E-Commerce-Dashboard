@@ -1,7 +1,7 @@
 import { useState } from "react";
-import api from "../../axios";
+import api from "../../service/axios/index";
 
-export function useDelete(endpoint) {
+export default function useDelete(endpoint) {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -11,7 +11,6 @@ export function useDelete(endpoint) {
     try {
       await api.delete(`${endpoint}/${id}`);
       setSuccess(true);
-      console.log(true);
       return true;
     } catch (err) {
       setError(err.message);
