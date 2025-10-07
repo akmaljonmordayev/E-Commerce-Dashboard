@@ -10,7 +10,6 @@ export default function ProductPage() {
   const { deleteData } = useDelete("/products");
   const { updateData } = useUpdate("/products");
   const { postData } = usePost("/products");
-
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
     name: "",

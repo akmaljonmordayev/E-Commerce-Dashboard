@@ -15,7 +15,7 @@ const Customers = () => {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/customers");
+      const res = await axios.get("http://localhost:5000/customers");
       setCustomers(res.data);
     } catch (err) {
       console.error(err);
@@ -36,12 +36,11 @@ const Customers = () => {
 
     try {
       if (editId) {
-        
-        await axios.put(`http://localhost:3000/customers/${editId}`, form);
+        await axios.put(`http://localhost:5000/customers/${editId}`, form);
         setEditId(null);
       } else {
         
-        await axios.post("http://localhost:3000/customers", form);
+        await axios.post("http://localhost:5000/customers", form);
       }
       setForm({ name: "", email: "", phone: "", address: "" });
       fetchCustomers();
@@ -53,7 +52,7 @@ const Customers = () => {
   
   const handleDelete = async (id) => {
     if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
-      await axios.delete(`http://localhost:3000/customers/${id}`);
+      await axios.delete(`http://localhost:5000/customers/${id}`);
       fetchCustomers();
     }
   };
