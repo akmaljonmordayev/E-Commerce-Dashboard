@@ -22,7 +22,13 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.address || !formData.password) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.address ||
+      !formData.password
+    ) {
       setError("Barcha maydonlarni to'ldiring!");
       return;
     }
@@ -39,7 +45,7 @@ function Signup() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/customers", {
+      const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +56,13 @@ function Signup() {
       if (response.ok) {
         setSuccess(true);
         setError("");
-        setFormData({ name: "", email: "", phone: "", address: "", password: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          address: "",
+          password: "",
+        });
       } else {
         setError("Ro'yxatdan o'tishda xatolik yuz berdi.");
       }
@@ -152,7 +164,10 @@ function Signup() {
         <div className="text-center text-sm text-gray-600 mt-4">
           <p>
             Hisobingiz bormi?{" "}
-            <a href="/login" className="text-indigo-600 hover:text-indigo-500 font-medium">
+            <a
+              href="/login"
+              className="text-indigo-600 hover:text-indigo-500 font-medium"
+            >
               Kirish
             </a>
           </p>

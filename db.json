@@ -326,6 +326,14 @@
       "name": "hello",
       "surname": "helloyev",
       "password": 12345
+    },
+    {
+      "id": "5715",
+      "name": "Akmal",
+      "email": "akmaljonmordayev@gmail.com",
+      "phone": "905200350",
+      "address": "asdvasdvasd",
+      "password": "123456"
     }
   ],
   "archieve": {
