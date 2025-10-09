@@ -8,7 +8,6 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (username === "admin" && password === "12345") {
       const token =
         "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();

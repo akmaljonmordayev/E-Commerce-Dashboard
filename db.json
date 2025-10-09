@@ -64,20 +64,11 @@
       "address": "Tashkent, Uzbekistan"
     },
     {
-      "id": "a8b2",
-      "name": "fire212345678",
-      "email": "f2124695@gmail.com",
-      "phone": "+998 93 105 03 31",
-      "address": "toshkent",
-      "password": "12345678"
-    },
-    {
-      "id": "9bc2",
-      "name": "fire212345678",
-      "email": "firdavsbek347@gmail.com",
-      "phone": "+998 93 105 03 31",
-      "address": "toshkent",
-      "password": "12345678"
+      "id": "d3fd",
+      "name": "asdvasdv",
+      "email": "asdvasdv@gmail.com",
+      "phone": "121212",
+      "address": "asdvasdvasd"
     }
   ],
   "products": [
@@ -421,14 +412,6 @@
       "email": "akmaljonmordayev@gmail.com",
       "phone": "905200350",
       "address": "asdvasdvasd",
-      "password": "123456"
-    },
-    {
-      "id": "ac44",
-      "name": "Ayyubkhon",
-      "email": "ajubhons@gmail.com",
-      "phone": "+998123456789",
-      "address": "Tashkent",
       "password": "123456"
     }
   ],
