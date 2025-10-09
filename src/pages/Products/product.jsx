@@ -1,89 +1,69 @@
-import React, { useState } from "react"
-import CustomTable from "./customTable"
-import useGet from "../../customHooks/useGet"
-import useDelete from "../../customHooks/useDelete"
-import useUpdate from "../../customHooks/useUpdate"
-import usePost from "../../customHooks/usePost"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import React, { useState } from "react";
+import CustomTable from "../Products/customTable";
+import useGet from "../../customHooks/useGet";
+import useDelete from "../../customHooks/useDelete";
+import useUpdate from "../../customHooks/useUpdate";
+import usePost from "../../customHooks/usePost";
 
 export default function ProductPage() {
-  const { data: products, loading } = useGet("/products")
-  const { deleteData } = useDelete("/products")
-  const { updateData } = useUpdate("/products")
-  const { postData } = usePost("/products")
+  const { data: products, loading } = useGet("/products");
+  const { deleteData } = useDelete("/products");
+  const { updateData } = useUpdate("/products");
+  const { postData } = usePost("/products");
 
-  const [search, setSearch] = useState("")
-  const [showModal, setShowModal] = useState(false)
-  const [editing, setEditing] = useState(null)
+  const [search, setSearch] = useState("");
   const [form, setForm] = useState({
     name: "",
     price: "",
     stock: "",
     category: "",
     brand: "",
-  })
+  });
+  const [editId, setEditId] = useState(null);
+  const [deleteItem, setDeleteItem] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleAdd = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (!form.name || !form.price || !form.stock || !form.category || !form.brand) {
-      toast.error("Please fill in all fields!")
-      return
+      alert("Please fill in all fields!");
+      return;
     }
 
-    try {
-      const newProduct = {
-        name: form.name,
-        price: Number(form.price),
-        stock: Number(form.stock),
-        category: form.category,
-        brand: form.brand,
-      }
-      await postData(newProduct)
-      toast.success("Product added successfully!")
-      setForm({ name: "", price: "", stock: "", category: "", brand: "" })
-      setShowModal(false)
-      setTimeout(() => window.location.reload(), 1000)
-    } catch {
-      toast.error("Error adding product")
+    if (editId) {
+      await updateData(editId, form);
+      setEditId(null);
+    } else {
+      await postData(form);
     }
-  }
 
-  const handleEdit = (record) => {
-    setEditing(record)
-    setForm(record)
-    setShowModal(true)
-  }
+    setForm({ name: "", price: "", stock: "", category: "", brand: "" });
+    setShowForm(false);
+    window.location.reload();
+  };
 
-  const handleSave = async () => {
-    try {
-      await updateData(editing.id, form)
-      toast.success("Product updated!")
-      setShowModal(false)
-      setTimeout(() => window.location.reload(), 1000)
-    } catch {
-      toast.error("Error updating product")
+  const handleEdit = (item) => {
+    setForm(item);
+    setEditId(item.id);
+    setShowForm(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (deleteItem) {
+      await deleteData(deleteItem.id);
+      setDeleteItem(null);
+      window.location.reload();
     }
-  }
-
-  const handleDelete = async (record) => {
-    if (window.confirm(`Delete ${record.name}?`)) {
-      try {
-        await deleteData(record.id)
-        toast.info("Product deleted")
-        setTimeout(() => window.location.reload(), 1000)
-      } catch {
-        toast.error("Error deleting product")
-      }
-    }
-  }
+  };
 
   const filtered = products?.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
-  )
+  );
 
   const columns = [
     { title: "ID", dataIndex: "id", key: "id" },
@@ -92,74 +72,122 @@ export default function ProductPage() {
     { title: "Stock", dataIndex: "stock", key: "stock" },
     { title: "Category", dataIndex: "category", key: "category" },
     { title: "Brand", dataIndex: "brand", key: "brand" },
-  ]
+  ];
 
-  if (loading) return <p className="text-center mt-10 text-white">Loading...</p>
+  if (loading) return <p className="text-center mt-10 text-white">Loading...</p>;
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between mb-4">
+    <div className="p-6 bg-[#1f2a40] min-h-screen text-white">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold">Products</h2>
         <input
+          type="text"
+          placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search product..."
-          className="border border-gray-400 px-3 py-2 rounded-md w-1/3"
+          className="p-2 rounded bg-[#25314d] border border-gray-600 focus:outline-none"
         />
         <button
           onClick={() => {
-            setShowModal(true)
-            setEditing(null)
-            setForm({ name: "", price: "", stock: "", category: "", brand: "" })
+            setShowForm(!showForm);
+            setEditId(null);
+            setForm({ name: "", price: "", stock: "", category: "", brand: "" });
           }}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          className="bg-[#2a64f7] hover:bg-[#3b78ff] px-4 py-2 rounded-md font-semibold transition-all duration-200"
         >
-          Add Product
+          {showForm ? "Close" : "Add Product"}
         </button>
       </div>
+
+      {showForm && (
+        <form
+          onSubmit={handleSubmit}
+          className="mb-6 bg-[#25314d] p-4 rounded-lg grid grid-cols-2 gap-4"
+        >
+          <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            type="text"
+            placeholder="Name"
+            required
+            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
+          />
+          <input
+            name="price"
+            value={form.price}
+            onChange={handleChange}
+            type="number"
+            placeholder="Price"
+            required
+            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
+          />
+          <input
+            name="stock"
+            value={form.stock}
+            onChange={handleChange}
+            type="number"
+            placeholder="Stock"
+            required
+            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
+          />
+          <input
+            name="category"
+            value={form.category}
+            onChange={handleChange}
+            type="text"
+            placeholder="Category"
+            required
+            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
+          />
+          <input
+            name="brand"
+            value={form.brand}
+            onChange={handleChange}
+            type="text"
+            placeholder="Brand"
+            required
+            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
+          />
+          <button
+            type="submit"
+            className="col-span-2 bg-[#2a64f7] hover:bg-[#3b78ff] text-white px-4 py-2 rounded-md font-semibold transition-all duration-200"
+          >
+            {editId ? "Save Changes" : "Save Product"}
+          </button>
+        </form>
+      )}
 
       <CustomTable
         columns={columns}
         data={filtered}
         onEdit={handleEdit}
-        onDelete={handleDelete}
+        onDelete={(item) => setDeleteItem(item)}
       />
 
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-md w-[400px]">
-            <h3 className="text-xl font-bold mb-4">
-              {editing ? "Edit Product" : "Add Product"}
+      {deleteItem && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-[#25314d] p-6 rounded-lg w-[350px] text-center">
+            <h3 className="text-lg font-semibold mb-4">
+              Delete “{deleteItem.name}”?
             </h3>
-            <div className="flex flex-col gap-2">
-              <input name="name" value={form.name} onChange={handleChange} placeholder="Name" className="border px-2 py-1 rounded" />
-              <input name="price" value={form.price} onChange={handleChange} placeholder="Price" className="border px-2 py-1 rounded" />
-              <input name="stock" value={form.stock} onChange={handleChange} placeholder="Stock" className="border px-2 py-1 rounded" />
-              <input name="category" value={form.category} onChange={handleChange} placeholder="Category" className="border px-2 py-1 rounded" />
-              <input name="brand" value={form.brand} onChange={handleChange} placeholder="Brand" className="border px-2 py-1 rounded" />
-            </div>
-            <div className="flex justify-end gap-3 mt-4">
+            <div className="flex justify-center gap-4">
               <button
-                onClick={() => {
-                  setShowModal(false)
-                  setEditing(null)
-                  setForm({ name: "", price: "", stock: "", category: "", brand: "" })
-                }}
-                className="bg-gray-400 text-white px-4 py-1 rounded hover:bg-gray-500"
+                onClick={handleDeleteConfirm}
+                className="bg-[#ff4d4f] px-4 py-2 rounded-md hover:bg-[#ff6b6b] transition-all"
               >
-                Cancel
+                Yes, Delete
               </button>
               <button
-                onClick={editing ? handleSave : handleAdd}
-                className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700"
+                onClick={() => setDeleteItem(null)}
+                className="bg-gray-500 px-4 py-2 rounded-md hover:bg-gray-600 transition-all"
               >
-                Save
+                Cancel
               </button>
             </div>
           </div>
         </div>
       )}
-
-      <ToastContainer position="top-right" autoClose={2000} />
     </div>
-  )
+  );
 }
