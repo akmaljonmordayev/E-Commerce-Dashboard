@@ -4,21 +4,19 @@ import "antd/dist/reset.css";
 
 export default function CustomTable({ columns = [], data = [], onEdit, onDelete }) {
   const actionColumn = {
-    title: "ACTIONS",
+    title: "Actions",
     key: "actions",
     render: (_, record) => (
       <div className="flex gap-3">
         <button
-          type="button"
-          onClick={() => onEdit?.(record)}
-          className="text-white bg-[#4c6ef5] hover:bg-[#5c7cfa] transition-all duration-200 px-4 py-1 rounded-md font-semibold"
+          onClick={() => onEdit(record)}
+          className="text-white bg-[#4c6ef5] hover:bg-[#5c7cfa] px-3 py-1 rounded-md"
         >
           Edit
         </button>
         <button
-          type="button"
-          onClick={() => onDelete?.(record)}
-          className="text-white bg-[#ff6b6b] hover:bg-[#fa5252] transition-all duration-200 px-4 py-1 rounded-md font-semibold"
+          onClick={() => onDelete(record)}
+          className="text-white bg-[#ff6b6b] hover:bg-[#fa5252] px-3 py-1 rounded-md"
         >
           Delete
         </button>
@@ -26,14 +24,28 @@ export default function CustomTable({ columns = [], data = [], onEdit, onDelete 
     ),
   };
 
+  const updatedColumns = [
+    ...columns.map((col) => ({
+      ...col,
+      sorter: (a, b) => {
+        if (typeof a[col.dataIndex] === "number") return a[col.dataIndex] - b[col.dataIndex];
+        if (typeof a[col.dataIndex] === "string")
+          return a[col.dataIndex].localeCompare(b[col.dataIndex]);
+        return 0;
+      },
+      sortDirections: ["ascend", "descend"],
+    })),
+    actionColumn,
+  ];
+
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+    <div className="bg-[#1f2a40] p-4 rounded-xl shadow-lg border border-gray-700">
       <Table
-        columns={[...columns, actionColumn]}
+        columns={updatedColumns}
         dataSource={data}
         rowKey="id"
-        pagination={false}
-        className="custom-table"
+        pagination={{ pageSize: 5 }}
+        bordered
       />
     </div>
   );
