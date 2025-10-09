@@ -16,19 +16,19 @@ export default function Header({ namePage }) {
     const value = localStorage.getItem("lastPage") || "Home";
     setText(value);
   }, [location.pathname]);
+
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-white shadow-sm">
       <div className="flex items-center space-x-3">
         <Link to={"/dashboard"}>
-          {" "}
           <img src={mainLogo} alt="logo" className="w-[183] h-[36]" />
         </Link>
 
-        <span className="text-lg text-gray-700"></span>
         <span className="text-lg text-gray-700">
           {text === "/" ? "Home" : text.slice(1) + "_page"}
         </span>
       </div>
+
       <div className="flex items-center space-x-4">
         <div className="relative pr-[40px]">
           <input
@@ -38,6 +38,7 @@ export default function Header({ namePage }) {
           />
           <i className="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
         </div>
+
         <Link to={"/settings"}>
           <div className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 cursor-pointer">
             <IoMdSettings className="text-[22px] text-[#718EBF]" />

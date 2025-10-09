@@ -1,7 +1,7 @@
 import { useState } from "react";
-import api from "../../axios";
+import api from "../../service/axios/index";
 
-export function useUpdate(endpoint) {
+export default function useUpdate(endpoint) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

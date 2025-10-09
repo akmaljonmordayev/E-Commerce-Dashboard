@@ -1,74 +1,83 @@
 {
   "customers": [
     {
-      "id": 1,
-      "name": "Akmal Karimov",
-      "email": "akmal.karimov@mail.com",
-      "phone": "+998901112233",
-      "address": "Tashkent, Uzbekistan"
-    },
-    {
-      "id": 2,
+      "id": "2",
       "name": "Dilnoza Rasulova",
       "email": "dilnoza.rasulova@mail.com",
       "phone": "+998909887766",
       "address": "Samarkand, Uzbekistan"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Javohir Ismoilov",
       "email": "javohir.ismoilov@mail.com",
       "phone": "+998935552211",
       "address": "Bukhara, Uzbekistan"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Malika Toshpulatova",
       "email": "malika.tosh@mail.com",
       "phone": "+998935554433",
       "address": "Andijan, Uzbekistan"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Shahzod Rahmonov",
       "email": "shahzod.rahmonov@mail.com",
       "phone": "+998977788990",
       "address": "Namangan, Uzbekistan"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
       "phone": "+998931234567",
       "address": "Fergana, Uzbekistan"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Bobur Mamadaliyev",
       "email": "bobur.m@mail.com",
       "phone": "+998941112244",
       "address": "Khiva, Uzbekistan"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Sevara Olimova",
       "email": "sevara.ol@mail.com",
       "phone": "+998998877665",
       "address": "Jizzakh, Uzbekistan"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Sherzod Usmonov",
       "email": "sherzod.u@mail.com",
       "phone": "+998935550099",
       "address": "Navoiy, Uzbekistan"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Madina Akbarova",
       "email": "madina.ak@mail.com",
       "phone": "+998977771212",
       "address": "Tashkent, Uzbekistan"
+    },
+    {
+      "id": "a8b2",
+      "name": "fire212345678",
+      "email": "f2124695@gmail.com",
+      "phone": "+998 93 105 03 31",
+      "address": "toshkent",
+      "password": "12345678"
+    },
+    {
+      "id": "9bc2",
+      "name": "fire212345678",
+      "email": "firdavsbek347@gmail.com",
+      "phone": "+998 93 105 03 31",
+      "address": "toshkent",
+      "password": "12345678"
     }
   ],
   "products": [
@@ -89,23 +98,23 @@
       "brand": "Samsung"
     },
     {
-      "id": 3,
-      "name": "MacBook Air M2",
-      "price": 1499.0,
+      "id": "3",
+      "name": "MacBook Air M4",
+      "price": 1499,
       "stock": 15,
       "category": "Laptops",
       "brand": "Apple"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Dell XPS 13",
-      "price": 1299.0,
+      "price": 1299,
       "stock": 20,
       "category": "Laptops",
       "brand": "Dell"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sony WH-1000XM5",
       "price": 399.99,
       "stock": 50,
@@ -113,7 +122,7 @@
       "brand": "Sony"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "AirPods Pro 2",
       "price": 249.99,
       "stock": 40,
@@ -121,15 +130,15 @@
       "brand": "Apple"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Canon EOS R7",
-      "price": 1799.0,
+      "price": 1799,
       "stock": 10,
       "category": "Cameras",
       "brand": "Canon"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Nike Air Max 270",
       "price": 199.99,
       "stock": 100,
@@ -137,88 +146,80 @@
       "brand": "Nike"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Adidas Ultraboost 22",
       "price": 179.99,
       "stock": 85,
       "category": "Shoes",
       "brand": "Adidas"
-    },
-    {
-      "id": 10,
-      "name": "Samsung 55\" QLED TV",
-      "price": 899.99,
-      "stock": 12,
-      "category": "Electronics",
-      "brand": "Samsung"
     }
   ],
   "orders": [
     {
-      "id": 1,
+      "id": "1",
       "customerId": 1,
       "status": "Completed",
       "totalAmount": 2599.98,
       "createdAt": "2025-09-01"
     },
     {
-      "id": 2,
+      "id": "2",
       "customerId": 2,
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02"
     },
     {
-      "id": 3,
+      "id": "3",
       "customerId": 3,
       "status": "Shipped",
       "totalAmount": 1099.99,
       "createdAt": "2025-09-03"
     },
     {
-      "id": 4,
+      "id": "4",
       "customerId": 4,
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04"
     },
     {
-      "id": 5,
+      "id": "5",
       "customerId": 5,
       "status": "Completed",
-      "totalAmount": 1499.0,
+      "totalAmount": 1499,
       "createdAt": "2025-09-05"
     },
     {
-      "id": 6,
+      "id": "6",
       "customerId": 6,
       "status": "Pending",
       "totalAmount": 249.99,
       "createdAt": "2025-09-06"
     },
     {
-      "id": 7,
+      "id": "7",
       "customerId": 7,
       "status": "Completed",
-      "totalAmount": 1799.0,
+      "totalAmount": 1799,
       "createdAt": "2025-09-07"
     },
     {
-      "id": 8,
+      "id": "8",
       "customerId": 8,
       "status": "Shipped",
       "totalAmount": 899.99,
       "createdAt": "2025-09-08"
     },
     {
-      "id": 9,
+      "id": "9",
       "customerId": 9,
       "status": "Completed",
       "totalAmount": 199.99,
       "createdAt": "2025-09-09"
     },
     {
-      "id": 10,
+      "id": "10",
       "customerId": 10,
       "status": "Pending",
       "totalAmount": 179.99,
@@ -227,7 +228,7 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "azizbek_admin",
       "email": "azizbek.admin@mail.com",
       "role": "admin",
@@ -237,7 +238,7 @@
       "password": 12345
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "dilnoza_manager",
       "email": "dilnoza.manager@mail.com",
       "role": "manager",
@@ -247,7 +248,7 @@
       "password": 12345
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "javohir_manager",
       "email": "javohir.manager@mail.com",
       "role": "manager",
@@ -257,7 +258,7 @@
       "password": 12345
     },
     {
-      "id": 4,
+      "id": "4",
       "username": "malika_support",
       "email": "malika.support@mail.com",
       "role": "support",
@@ -267,7 +268,7 @@
       "password": 12345
     },
     {
-      "id": 5,
+      "id": "5",
       "username": "shahzod_support",
       "email": "shahzod.support@mail.com",
       "role": "support",
@@ -277,7 +278,7 @@
       "password": 12345
     },
     {
-      "id": 6,
+      "id": "6",
       "username": "gulbahor_seller",
       "email": "gulbahor.seller@mail.com",
       "role": "seller",
@@ -287,7 +288,7 @@
       "password": 12345
     },
     {
-      "id": 7,
+      "id": "7",
       "username": "bobur_seller",
       "email": "bobur.seller@mail.com",
       "role": "seller",
@@ -297,7 +298,7 @@
       "password": 12345
     },
     {
-      "id": 8,
+      "id": "8",
       "username": "sevara_customer",
       "email": "sevara.customer@mail.com",
       "role": "customer",
@@ -307,7 +308,7 @@
       "password": 12345
     },
     {
-      "id": 9,
+      "id": "9",
       "username": "sherzod_customer",
       "email": "sherzod.customer@mail.com",
       "role": "customer",
@@ -317,7 +318,7 @@
       "password": 12345
     },
     {
-      "id": 10,
+      "id": "10",
       "username": "madina_customer",
       "email": "madina.customer@mail.com",
       "role": "customer",
@@ -325,6 +326,22 @@
       "name": "hello",
       "surname": "helloyev",
       "password": 12345
+    },
+    {
+      "id": "5715",
+      "name": "Akmal",
+      "email": "akmaljonmordayev@gmail.com",
+      "phone": "905200350",
+      "address": "asdvasdvasd",
+      "password": "123456"
+    },
+    {
+      "id": "7c2b",
+      "name": "Jabborov Adham",
+      "email": "jabborovadhamjon97@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Uzbekistan,Tashkent,Yangihayot, yangi hayot 8-hudud 17dom 23-xonadon",
+      "password": "adhamjon2010"
     }
   ],
   "archieve": {
