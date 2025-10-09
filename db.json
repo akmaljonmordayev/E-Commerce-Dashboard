@@ -64,39 +64,14 @@
       "address": "Tashkent, Uzbekistan"
     },
     {
-      "id": "a8b2",
-      "name": "fire212345678",
-      "email": "f2124695@gmail.com",
-      "phone": "+998 93 105 03 31",
-      "address": "toshkent",
-      "password": "12345678"
-    },
-    {
-      "id": "9bc2",
-      "name": "fire212345678",
-      "email": "firdavsbek347@gmail.com",
-      "phone": "+998 93 105 03 31",
-      "address": "toshkent",
-      "password": "12345678"
+      "id": "d3fd",
+      "name": "asdvasdv",
+      "email": "asdvasdv@gmail.com",
+      "phone": "121212",
+      "address": "asdvasdvasd"
     }
   ],
   "products": [
-    {
-      "id": 1,
-      "name": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
-      "id": 2,
-      "name": "Samsung Galaxy S24",
-      "price": 1099.99,
-      "stock": 30,
-      "category": "Smartphones",
-      "brand": "Samsung"
-    },
     {
       "id": "3",
       "name": "MacBook Air M4",
@@ -152,6 +127,14 @@
       "stock": 85,
       "category": "Shoes",
       "brand": "Adidas"
+    },
+    {
+      "id": "9c7c",
+      "name": "asvasd",
+      "price": "12",
+      "stock": "12",
+      "category": "adsvasdvasdv",
+      "brand": "asdvasdvas"
     }
   ],
   "orders": [
@@ -334,6 +317,14 @@
       "phone": "905200350",
       "address": "asdvasdvasd",
       "password": "123456"
+    },
+    {
+      "id": "00b3",
+      "name": "abdunabi",
+      "email": "abdulaziz@gmail.com",
+      "phone": "sadvasdvasd",
+      "address": "asdvasdvasd",
+      "password": "1245623233"
     }
   ],
   "archieve": {
