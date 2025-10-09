@@ -6,9 +6,9 @@ export default function BarChart({ labels, values, colors, label }) {
     labels: labels,
     datasets: [
       {
-        label: label || "Savdo",
+        label: label,
         data: values,
-        backgroundColor: colors || ["red", "blue", "green", "orange", "purple"],
+        backgroundColor: colors ,
       },
     ],
   };
