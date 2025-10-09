@@ -413,6 +413,14 @@
       "phone": "905200350",
       "address": "asdvasdvasd",
       "password": "123456"
+    },
+    {
+      "id": "c54c",
+      "name": "Jorabek Qoraboyev",
+      "email": "jorabek@gmail.com",
+      "phone": "+998905200350",
+      "address": "Turkey",
+      "password": "345678"
     }
   ],
   "archieve": {
