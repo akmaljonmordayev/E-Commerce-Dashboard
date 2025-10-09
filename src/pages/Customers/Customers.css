@@ -1,142 +1,213 @@
 .customers-container {
-    background-color: #f5f7fa;
-    min-height: 100vh;
-    padding: 24px;
-    color: #1e293b;
-    font-family: "Inter", sans-serif;
-  }
-  
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 24px;
+  color: #1e293b;
+  font-family: "Inter", sans-serif;
+}
+
+.customers-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
   .customers-header {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 24px;
+    flex-direction: row;
+    align-items: center;
   }
-  
-  @media (min-width: 640px) {
-    .customers-header {
-      flex-direction: row;
-      align-items: center;
-    }
+}
+
+.customers-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.search-input {
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+.customer-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.customer-form input {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+
+.table-container {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+}
+
+.customers-table th,
+.customers-table td {
+  padding: 12px 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.customers-table thead {
+  background-color: #f1f5f9;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  cursor: pointer;
+  background: none;
+  font-size: 16px;
+  margin-right: 8px;
+  transition: 0.2s;
+}
+
+.btn-edit:hover {
+  color: #2563eb;
+}
+
+.btn-delete:hover {
+  color: #dc2626;
+}
+
+.no-data {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.analytics-page {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.analytics-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 24px;
+}
+ 
+.kpi-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.kpi-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-title {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.kpi-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.kpi-value.green {
+  color: #16a34a;
+}
+.kpi-value.blue {
+  color: #2563eb;
+}
+.kpi-value.purple {
+  color: #7c3aed;
+}
+.kpi-value.red {
+  color: #dc2626;
+}
+
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .charts-section {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .customers-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #0f172a;
-  }
-  
-  .search-input {
-    padding: 10px 14px;
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    background-color: #fff;
-    font-size: 14px;
-    transition: all 0.2s ease;
-  }
-  
-  .search-input:focus {
-    outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  }
-  
-  /* === Forma === */
-  .customer-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  
-  .customer-form input {
-    padding: 10px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    background-color: #fff;
-    font-size: 14px;
-  }
-  
-  .btn-primary {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 14px;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-  
-  .btn-primary:hover {
-    background-color: #1d4ed8;
-  }
-  
-  /* === Jadval === */
-  .table-container {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    overflow-x: auto;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  }
-  
-  .customers-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    text-align: left;
-  }
-  
-  .customers-table th,
-  .customers-table td {
-    padding: 12px 20px;
-    border-top: 1px solid #e2e8f0;
-  }
-  
-  .customers-table thead {
-    background-color: #f1f5f9;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
-  
-  .btn-edit,
-  .btn-delete {
-    border: none;
-    cursor: pointer;
-    background: none;
-    font-size: 16px;
-    margin-right: 8px;
-    transition: 0.2s;
-  }
-  
-  .btn-edit:hover {
-    color: #2563eb;
-  }
-  
-  .btn-delete:hover {
-    color: #dc2626;
-  }
-  
-  .no-data {
-    text-align: center;
-    padding: 24px;
-    color: #94a3b8;
-    font-style: italic;
-  }
-  /* ibrohimjon */
-  .analytics-page {
-    background: #f8fafc;
-    min-height: 100vh;
-    padding: 24px;
-  }
-  
-  .analytics-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 24px;
-  }
+}
+
+.chart-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 16px;
+} 
