@@ -424,12 +424,19 @@
       "password": "123456"
     },
     {
+
       "id": "ac44",
       "name": "Ayyubkhon",
       "email": "ajubhons@gmail.com",
       "phone": "+998123456789",
       "address": "Tashkent",
       "password": "123456"
+      "id": "7c2b",
+      "name": "Jabborov Adham",
+      "email": "jabborovadhamjon97@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Uzbekistan,Tashkent,Yangihayot, yangi hayot 8-hudud 17dom 23-xonadon",
+      "password": "adhamjon2010"
     }
   ],
   "archieve": {

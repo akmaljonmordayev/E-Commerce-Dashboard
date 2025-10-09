@@ -6,9 +6,9 @@ export default function PieChart({ labels, values, colors, label }) {
     labels: labels,
     datasets: [
       {
-        label: label || "Ma'lumot",
+        label: label,
         data: values,
-        backgroundColor: colors || ["red", "yellow", "purple", "pink"],
+        backgroundColor: colors,
       },
     ],
   };
