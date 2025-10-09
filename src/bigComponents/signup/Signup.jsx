@@ -45,7 +45,7 @@ function Signup() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/customers", {
+      const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -126,25 +126,16 @@ function Signup() {
               </div>
             ))}
 
-            <button
-              type="submit"
-              className="w-full mt-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-200 shadow-md hover:shadow-lg"
+        <div className="text-center text-sm text-gray-600 mt-4">
+          <p>
+            Hisobingiz bormi?{" "}
+            <a
+              href="/login"
+              className="text-indigo-600 hover:text-indigo-500 font-medium"
             >
-              Ro'yxatdan o'tish
-            </button>
-          </form>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 text-sm">
-              Hisobingiz bormi?{" "}
-              <a
-                href="/login"
-                className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
-              >
-                Kirish
-              </a>
-            </p>
-          </div>
+              Kirish
+            </a>
+          </p>
         </div>
       </div>
     </div>

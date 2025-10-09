@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "1",
-      "name": "Akmal Karimov",
-      "email": "akmal.karimov@mail.com",
-      "phone": "+998901112233",
-      "address": "Tashkent, Uzbekistan"
-    },
-    {
       "id": "2",
       "name": "Dilnoza Rasulova",
       "email": "dilnoza.rasulova@mail.com",
@@ -71,94 +64,173 @@
       "address": "Tashkent, Uzbekistan"
     },
     {
-      "id": "a8b2",
-      "name": "fire212345678",
-      "email": "f2124695@gmail.com",
-      "phone": "+998 93 105 03 31",
-      "address": "toshkent",
-      "password": "12345678"
-    },
-    {
-      "id": "9bc2",
-      "name": "fire212345678",
-      "email": "firdavsbek347@gmail.com",
-      "phone": "+998 93 105 03 31",
-      "address": "toshkent",
-      "password": "12345678"
+      "id": "d3fd",
+      "name": "asdvasdv",
+      "email": "asdvasdv@gmail.com",
+      "phone": "121212",
+      "address": "asdvasdvasd"
     }
   ],
   "products": [
     {
       "id": 1,
       "name": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
+      "price": 1299,
+      "stock": 12,
       "category": "Smartphones",
       "brand": "Apple"
     },
     {
       "id": 2,
       "name": "Samsung Galaxy S24",
-      "price": 1099.99,
-      "stock": 30,
+      "price": 1099,
+      "stock": 8,
       "category": "Smartphones",
       "brand": "Samsung"
     },
     {
-      "id": "3",
-      "name": "MacBook Air M4",
+      "id": 3,
+      "name": "MacBook Air M3",
       "price": 1499,
-      "stock": 15,
+      "stock": 5,
       "category": "Laptops",
       "brand": "Apple"
     },
     {
-      "id": "4",
-      "name": "Dell XPS 13",
-      "price": 1299,
-      "stock": 20,
+      "id": 4,
+      "name": "Asus ROG Zephyrus G16",
+      "price": 1799,
+      "stock": 3,
       "category": "Laptops",
-      "brand": "Dell"
+      "brand": "Asus"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Sony WH-1000XM5",
-      "price": 399.99,
-      "stock": 50,
+      "price": 399,
+      "stock": 14,
       "category": "Headphones",
       "brand": "Sony"
     },
     {
-      "id": "6",
+      "id": 6,
+      "name": "Logitech MX Master 3S",
+      "price": 119,
+      "stock": 22,
+      "category": "Accessories",
+      "brand": "Logitech"
+    },
+    {
+      "id": 7,
+      "name": "Apple Watch Ultra 2",
+      "price": 799,
+      "stock": 7,
+      "category": "Smartwatches",
+      "brand": "Apple"
+    },
+    {
+      "id": 8,
+      "name": "Google Pixel 8",
+      "price": 999,
+      "stock": 9,
+      "category": "Smartphones",
+      "brand": "Google"
+    },
+    {
+      "id": 9,
+      "name": "Dell XPS 13",
+      "price": 1399,
+      "stock": 6,
+      "category": "Laptops",
+      "brand": "Dell"
+    },
+    {
+      "id": 10,
+      "name": "Razer BlackWidow V4",
+      "price": 179,
+      "stock": 18,
+      "category": "Accessories",
+      "brand": "Razer"
+    },
+    {
+      "id": 11,
       "name": "AirPods Pro 2",
-      "price": 249.99,
-      "stock": 40,
+      "price": 249,
+      "stock": 15,
       "category": "Headphones",
       "brand": "Apple"
     },
     {
-      "id": "7",
-      "name": "Canon EOS R7",
-      "price": 1799,
+      "id": 12,
+      "name": "Samsung Galaxy Watch 6",
+      "price": 399,
       "stock": 10,
+      "category": "Smartwatches",
+      "brand": "Samsung"
+    },
+    {
+      "id": 13,
+      "name": "HP Envy x360",
+      "price": 1299,
+      "stock": 4,
+      "category": "Laptops",
+      "brand": "HP"
+    },
+    {
+      "id": 14,
+      "name": "Lenovo Legion 5 Pro",
+      "price": 1699,
+      "stock": 5,
+      "category": "Laptops",
+      "brand": "Lenovo"
+    },
+    {
+      "id": 15,
+      "name": "Canon EOS R8",
+      "price": 1799,
+      "stock": 2,
       "category": "Cameras",
       "brand": "Canon"
     },
     {
-      "id": "8",
-      "name": "Nike Air Max 270",
-      "price": 199.99,
-      "stock": 100,
-      "category": "Shoes",
-      "brand": "Nike"
+      "id": 16,
+      "name": "DJI Mini 4 Pro",
+      "price": 999,
+      "stock": 6,
+      "category": "Drones",
+      "brand": "DJI"
     },
     {
-      "id": "9",
-      "name": "Adidas Ultraboost 22",
-      "price": 179.99,
-      "stock": 85,
-      "category": "Shoes",
-      "brand": "Adidas"
+      "id": 17,
+      "name": "Amazon Echo Dot 5",
+      "price": 59,
+      "stock": 25,
+      "category": "Smart Home",
+      "brand": "Amazon"
+    },
+    {
+      "id": 18,
+      "name": "Microsoft Surface Pro 9",
+      "price": 1399,
+      "stock": 8,
+      "category": "Tablets",
+      "brand": "Microsoft"
+    },
+    {
+      "id": 19,
+      "name": "GoPro Hero 12",
+      "price": 499,
+      "stock": 11,
+      "category": "Cameras",
+      "brand": "GoPro"
+    },
+    {
+      "id": 20,
+      "name": "JBL Charge 5",
+      "price": 179,
+      "stock": 13,
+      "category": "Speakers",
+      "brand": "JBL"
     }
   ],
   "orders": [
@@ -333,6 +405,14 @@
       "name": "hello",
       "surname": "helloyev",
       "password": 12345
+    },
+    {
+      "id": "5715",
+      "name": "Akmal",
+      "email": "akmaljonmordayev@gmail.com",
+      "phone": "905200350",
+      "address": "asdvasdvasd",
+      "password": "123456"
     }
   ],
   "archieve": {
