@@ -73,41 +73,12 @@
   ],
   "products": [
     {
-<<<<<<< HEAD
-      "id": "3",
-      "name": "MacBook Air M4",
-=======
-      "id": "1",
-      "name": "iPhone 15 Pro",
-      "price": 1299,
-      "stock": 12,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
-      "id": "2",
-      "name": "Samsung Galaxy S24",
-      "price": 1099,
-      "stock": 8,
-      "category": "Smartphones",
-      "brand": "Samsung"
-    },
-    {
-      "id": "3",
-      "name": "MacBook Air M3",
->>>>>>> ba2c8edf141d6502278baf60cc3430c1d09436e7
-      "price": 1499,
-      "stock": 5,
-      "category": "Laptops",
-      "brand": "Apple"
-    },
-    {
       "id": "4",
       "name": "Asus ROG Zephyrus G16",
       "price": 1799,
       "stock": 3,
       "category": "Laptops",
-      "brand": "Asus"
+      "brand": "Asuss"
     },
     {
       "id": "5",
@@ -204,7 +175,6 @@
       "stock": 6,
       "category": "Drones",
       "brand": "DJI"
-<<<<<<< HEAD
     },
     {
       "id": "17",
@@ -237,8 +207,6 @@
       "stock": 13,
       "category": "Speakers",
       "brand": "JBL"
-=======
->>>>>>> ba2c8edf141d6502278baf60cc3430c1d09436e7
     }
   ],
   "orders": [
