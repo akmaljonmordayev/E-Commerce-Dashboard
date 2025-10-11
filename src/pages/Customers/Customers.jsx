@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+// import ReactPaginate from "react-paginate";
 import axios from "axios";
-import './Customers.css'
+import { toast } from "react-toastify";
 
-const Customers = () => {
+function Customers() {
   const [customers, setCustomers] = useState([]);
   const [search, setSearch] = useState("");
   const [form, setForm] = useState({
@@ -12,6 +13,8 @@ const Customers = () => {
     address: "",
   });
   const [editId, setEditId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 5;
 
   const fetchCustomers = async () => {
     try {
@@ -28,12 +31,10 @@ const Customers = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!form.name || !form.email || !form.phone || !form.address) {
       alert("Iltimos, barcha maydonlarni to‘ldiring!");
       return;
     }
-
     try {
       if (editId) {
         await axios.put(`http://localhost:5000/customers/${editId}`, form);
@@ -49,15 +50,22 @@ const Customers = () => {
   };
 
   const handleDelete = async (id) => {
+    console.log(id);
+    
     if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
-      await axios.delete(`http://localhost:5000/customers/${id}`);
-      fetchCustomers();
+      try {
+        await axios.delete(`http://localhost:5000/customers/${id}`);
+        fetchCustomers();
+        toast.success("Mijoz muvaffaqiyatli o‘chirildi!");
+      } catch {
+        toast.error("Xatolik yuz berdi!");
+      }
     }
   };
 
   const handleEdit = (customer) => {
     setForm(customer);
-    setEditId(customer.id);
+    setEditId(customer._id);
   };
 
   const filtered = customers.filter(
@@ -66,6 +74,14 @@ const Customers = () => {
       c.email.toLowerCase().includes(search.toLowerCase()) ||
       c.address.toLowerCase().includes(search.toLowerCase())
   );
+
+  const offset = currentPage * itemsPerPage;
+  const paginatedCustomers = filtered.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(filtered.length / itemsPerPage);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
   return (
     <div className="customers-container">
@@ -79,7 +95,6 @@ const Customers = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-
       <form onSubmit={handleSubmit} className="customer-form">
         <input
           type="text"
@@ -109,7 +124,6 @@ const Customers = () => {
           {editId ? "Save Changes" : "Add Customer"}
         </button>
       </form>
-
       <div className="table-container">
         <table className="customers-table">
           <thead>
@@ -123,10 +137,10 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-            {filtered.length > 0 ? (
-              filtered.map((c, i) => (
+            {paginatedCustomers.length > 0 ? (
+              paginatedCustomers.map((c, i) => (
                 <tr key={c.id}>
-                  <td>{i + 1}</td>
+                  <td>{offset + i + 1}</td>
                   <td>{c.name}</td>
                   <td>{c.email}</td>
                   <td>{c.phone}</td>
@@ -153,9 +167,26 @@ const Customers = () => {
             )}
           </tbody>
         </table>
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          activeClassName={"active"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          nextClassName={"page-item"}
+          breakClassName={"page-item"}
+          disabledClassName={"disabled"}
+        />
       </div>
     </div>
   );
-};
+}
 
 export default Customers;
