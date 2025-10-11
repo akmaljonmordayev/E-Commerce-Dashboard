@@ -5,7 +5,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import SaveLastPage from "./service/SaveRoute/SaveRoute.jsx";
-
+import "./chartsetup";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

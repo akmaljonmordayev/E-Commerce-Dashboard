@@ -6,10 +6,10 @@ export default function LineChart({ labels, values, label, borderColor, backgrou
     labels: labels,
     datasets: [
       {
-        label: label || "Foydalanuvchilar",
+        label: label,
         data: values,
-        borderColor: borderColor || "blue",
-        backgroundColor: backgroundColor || "lightblue",
+        borderColor: borderColor ,
+        backgroundColor: backgroundColor,
         tension: 0.4, 
         fill: true,  
       },

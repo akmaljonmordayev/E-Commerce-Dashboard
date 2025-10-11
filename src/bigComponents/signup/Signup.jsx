@@ -45,7 +45,7 @@ function Signup() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/customers", {
+      const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
