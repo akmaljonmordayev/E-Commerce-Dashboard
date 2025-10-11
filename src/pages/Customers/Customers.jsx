@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import ReactPaginate from "react-paginate";
+import ReactPaginate from "react-paginate";
 import axios from "axios";
 import { toast } from "react-toastify";
+import './Customers.css'
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
