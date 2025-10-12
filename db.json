@@ -36,13 +36,6 @@
       "address": "Fergana, Uzbekistan"
     },
     {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+998941112244",
-      "address": "Khiva, Uzbekistan"
-    },
-    {
       "id": "8",
       "name": "Sevara Olimova",
       "email": "sevara.ol@mail.com",
@@ -69,6 +62,13 @@
       "email": "asdvasdv@gmail.com",
       "phone": "121212",
       "address": "asdvasdvasd"
+    },
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva"
     }
   ],
   "products": [
@@ -397,29 +397,18 @@
       "phone": "+998905200350",
       "address": "Turkey",
       "password": "345678"
+    },
+    {
+      "id": "758c",
+      "name": "Sofia",
+      "email": "sofia@gmail.com",
+      "phone": "+998907987867",
+      "address": "Toshkent",
+      "password": "454545"
     }
   ],
-  "archieve": {
-    "usersArchieve": [
-      {
-        "id": 1,
-        "name": "Akmal",
-        "date": "2025-10-04"
-      }
-    ],
-    "productsArchieve": [
-      {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
-      }
-    ],
-    "customersArchieve": [
-      {
-        "id": 201,
-        "fullname": "Ali Valiyev",
-        "date": "2025-10-01"
-      }
-    ]
-  }
+  "usersArchieve": [],
+  "productsArchieve": [],
+  "customersArchieve": [],
+  "ordersArchieve": []
 }

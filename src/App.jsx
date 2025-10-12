@@ -17,6 +17,10 @@ import ProtectedRoute from "./bigComponents/ProtectedRoute";
 import Customers from "./pages/Customers/Customers";
 import Signup from "./bigComponents/signup/Signup";
 import Orders from "./pages/Orders/Orders";
+import ProductsArchieve from "./pages/ProductsArchieve/ProductsArchieve";
+import UsersArchieve from "./pages/UserArchieve/UsersArchieve";
+import OrdersArchieve from "./pages/OrderArchieve/OrdersArchieve";
+import CustomersArchieve from "./pages/CustomersArchieve/CustomersArchieve";
 function App() {
   return (
     <>
@@ -77,7 +81,12 @@ function App() {
               </Layout>
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="usersarchieve" element={<UsersArchieve />} />
+          <Route path="customersarchieve" element={<CustomersArchieve />} />
+          <Route path="ordersarchieve" element={<OrdersArchieve />} />
+          <Route path="productsarchieve" element={<ProductsArchieve />} />
+        </Route>
         <Route
           path="/orders"
           element={
