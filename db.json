@@ -366,5 +366,17 @@
         "date": "2025-10-01"
       }
     ]
-  }
+  },
+  "commands": [
+    {
+      "id": "9327",
+      "command": "salom",
+      "response": "Salom! Qalesiz"
+    },
+    {
+      "id": "adb1",
+      "command": "yaxshi raxmat",
+      "response": "Ajoyib!😅"
+    }
+  ]
 }
