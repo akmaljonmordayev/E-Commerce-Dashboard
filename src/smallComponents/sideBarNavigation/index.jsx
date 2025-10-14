@@ -10,6 +10,7 @@ import { FaBoxArchive } from "react-icons/fa6";
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoAccessibilitySharp } from "react-icons/io5";
+import { TbMessageChatbot } from "react-icons/tb";
 
 function SidebarNavigation() {
   const [isOpen, setIsOpen] = useState(true);
@@ -25,6 +26,9 @@ function SidebarNavigation() {
     { label: "Settings", icon: <IoMdSettings /> },
     { label: "Archieve", icon: <MdDelete /> },
     { label: "Profile", icon: <CgProfile /> },
+    { label: "Chatbot", icon: <TbMessageChatbot />
+      
+    }
   ];
 
   const toggleSidebar = () => {

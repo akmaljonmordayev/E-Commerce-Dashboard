@@ -80,20 +80,20 @@
   ],
   "products": [
     {
-      "id": "4",
-      "name": "Asus ROG Zephyrus G16",
-      "price": 1799,
-      "stock": 3,
-      "category": "Laptops",
-      "brand": "Asuss"
+      "id": 1,
+      "name": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
     },
     {
-      "id": "5",
-      "name": "Sony WH-1000XM5",
-      "price": 399,
-      "stock": 14,
-      "category": "Headphones",
-      "brand": "Sony"
+      "id": 2,
+      "name": "Samsung Galaxy S24",
+      "price": 1099.99,
+      "stock": 30,
+      "category": "Smartphones",
+      "brand": "Samsung"
     },
     {
       "id": "6",
@@ -420,5 +420,12 @@
         "date": "2025-10-01"
       }
     ]
-  }
+  },
+  "commands": [
+    {
+      "id": "31e7",
+      "command": "salom",
+      "response": "salom! Qalaysiz😅"
+    }
+  ]
 }

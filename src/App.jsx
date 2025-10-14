@@ -17,10 +17,6 @@ import ProtectedRoute from "./bigComponents/ProtectedRoute";
 import Customers from "./pages/Customers/Customers";
 import Signup from "./bigComponents/signup/Signup";
 import Orders from "./pages/Orders/Orders";
-import ProductsArchieve from "./pages/ProductsArchieve/ProductsArchieve";
-import UsersArchieve from "./pages/UserArchieve/UsersArchieve";
-import OrdersArchieve from "./pages/OrderArchieve/OrdersArchieve";
-import CustomersArchieve from "./pages/CustomersArchieve/CustomersArchieve";
 function App() {
   return (
     <>
@@ -123,6 +119,16 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <Customers />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chatbot"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Chatbot />
               </Layout>
             </ProtectedRoute>
           }
