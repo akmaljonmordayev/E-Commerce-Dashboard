@@ -17,6 +17,11 @@ import ProtectedRoute from "./bigComponents/ProtectedRoute";
 import Customers from "./pages/Customers/Customers";
 import Signup from "./bigComponents/signup/Signup";
 import Orders from "./pages/Orders/Orders";
+import UsersArchieve from "./pages/UserArchieve/UsersArchieve";
+import ProductsArchieve from "./pages/ProductsArchieve/ProductsArchieve";
+import CustomersArchieve from "./pages/CustomersArchieve/CustomersArchieve";
+import OrdersArchieve from "./pages/OrderArchieve/OrdersArchieve";
+import Chatbot from "./pages/Chatbot/chatbot";
 function App() {
   return (
     <>
