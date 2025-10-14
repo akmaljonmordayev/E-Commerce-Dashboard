@@ -1,6 +1,13 @@
 {
   "customers": [
     {
+      "id": "1",
+      "name": "Azizbek Karimov",
+      "email": "azizbek.karimov@mail.com",
+      "phone": "+998901234567",
+      "address": "Tashkent, Uzbekistan"
+    },
+    {
       "id": "2",
       "name": "Dilnoza Rasulova",
       "email": "dilnoza.rasulova@mail.com",
@@ -36,13 +43,6 @@
       "address": "Fergana, Uzbekistan"
     },
     {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+998941112244",
-      "address": "Khiva, Uzbekistan"
-    },
-    {
       "id": "8",
       "name": "Sevara Olimova",
       "email": "sevara.ol@mail.com",
@@ -69,24 +69,31 @@
       "email": "asdvasdv@gmail.com",
       "phone": "121212",
       "address": "asdvasdvasd"
+    },
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva"
     }
   ],
   "products": [
     {
-      "id": "4",
-      "name": "Asus ROG Zephyrus G16",
-      "price": 1799,
-      "stock": 3,
-      "category": "Laptops",
-      "brand": "Asuss"
+      "id": 1,
+      "name": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
     },
     {
-      "id": "5",
-      "name": "Sony WH-1000XM5",
-      "price": 399,
-      "stock": 14,
-      "category": "Headphones",
-      "brand": "Sony"
+      "id": 2,
+      "name": "Samsung Galaxy S24",
+      "price": 1099.99,
+      "stock": 30,
+      "category": "Smartphones",
+      "brand": "Samsung"
     },
     {
       "id": "6",
@@ -212,70 +219,70 @@
   "orders": [
     {
       "id": "1",
-      "customerId": 1,
+      "customerId": "1",
       "status": "Completed",
       "totalAmount": 2599.98,
       "createdAt": "2025-09-01"
     },
     {
       "id": "2",
-      "customerId": 2,
+      "customerId": "2",
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02"
     },
     {
       "id": "3",
-      "customerId": 3,
+      "customerId": "3",
       "status": "Shipped",
       "totalAmount": 1099.99,
       "createdAt": "2025-09-03"
     },
     {
       "id": "4",
-      "customerId": 4,
+      "customerId": "4",
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04"
     },
     {
       "id": "5",
-      "customerId": 5,
+      "customerId": "5",
       "status": "Completed",
       "totalAmount": 1499,
       "createdAt": "2025-09-05"
     },
     {
       "id": "6",
-      "customerId": 6,
+      "customerId": "6",
       "status": "Pending",
       "totalAmount": 249.99,
       "createdAt": "2025-09-06"
     },
     {
       "id": "7",
-      "customerId": 7,
+      "customerId": "7",
       "status": "Completed",
       "totalAmount": 1799,
       "createdAt": "2025-09-07"
     },
     {
       "id": "8",
-      "customerId": 8,
+      "customerId": "8",
       "status": "Shipped",
       "totalAmount": 899.99,
       "createdAt": "2025-09-08"
     },
     {
       "id": "9",
-      "customerId": 9,
+      "customerId": "9",
       "status": "Completed",
       "totalAmount": 199.99,
       "createdAt": "2025-09-09"
     },
     {
       "id": "10",
-      "customerId": 10,
+      "customerId": "10",
       "status": "Pending",
       "totalAmount": 179.99,
       "createdAt": "2025-09-10"
@@ -290,7 +297,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "2",
@@ -300,7 +307,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "3",
@@ -310,7 +317,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "4",
@@ -320,7 +327,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "5",
@@ -330,7 +337,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "6",
@@ -340,7 +347,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "7",
@@ -350,7 +357,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "8",
@@ -360,7 +367,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "9",
@@ -370,7 +377,7 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "10",
@@ -389,14 +396,6 @@
       "phone": "905200350",
       "address": "asdvasdvasd",
       "password": "123456"
-    },
-    {
-      "id": "c54c",
-      "name": "Jorabek Qoraboyev",
-      "email": "jorabek@gmail.com",
-      "phone": "+998905200350",
-      "address": "Turkey",
-      "password": "345678"
     }
   ],
   "archieve": {
@@ -421,5 +420,12 @@
         "date": "2025-10-01"
       }
     ]
-  }
+  },
+  "commands": [
+    {
+      "id": "31e7",
+      "command": "salom",
+      "response": "salom! Qalaysiz😅"
+    }
+  ]
 }
