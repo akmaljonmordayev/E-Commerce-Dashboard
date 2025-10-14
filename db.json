@@ -198,22 +198,6 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
-    },
-    {
-      "id": "19",
-      "name": "GoPro Hero 12",
-      "price": 499,
-      "stock": 11,
-      "category": "Cameras",
-      "brand": "GoPro"
-    },
-    {
-      "id": "20",
-      "name": "JBL Charge 5",
-      "price": 179,
-      "stock": 13,
-      "category": "Speakers",
-      "brand": "JBL"
     }
   ],
   "orders": [
@@ -398,29 +382,11 @@
       "password": "123456"
     }
   ],
-  "archieve": {
-    "usersArchieve": [
-      {
-        "id": 1,
-        "name": "Akmal",
-        "date": "2025-10-04"
-      }
-    ],
-    "productsArchieve": [
-      {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
-      }
-    ],
-    "customersArchieve": [
-      {
-        "id": 201,
-        "fullname": "Ali Valiyev",
-        "date": "2025-10-01"
-      }
-    ]
-  },
+  "productsArchieve": [],
+"customersArchieve": [],
+"usersArchieve": [],
+"ordersArchieve": [],
+
   "commands": [
     {
       "id": "31e7",
