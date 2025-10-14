@@ -408,9 +408,12 @@
     ],
     "productsArchieve": [
       {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
+        "id": 1,
+        "name": "iPhone 15 Pro",
+        "price": 1299.99,
+        "stock": 25,
+        "category": "Smartphones",
+        "brand": "Apple"
       }
     ],
     "customersArchieve": [
