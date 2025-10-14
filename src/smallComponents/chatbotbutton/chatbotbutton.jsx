@@ -17,7 +17,7 @@ const ChatbotButton = () => {
 
     const userMsg = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMsg]);
-
+    
     const command = commands.find(
       (cmd) => cmd.command.toLowerCase() === input.toLowerCase()
     );

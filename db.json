@@ -426,6 +426,11 @@
       "id": "31e7",
       "command": "salom",
       "response": "salom! Qalaysiz😅"
+    },
+    {
+      "id": "8c29",
+      "command": "hello",
+      "response": "assalomu alaykum"
     }
   ]
 }
