@@ -82,7 +82,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "iPhone 15 Pro",
       "price": 1299.99,
       "stock": 25,
@@ -90,7 +90,7 @@
       "brand": "Apple"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Samsung Galaxy S24",
       "price": 1099.99,
       "stock": 30,
@@ -369,14 +369,9 @@
   },
   "commands": [
     {
-      "id": "9327",
+      "id": "31e7",
       "command": "salom",
-      "response": "Salom! Qalesiz"
-    },
-    {
-      "id": "adb1",
-      "command": "yaxshi raxmat",
-      "response": "Ajoyib!😅"
+      "response": "salom! Qalaysiz😅"
     }
   ]
 }
