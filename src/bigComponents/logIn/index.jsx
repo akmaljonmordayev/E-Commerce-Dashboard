@@ -1,24 +1,44 @@
 import { useState } from "react";
 import React from "react";
+import useGet from "../../customHooks/useGet";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import { Navigate, useNavigate } from "react-router-dom";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPwd, setShowPwd] = useState(false);
   const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
+
+  const { data, loading, error } = useGet("/users");
+
+  // if (username === "admin" && password === "12345") {
+  //   const token =
+  //     "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
+  //   localStorage.setItem("token", token);
+  //   localStorage.setItem("user", username);
+  //   setMsg("Muvaffaqiyatli: token saqlandi. Redirect qilinadi...");
+  //   setTimeout(() => {
+  //     window.location.href = "/dashboard";
+  //   }, 900);
+  // }
 
   const handleSubmit = (e) => {
+    const filterUser = data.filter(
+      (user) => user.username == username && user.password == password
+    );
     e.preventDefault();
-    if (username === "admin" && password === "12345") {
+    if (filterUser.length > 0) {
       const token =
         "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
       localStorage.setItem("token", token);
-      localStorage.setItem("user", username);
-      setMsg("Muvaffaqiyatli: token saqlandi. Redirect qilinadi...");
+      toast.success("Successfully login");
       setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 900);
+        navigate("/dashboard");
+      }, 1500);
     } else {
-      setMsg("Xato: username yoki parol noto‘g‘ri.");
+      toast.error("bunaqa user topilmadi");
     }
   };
 
@@ -28,7 +48,7 @@ export default function Login() {
         <div className="absolute -left-24 -top-24 w-80 h-80 rounded-full bg-gradient-to-tr from-purple-600 via-pink-500 to-yellow-400 opacity-30 blur-3xl transform rotate-12"></div>
         <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-gradient-to-br from-emerald-400 via-sky-400 to-indigo-500 opacity-25 blur-3xl transform -rotate-6"></div>
       </div>
-
+      <ToastContainer />
       <main className="w-full max-w-md p-6">
         <section className="bg-white/6 backdrop-blur-sm border border-white/8 rounded-3xl shadow-[0_10px_30px_rgba(2,6,23,0.6)] p-8">
           <div className="flex items-center gap-4 mb-6">
@@ -51,7 +71,7 @@ export default function Login() {
                 onChange={(e) => setUsername(e.target.value)}
                 required
                 className="mt-2 block w-full rounded-xl bg-white/6 border border-white/12 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 px-4 py-3 text-white"
-                placeholder="admin"
+                placeholder="username"
               />
             </div>
 

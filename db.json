@@ -43,13 +43,6 @@
       "address": "Fergana, Uzbekistan"
     },
     {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+998941112244",
-      "address": "Khiva, Uzbekistan"
-    },
-    {
       "id": "8",
       "name": "Sevara Olimova",
       "email": "sevara.ol@mail.com",
@@ -76,43 +69,26 @@
       "email": "asdvasdv@gmail.com",
       "phone": "121212",
       "address": "asdvasdvasd"
+    },
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva"
     }
   ],
   "products": [
     {
-      "id": 1,
-      "name": "iPhone 15 Pro",
-      "price": 1299,
-      "stock": 12,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
-      "id": 2,
-      "name": "Samsung Galaxy S24",
-      "price": 1099,
-      "stock": 8,
-      "category": "Smartphones",
-      "brand": "Samsung"
-    },
-    {
-      "id": 3,
-      "name": "MacBook Air M3",
-      "price": 1499,
-      "stock": 5,
-      "category": "Laptops",
-      "brand": "Apple"
-    },
-    {
-      "id": 4,
+      "id": "4",
       "name": "Asus ROG Zephyrus G16",
       "price": 1799,
       "stock": 3,
       "category": "Laptops",
-      "brand": "Asus"
+      "brand": "Asuss"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sony WH-1000XM5",
       "price": 399,
       "stock": 14,
@@ -120,7 +96,7 @@
       "brand": "Sony"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Logitech MX Master 3S",
       "price": 119,
       "stock": 22,
@@ -128,7 +104,7 @@
       "brand": "Logitech"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Apple Watch Ultra 2",
       "price": 799,
       "stock": 7,
@@ -136,7 +112,7 @@
       "brand": "Apple"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Google Pixel 8",
       "price": 999,
       "stock": 9,
@@ -144,7 +120,7 @@
       "brand": "Google"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Dell XPS 13",
       "price": 1399,
       "stock": 6,
@@ -152,7 +128,7 @@
       "brand": "Dell"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Razer BlackWidow V4",
       "price": 179,
       "stock": 18,
@@ -160,7 +136,7 @@
       "brand": "Razer"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "AirPods Pro 2",
       "price": 249,
       "stock": 15,
@@ -168,7 +144,7 @@
       "brand": "Apple"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Samsung Galaxy Watch 6",
       "price": 399,
       "stock": 10,
@@ -176,7 +152,7 @@
       "brand": "Samsung"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "HP Envy x360",
       "price": 1299,
       "stock": 4,
@@ -184,7 +160,7 @@
       "brand": "HP"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Lenovo Legion 5 Pro",
       "price": 1699,
       "stock": 5,
@@ -192,7 +168,7 @@
       "brand": "Lenovo"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Canon EOS R8",
       "price": 1799,
       "stock": 2,
@@ -200,7 +176,7 @@
       "brand": "Canon"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "DJI Mini 4 Pro",
       "price": 999,
       "stock": 6,
@@ -208,7 +184,7 @@
       "brand": "DJI"
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Amazon Echo Dot 5",
       "price": 59,
       "stock": 25,
@@ -216,15 +192,15 @@
       "brand": "Amazon"
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Microsoft Surface Pro 9",
       "price": 1399,
       "stock": 8,
       "category": "Tablets",
-      "brand": "Microsoft"
+      "brand": "Microsoftbek"
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "GoPro Hero 12",
       "price": 499,
       "stock": 11,
@@ -232,7 +208,7 @@
       "brand": "GoPro"
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "JBL Charge 5",
       "price": 179,
       "stock": 13,
@@ -411,28 +387,36 @@
       "age": 30,
       "name": "hello",
       "surname": "helloyev",
-      "password": "12345"
+      "password": 12345
+    },
+    {
+      "id": "5715",
+      "name": "Akmal",
+      "email": "akmaljonmordayev@gmail.com",
+      "phone": "905200350",
+      "address": "asdvasdvasd",
+      "password": "123456"
     }
   ],
-  "archive": {
-    "usersArchive": [
+  "archieve": {
+    "usersArchieve": [
       {
         "id": 1,
         "name": "Akmal",
         "date": "2025-10-04"
       }
     ],
-    "productsArchive": [
+    "productsArchieve": [
       {
         "id": 101,
-        "name": "Telefon",
+        "title": "Telefon",
         "date": "2025-10-02"
       }
     ],
-    "customersArchive": [
+    "customersArchieve": [
       {
         "id": 201,
-        "name": "Ali Valiyev",
+        "fullname": "Ali Valiyev",
         "date": "2025-10-01"
       }
     ]

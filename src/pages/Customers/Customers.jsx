@@ -1,193 +1,193 @@
-import React, { useState } from "react";
-import CustomTable from "../Products/customTable";
-import useGet from "../../customHooks/useGet";
-import useDelete from "../../customHooks/useDelete";
-import useUpdate from "../../customHooks/useUpdate";
-import usePost from "../../customHooks/usePost";
+import React, { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import axios from "axios";
+import { toast } from "react-toastify";
+import './Customers.css'
 
-export default function ProductPage() {
-  const { data: products, loading } = useGet("/products");
-  const { deleteData } = useDelete("/products");
-  const { updateData } = useUpdate("/products");
-  const { postData } = usePost("/products");
-
+function Customers() {
+  const [customers, setCustomers] = useState([]);
   const [search, setSearch] = useState("");
   const [form, setForm] = useState({
     name: "",
-    price: "",
-    stock: "",
-    category: "",
-    brand: "",
+    email: "",
+    phone: "",
+    address: "",
   });
   const [editId, setEditId] = useState(null);
-  const [deleteItem, setDeleteItem] = useState(null);
-  const [showForm, setShowForm] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 5;
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const fetchCustomers = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/customers");
+      setCustomers(res.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
+
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!form.name || !form.price || !form.stock || !form.category || !form.brand) {
-      alert("Please fill in all fields!");
+    if (!form.name || !form.email || !form.phone || !form.address) {
+      alert("Iltimos, barcha maydonlarni to‘ldiring!");
       return;
     }
-
-    if (editId) {
-      await updateData(editId, form);
-      setEditId(null);
-    } else {
-      await postData(form);
-    }
-
-    setForm({ name: "", price: "", stock: "", category: "", brand: "" });
-    setShowForm(false);
-    window.location.reload();
-  };
-
-  const handleEdit = (item) => {
-    setForm(item);
-    setEditId(item.id);
-    setShowForm(true);
-  };
-
-  const handleDeleteConfirm = async () => {
-    if (deleteItem) {
-      await deleteData(deleteItem.id);
-      setDeleteItem(null);
-      window.location.reload();
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/customers/${editId}`, form);
+        setEditId(null);
+      } else {
+        await axios.post("http://localhost:5000/customers", form);
+      }
+      setForm({ name: "", email: "", phone: "", address: "" });
+      fetchCustomers();
+    } catch (err) {
+      console.error(err);
     }
   };
 
-  const filtered = products?.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
+  const handleDelete = async (id) => {
+    console.log(id);
+    
+    if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
+      try {
+        await axios.delete(`http://localhost:5000/customers/${id}`);
+        fetchCustomers();
+        toast.success("Mijoz muvaffaqiyatli o‘chirildi!");
+      } catch {
+        toast.error("Xatolik yuz berdi!");
+      }
+    }
+  };
+
+  const handleEdit = (customer) => {
+    setForm(customer);
+    setEditId(customer._id);
+  };
+
+  const filtered = customers.filter(
+    (c) =>
+      c.name.toLowerCase().includes(search.toLowerCase()) ||
+      c.email.toLowerCase().includes(search.toLowerCase()) ||
+      c.address.toLowerCase().includes(search.toLowerCase())
   );
 
-  const columns = [
-    { title: "ID", dataIndex: "id", key: "id" },
-    { title: "Name", dataIndex: "name", key: "name" },
-    { title: "Price", dataIndex: "price", key: "price" },
-    { title: "Stock", dataIndex: "stock", key: "stock" },
-    { title: "Category", dataIndex: "category", key: "category" },
-    { title: "Brand", dataIndex: "brand", key: "brand" },
-  ];
+  const offset = currentPage * itemsPerPage;
+  const paginatedCustomers = filtered.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(filtered.length / itemsPerPage);
 
-  if (loading) return <p className="text-center mt-10 text-white">Loading...</p>;
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
   return (
-    <div className="p-6 bg-[#1f2a40] min-h-screen text-white">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Products</h2>
+    <div className="customers-container">
+      <div className="customers-header">
+        <h1 className="customers-title">Customers</h1>
         <input
           type="text"
-          placeholder="Search..."
+          className="search-input"
+          placeholder="Search customers..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="p-2 rounded bg-[#25314d] border border-gray-600 focus:outline-none"
         />
-        <button
-          onClick={() => {
-            setShowForm(!showForm);
-            setEditId(null);
-            setForm({ name: "", price: "", stock: "", category: "", brand: "" });
-          }}
-          className="bg-[#2a64f7] hover:bg-[#3b78ff] px-4 py-2 rounded-md font-semibold transition-all duration-200"
-        >
-          {showForm ? "Close" : "Add Product"}
-        </button>
       </div>
-
-      {showForm && (
-        <form
-          onSubmit={handleSubmit}
-          className="mb-6 bg-[#25314d] p-4 rounded-lg grid grid-cols-2 gap-4"
-        >
-          <input
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            type="text"
-            placeholder="Name"
-            required
-            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
-          />
-          <input
-            name="price"
-            value={form.price}
-            onChange={handleChange}
-            type="number"
-            placeholder="Price"
-            required
-            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
-          />
-          <input
-            name="stock"
-            value={form.stock}
-            onChange={handleChange}
-            type="number"
-            placeholder="Stock"
-            required
-            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
-          />
-          <input
-            name="category"
-            value={form.category}
-            onChange={handleChange}
-            type="text"
-            placeholder="Category"
-            required
-            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
-          />
-          <input
-            name="brand"
-            value={form.brand}
-            onChange={handleChange}
-            type="text"
-            placeholder="Brand"
-            required
-            className="p-2 rounded bg-[#1f2a40] border border-gray-600 focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="col-span-2 bg-[#2a64f7] hover:bg-[#3b78ff] text-white px-4 py-2 rounded-md font-semibold transition-all duration-200"
-          >
-            {editId ? "Save Changes" : "Save Product"}
-          </button>
-        </form>
-      )}
-
-      <CustomTable
-        columns={columns}
-        data={filtered}
-        onEdit={handleEdit}
-        onDelete={(item) => setDeleteItem(item)}
-      />
-
-      {deleteItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-[#25314d] p-6 rounded-lg w-[350px] text-center">
-            <h3 className="text-lg font-semibold mb-4">
-              Delete “{deleteItem.name}”?
-            </h3>
-            <div className="flex justify-center gap-4">
-              <button
-                onClick={handleDeleteConfirm}
-                className="bg-[#ff4d4f] px-4 py-2 rounded-md hover:bg-[#ff6b6b] transition-all"
-              >
-                Yes, Delete
-              </button>
-              <button
-                onClick={() => setDeleteItem(null)}
-                className="bg-gray-500 px-4 py-2 rounded-md hover:bg-gray-600 transition-all"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <form onSubmit={handleSubmit} className="customer-form">
+        <input
+          type="text"
+          placeholder="Name"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Phone"
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Address"
+          value={form.address}
+          onChange={(e) => setForm({ ...form, address: e.target.value })}
+        />
+        <button type="submit" className="btn-primary">
+          {editId ? "Save Changes" : "Add Customer"}
+        </button>
+      </form>
+      <div className="table-container">
+        <table className="customers-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {paginatedCustomers.length > 0 ? (
+              paginatedCustomers.map((c, i) => (
+                <tr key={c.id}>
+                  <td>{offset + i + 1}</td>
+                  <td>{c.name}</td>
+                  <td>{c.email}</td>
+                  <td>{c.phone}</td>
+                  <td>{c.address}</td>
+                  <td>
+                    <button className="btn-edit" onClick={() => handleEdit(c)}>
+                      ✏️
+                    </button>
+                    <button
+                      className="btn-delete"
+                      onClick={() => handleDelete(c.id)}
+                    >
+                      🗑️
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="no-data">
+                  No customers found
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          activeClassName={"active"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          nextClassName={"page-item"}
+          breakClassName={"page-item"}
+          disabledClassName={"disabled"}
+        />
+      </div>
     </div>
   );
 }
+
+export default Customers;
