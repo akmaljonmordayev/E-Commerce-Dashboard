@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "./Customers.css";
+import { ToastContainer } from "react-toastify";
 
-const Customers = () => {
+function Customers() {
   const [customers, setCustomers] = useState([]);
   const [search, setSearch] = useState("");
   const [form, setForm] = useState({
@@ -11,12 +15,15 @@ const Customers = () => {
     address: "",
   });
   const [editId, setEditId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 5;
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/customers");
+      const res = await axios.get("http://localhost:5000/customers");
       setCustomers(res.data);
     } catch (err) {
+      toast.error("❌ Ma'lumotlarni olishda xatolik!");
       console.error(err);
     }
   };
@@ -27,47 +34,59 @@ const Customers = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!form.name || !form.email || !form.phone || !form.address) {
-      alert("Iltimos, barcha maydonlarni to‘ldiring!");
+      toast.warning("⚠️ Barcha maydonlarni to‘ldiring!");
       return;
     }
 
     try {
       if (editId) {
-        await axios.put(`http://localhost:3000/customers/${editId}`, form);
+        await axios.put(`http://localhost:5000/customers/${editId}`, form);
+        toast.success("✅ Mijoz ma'lumotlari yangilandi!");
         setEditId(null);
       } else {
-        await axios.post("http://localhost:3000/customers", form);
+        await axios.post("http://localhost:5000/customers", form);
+        toast.success("✅ Yangi mijoz qo‘shildi!");
       }
+
       setForm({ name: "", email: "", phone: "", address: "" });
       fetchCustomers();
     } catch (err) {
+      toast.error("❌ Xatolik yuz berdi!");
       console.error(err);
     }
   };
 
-  
   const handleDelete = async (id) => {
     if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
-      await axios.delete(`http://localhost:3000/customers/${id}`);
-      fetchCustomers();
+      try {
+        await axios.delete(`http://localhost:5000/customers/${id}`);
+        toast.success("🗑️ Mijoz muvaffaqiyatli o‘chirildi!");
+        fetchCustomers();
+      } catch (err) {
+        toast.error("❌ O‘chirishda xatolik yuz berdi!");
+        console.error(err);
+      }
     }
   };
 
-  
   const handleEdit = (customer) => {
     setForm(customer);
     setEditId(customer.id);
   };
 
-  
   const filtered = customers.filter(
     (c) =>
       c.name.toLowerCase().includes(search.toLowerCase()) ||
       c.email.toLowerCase().includes(search.toLowerCase()) ||
       c.address.toLowerCase().includes(search.toLowerCase())
   );
+
+  const offset = currentPage * itemsPerPage;
+  const paginatedCustomers = filtered.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(filtered.length / itemsPerPage);
+
+  const handlePageClick = ({ selected }) => setCurrentPage(selected);
 
   return (
     <div className="customers-container">
@@ -82,7 +101,6 @@ const Customers = () => {
         />
       </div>
 
-      
       <form onSubmit={handleSubmit} className="customer-form">
         <input
           type="text"
@@ -109,11 +127,10 @@ const Customers = () => {
           onChange={(e) => setForm({ ...form, address: e.target.value })}
         />
         <button type="submit" className="btn-primary">
-          {editId ? "Save Changes" : "Add Customer"}
+          {editId ? "💾 Save Changes" : "➕ Add Customer"}
         </button>
       </form>
 
-      
       <div className="table-container">
         <table className="customers-table">
           <thead>
@@ -127,19 +144,16 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-            {filtered.length > 0 ? (
-              filtered.map((c, i) => (
+            {paginatedCustomers.length > 0 ? (
+              paginatedCustomers.map((c, i) => (
                 <tr key={c.id}>
-                  <td>{i + 1}</td>
+                  <td>{offset + i + 1}</td>
                   <td>{c.name}</td>
                   <td>{c.email}</td>
                   <td>{c.phone}</td>
                   <td>{c.address}</td>
                   <td>
-                    <button
-                      className="btn-edit"
-                      onClick={() => handleEdit(c)}
-                    >
+                    <button className="btn-edit" onClick={() => handleEdit(c)}>
                       ✏️
                     </button>
                     <button
@@ -160,9 +174,37 @@ const Customers = () => {
             )}
           </tbody>
         </table>
+
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          activeClassName={"active"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          nextClassName={"page-item"}
+          breakClassName={"page-item"}
+          disabledClassName={"disabled"}
+        />
+         <ToastContainer
+      position="top-right"        
+      autoClose={2000}             
+      hideProgressBar={false}      
+      newestOnTop={true}           
+      closeOnClick                
+      pauseOnHover                 
+      draggable                   
+      theme="colored"              
+    />
       </div>
     </div>
   );
-};
+}
 
 export default Customers;
