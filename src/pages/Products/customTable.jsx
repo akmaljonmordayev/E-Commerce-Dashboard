@@ -1,74 +1,52 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
-import ProductCard from "../../bigComponents/productCard";
-import useGet from "../../customHooks/useGet";
-import Loader from "../../smallComponents/loader";
-import ErrorMessage from "../../bigComponents/errorMessage";
+import { Table } from "antd";
+import "antd/dist/reset.css";
 
-export default function Archieve() {
-  const {
-    data: archivedProducts,
-    loading: loadingProducts,
-    error: errorProducts,
-  } = useGet("/productsArchieve");
+export default function CustomTable({ columns = [], data = [], onEdit, onDelete }) {
+  const actionColumn = {
+    title: "Actions",
+    key: "actions",
+    render: (_, record) => (
+      <div className="flex gap-3">
+        <button
+          onClick={() => onEdit(record)}
+          className="text-white bg-[#4c6ef5] hover:bg-[#5c7cfa] px-3 py-1 rounded-md"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => onDelete(record)}
+          className="text-white bg-[#ff6b6b] hover:bg-[#fa5252] px-3 py-1 rounded-md"
+        >
+          Delete
+        </button>
+      </div>
+    ),
+  };
 
-  const {
-    data: archivedCustomers,
-    loading: loadingCustomers,
-    error: errorCustomers,
-  } = useGet("/customersArchieve");
-
-  const {
-    data: archivedOrders,
-    loading: loadingOrders,
-    error: errorOrders,
-  } = useGet("/ordersArchieve");
-
-  const {
-    data: archivedUsers,
-    loading: loadingUsers,
-    error: errorUsers,
-  } = useGet("/usersArchieve");
-
-  if (loadingProducts || loadingCustomers || loadingOrders || loadingUsers)
-    return <Loader />;
-
-  if (errorProducts || errorCustomers || errorOrders || errorUsers)
-    return <ErrorMessage message="Ошибка загрузки архива" />;
+  const updatedColumns = [
+    ...columns.map((col) => ({
+      ...col,
+      sorter: (a, b) => {
+        if (typeof a[col.dataIndex] === "number") return a[col.dataIndex] - b[col.dataIndex];
+        if (typeof a[col.dataIndex] === "string")
+          return a[col.dataIndex].localeCompare(b[col.dataIndex]);
+        return 0;
+      },
+      sortDirections: ["ascend", "descend"],
+    })),
+    actionColumn,
+  ];
 
   return (
-    <div className="p-6 text-white">
-      <div className="flex gap-[30px] justify-evenly flex-wrap">
-        <Link to="/archieve/productsarchieve">
-          <ProductCard
-            title="Archived Products"
-            count={archivedProducts ? archivedProducts.length : 0}
-          />
-        </Link>
-
-        <Link to="/archieve/customersarchieve">
-          <ProductCard
-            title="Archived Customers"
-            count={archivedCustomers ? archivedCustomers.length : 0}
-          />
-        </Link>
-
-        <Link to="/archieve/ordersarchieve">
-          <ProductCard
-            title="Archived Orders"
-            count={archivedOrders ? archivedOrders.length : 0}
-          />
-        </Link>
-
-        <Link to="/archieve/usersarchieve">
-          <ProductCard
-            title="Archived Users"
-            count={archivedUsers ? archivedUsers.length : 0}
-          />
-        </Link>
-      </div>
-
-      <Outlet />
+    <div className="bg-[#1f2a40] p-4 rounded-xl shadow-lg border border-gray-700">
+      <Table
+        columns={updatedColumns}
+        dataSource={data}
+        rowKey="id"
+        pagination={{ pageSize: 5 }}
+        bordered
+      />
     </div>
   );
 }

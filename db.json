@@ -198,22 +198,6 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
-    },
-    {
-      "id": "19",
-      "name": "GoPro Hero 12",
-      "price": 499,
-      "stock": 11,
-      "category": "Cameras",
-      "brand": "GoPro"
-    },
-    {
-      "id": "20",
-      "name": "JBL Charge 5",
-      "price": 179,
-      "stock": 13,
-      "category": "Speakers",
-      "brand": "JBL"
     }
   ],
   "orders": [
@@ -408,12 +392,9 @@
     ],
     "productsArchieve": [
       {
-        "id": 1,
-        "name": "iPhone 15 Pro",
-        "price": 1299.99,
-        "stock": 25,
-        "category": "Smartphones",
-        "brand": "Apple"
+        "id": 101,
+        "title": "Telefon",
+        "date": "2025-10-02"
       }
     ],
     "customersArchieve": [
