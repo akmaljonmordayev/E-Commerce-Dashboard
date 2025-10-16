@@ -10,19 +10,18 @@ export default function Login() {
   const [showPwd, setShowPwd] = useState(false);
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
-
   const { data, loading, error } = useGet("/users");
 
-  // if (username === "admin" && password === "12345") {
-  //   const token =
-  //     "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
-  //   localStorage.setItem("token", token);
-  //   localStorage.setItem("user", username);
-  //   setMsg("Muvaffaqiyatli: token saqlandi. Redirect qilinadi...");
-  //   setTimeout(() => {
-  //     window.location.href = "/dashboard";
-  //   }, 900);
-  // }
+  if (username === useGet("/users/username")  && password === useGet("/users/password")) {
+    const token =
+      "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", username);
+    setMsg("Muvaffaqiyatli: token saqlandi. Redirect qilinadi...");
+    setTimeout(() => {
+      window.location.href = "/dashboard";
+    }, 900);
+  }
 
   const handleSubmit = (e) => {
     const filterUser = data.filter(

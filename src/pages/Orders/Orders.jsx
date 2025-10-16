@@ -1,79 +1,81 @@
 import React from "react";
-import CustomTable from "../Products/customTable";
-import useGet from "../../customHooks/useGet";
-import useDelete from "../../customHooks/useDelete";
+import { Trash2 } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useGet from "../../customHooks/useGet";
+import useDelete from "../../customHooks/useDelete";
 
 function Orders() {
   const { data } = useGet("/orders");
   const { deleteData } = useDelete("/orders");
-
-  const getStatusColor = (status) => {
-    const colors = {
-      Completed: "text-green-600",
-      Pending: "text-yellow-500",
-      Shipped: "text-blue-600",
-    };
-    return colors[status] || "text-red-600";
-  };
 
   const handleDelete = (id) => {
     deleteData(id);
     toast.success("Order deleted!");
   };
 
+  // ✅ Status color helper
+  const getStatusColor = (status) => {
+    switch (status?.toLowerCase()) {
+      case "completed":
+        return "bg-green-100 text-green-700";
+      case "pending":
+        return "bg-yellow-100 text-yellow-700";
+      case "cancelled":
+        return "bg-red-100 text-red-700";
+      case "shipped":
+        return "bg-orange-100 text-orange-700";
+      default:
+        return "bg-gray-100 text-gray-600";
+    }
+  };
+
   return (
-    <div className="p-6 flex justify-center bg-[#1e2940] min-h-screen">
-      <div className="w-full max-w-5xl bg-[#1e2940] rounded-xl shadow-lg">
+    <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center">
+      <div className="w-full max-w-6xl">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-white text-2xl font-semibold tracking-wide">
-            Orders
-          </h2>
+          <h2 className="text-white text-2xl font-bold">Orders</h2>
         </div>
 
-        <div className="overflow-hidden rounded-lg shadow-2xl border border-gray-200">
-          <table className="w-full text-left border-collapse">
-            <thead className="bg-gray-100 sticky top-0">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <table className="w-full text-left text-gray-800">
+            <thead className="bg-gray-100 text-gray-600 text-sm uppercase border-b">
               <tr>
-                <th className="p-4 text-sm font-semibold uppercase text-gray-700 tracking-wider">
-                  Status
-                </th>
-                <th className="p-4 text-sm font-semibold uppercase text-gray-700 tracking-wider">
-                  Name
-                </th>
-                <th className="p-4 text-sm font-semibold uppercase text-gray-700 tracking-wider">
-                  Date
-                </th>
-                <th className="p-4 text-sm font-semibold uppercase text-gray-700 tracking-wider">
-                  Total Amount
-                </th>
-                <th className="p-4 text-sm font-semibold uppercase text-center text-gray-700 tracking-wider">
-                  Action
-                </th>
+                <th className="p-3 font-semibold">ID</th>
+                <th className="p-3 font-semibold">Status</th>
+                <th className="p-3 font-semibold">Name</th>
+                <th className="p-3 font-semibold">Date</th>
+                <th className="p-3 font-semibold">Total</th>
+                <th className="p-3 text-center font-semibold">Actions</th>
               </tr>
             </thead>
 
-            <tbody className="bg-white divide-y divide-gray-200">
-              {data?.map((order) => (
+            <tbody className="divide-y divide-gray-200">
+              {data?.map((order, index) => (
                 <tr
                   key={order.id}
-                  className="transition duration-200 hover:bg-gray-50 hover:-translate-y-[1px]"
+                  className="hover:bg-gray-50 transition duration-150"
                 >
-                  <td className={`p-4 font-semibold ${getStatusColor(order.status)}`}>
-                    {order.status}
+                  <td className="p-3">{index + 1}</td>
+                  <td className="p-3">
+                    <span
+                      className={`px-2 py-1 rounded-full text-sm font-medium ${getStatusColor(
+                        order.status
+                      )}`}
+                    >
+                      {order.status}
+                    </span>
                   </td>
-                  <td className="p-4 text-gray-700">{order.name}</td>
-                  <td className="p-4 text-gray-700">{order.createdAt}</td>
-                  <td className="p-4 text-gray-800 font-medium">
-                    ${order.totalAmount}
-                  </td>
-                  <td className="p-4 text-center">
+                  <td className="p-3">{order.name}</td>
+                  <td className="p-3">{order.createdAt}</td>
+                  <td className="p-3">${order.totalAmount}</td>
+                  <td className="p-3 text-center">
                     <button
                       onClick={() => handleDelete(order.id)}
-                      className="px-3 py-1 rounded bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all shadow-sm hover:shadow-md"
+                      className="bg-red-500 hover:bg-red-600 transition p-2 rounded-md text-white"
+                      title="Delete"
                     >
-                      Delete
+                      <Trash2 size={16} />
                     </button>
                   </td>
                 </tr>
@@ -81,10 +83,7 @@ function Orders() {
 
               {data?.length === 0 && (
                 <tr>
-                  <td
-                    colSpan="5"
-                    className="p-8 text-center text-gray-500 italic"
-                  >
+                  <td colSpan="6" className="p-6 text-center text-gray-500 italic">
                     No orders found.
                   </td>
                 </tr>
@@ -92,6 +91,7 @@ function Orders() {
             </tbody>
           </table>
         </div>
+
       </div>
 
       <ToastContainer />

@@ -169,7 +169,7 @@ export default function ProductPage() {
           />
           <input
             name="category"
-            value={form.category}
+            value={form.category}gi
             onChange={handleChange}
             placeholder="Category"
             className="p-2 bg-[#1f2a40] border border-gray-600 rounded"
