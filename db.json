@@ -281,7 +281,7 @@
       "createdAt": "2025-09-10",
       "name": "Xiomi 14"
     },
-        {
+    {
       "id": "11",
       "customerId": "10",
       "status": "Completed",
@@ -397,7 +397,7 @@
       "email": "akmaljonmordayev@gmail.com",
       "phone": "905200350",
       "address": "asdvasdvasd",
-      "surname": "helloyev",  
+      "surname": "helloyev",
       "password": "123456"
     },
     {
@@ -428,9 +428,29 @@
       "response": "salom! Qalaysiz😅"
     },
     {
-      "id": "bb53",
-      "command": "Bilol",
-      "response": "hello bilol"
+      "id": "02cf",
+      "command": "Qanday qilib narsa olasam bo'ladi?",
+      "response": "Products sahifasiga kiring va sahifadan narsa buyurtma qiling"
+    },
+    {
+      "id": "8552",
+      "command": "Profilimni qanday qilib o'zgartirsam bo'ladi?",
+      "response": "Settings sahifasida o'zgartirsangiz bo'ladi"
+    },
+    {
+      "id": "9fa2",
+      "command": "Qalaysan?",
+      "response": "Men yaxshiman,o'zingizchi?😉"
+    },
+    {
+      "id": "876c",
+      "command": "Menga yordam ber",
+      "response": "Qanday yordam beray?🙂"
+    },
+    {
+      "id": "d8f8",
+      "command": "Menga komandalaringni bor? ",
+      "response": "Yaratuvchidan so'rang 😉"
     }
   ]
 }
