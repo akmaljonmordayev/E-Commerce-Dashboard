@@ -2,6 +2,7 @@ import { useState } from "react";
 import { LayoutDashboard } from "lucide-react";
 import Header from "../header/header";
 import Sidebar from "../sidebar";
+import Chatbot from "../../smallComponents/chatbotbutton/chatbotbutton";
 import React from "react";
 export default function Layout({ children }) {
   const [sidebarPosition, setSidebarPosition] = useState("left");
@@ -52,6 +53,7 @@ export default function Layout({ children }) {
             <Sidebar />
           </aside>
         )}
+<Chatbot/>
       </div>
     </div>
   );
