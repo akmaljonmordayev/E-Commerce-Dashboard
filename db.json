@@ -293,131 +293,6 @@
   "users": [
     {
       "id": "1",
-      "username": "joxa_nigga",
-      "email": "joha.nigga@gmail.com",
-      "role": "farrosh",
-      "age": 30,
-      "name": "joxa",
-      "surname": "toxtayev",
-      "password": "katya)"
-    },
-    {
-      "id": "2",
-      "username": "Alisher_qorovul",
-      "email": "alisher.qorovul@gmail.com",
-      "role": "qorovul",
-      "age": 66,
-      "name": "Alish",
-      "surname": "Asqarov",
-      "password": "kalish2010"
-    },
-    {
-      "id": "3",
-      "username": "javohir_manager",
-      "email": "javohir.manager@mail.com",
-      "role": "manager",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "4",
-      "username": "malika_support",
-      "email": "malika.support@mail.com",
-      "role": "support",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "5",
-      "username": "shahzod_support",
-      "email": "shahzod.support@mail.com",
-      "role": "support",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "6",
-      "username": "gulbahor_seller",
-      "email": "gulbahor.seller@mail.com",
-      "role": "seller",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "7",
-      "username": "bobur_seller",
-      "email": "bobur.seller@mail.com",
-      "role": "seller",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "8",
-      "username": "sevara_customer",
-      "email": "sevara.customer@mail.com",
-      "role": "customer",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "9",
-      "username": "sherzod_customer",
-      "email": "sherzod.customer@mail.com",
-      "role": "customer",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
-    },
-    {
-      "id": "10",
-      "username": "madina_customer",
-      "email": "madina.customer@mail.com",
-      "role": "customer",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": 12345
-    },
-    {
-      "id": "5715",
-      "name": "Akmal",
-      "email": "akmaljonmordayev@gmail.com",
-      "phone": "905200350",
-      "address": "asdvasdvasd",
-      "surname": "helloyev",
-      "password": "123456"
-    },
-    {
-      "id": "6c00",
-      "name": "Adham",
-      "email": "jabborovadhamjon97@gmail.com",
-      "phone": "+998 99 047 67 75",
-      "address": "Uzbekistan,Tashkent,Yangihayot",
-      "password": "123456"
-    },
-    {
-      "id": "0c43",
-      "name": "sardar",
-      "email": "adhamjonjabborov387@gmail.com",
-      "phone": "+998 99 047 67 75",
-      "address": "Sergeli 1-tor ko'chasi, Tashkent, Uzbekistan",
-      "password": "12345678"
-    },
-    {
-      "id": "a9fd",
       "name": "Akmal",
       "surname": "Mordayev",
       "username": "akmstrike",
@@ -427,6 +302,7 @@
       "role": "customer"
     }
   ],
+<<<<<<< HEAD
   "productsArchieve": [],
   "customersArchieve": [],
   "usersArchieve": [],
@@ -464,3 +340,29 @@
     }
   ]
 }
+=======
+  "archieve": {
+    "usersArchieve": [
+      {
+        "id": 1,
+        "name": "Akmal",
+        "date": "2025-10-04"
+      }
+    ],
+    "productsArchieve": [
+      {
+        "id": 101,
+        "title": "Telefon",
+        "date": "2025-10-02"
+      }
+    ],
+    "customersArchieve": [
+      {
+        "id": 201,
+        "fullname": "Ali Valiyev",
+        "date": "2025-10-01"
+      }
+    ]
+  }
+}
+>>>>>>> f29a4d730fc2e069e25521007c67342d1db20db4
