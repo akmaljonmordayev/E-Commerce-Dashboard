@@ -380,31 +380,28 @@
       "phone": "905200350",
       "address": "asdvasdvasd",
       "password": "123456"
+    },
+    {
+      "id": "6c00",
+      "name": "Adham",
+      "email": "jabborovadhamjon97@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Uzbekistan,Tashkent,Yangihayot",
+      "password": "123456"
+    },
+    {
+      "id": "0c43",
+      "name": "sardar",
+      "email": "adhamjonjabborov387@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Sergeli 1-tor ko'chasi, Tashkent, Uzbekistan",
+      "password": "12345678"
     }
   ],
-  "archieve": {
-    "usersArchieve": [
-      {
-        "id": 1,
-        "name": "Akmal",
-        "date": "2025-10-04"
-      }
-    ],
-    "productsArchieve": [
-      {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
-      }
-    ],
-    "customersArchieve": [
-      {
-        "id": 201,
-        "fullname": "Ali Valiyev",
-        "date": "2025-10-01"
-      }
-    ]
-  },
+  "productsArchieve": [],
+  "customersArchieve": [],
+  "usersArchieve": [],
+  "ordersArchieve": [],
   "commands": [
     {
       "id": "31e7",
