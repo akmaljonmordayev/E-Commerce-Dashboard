@@ -3,18 +3,21 @@ import React, { useState } from "react";
 function Signup() {
   const [formData, setFormData] = useState({
     name: "",
+    surname: "",
+    username: "",
     email: "",
-    phone: "",
-    address: "",
     password: "",
+    age: "",
+    role: "customer",
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
     setError("");
   };
@@ -22,14 +25,25 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.address ||
-      !formData.password
-    ) {
-      setError("Barcha maydonlarni to'ldiring!");
+    const requiredFields = [
+      "name",
+      "surname",
+      "username",
+      "email",
+      "password",
+      "age",
+      "role",
+    ];
+
+    for (const field of requiredFields) {
+      if (!formData[field]?.toString().trim()) {
+        setError("Barcha maydonlarni to'ldiring!");
+        return;
+      }
+    }
+
+    if (isNaN(formData.age) || formData.age < 10 || formData.age > 100) {
+      setError("Yosh 10 dan 100 gacha bo'lishi kerak.");
       return;
     }
 
@@ -50,7 +64,10 @@ function Signup() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          age: parseInt(formData.age, 10),
+        }),
       });
 
       if (response.ok) {
@@ -58,13 +75,16 @@ function Signup() {
         setError("");
         setFormData({
           name: "",
+          surname: "",
+          username: "",
           email: "",
-          phone: "",
-          address: "",
           password: "",
+          age: "",
+          role: "customer",
         });
       } else {
-        setError("Ro'yxatdan o'tishda xatolik yuz berdi.");
+        const errorText = await response.text();
+        setError(`Xatolik: ${errorText || "Ro'yxatdan o'tishda muammo"}`);
       }
     } catch (err) {
       setError("Serverga ulanishda xatolik. JSON Server ishlayaptimi?");
@@ -81,7 +101,7 @@ function Signup() {
               Ro'yxatdan o'tish
             </h2>
             <p className="mt-2 text-gray-500 text-sm">
-              Hisobingizni yarating va xizmatlarimizdan foydalaning.
+              Kerakli ma'lumotlarni kiriting.
             </p>
           </div>
 
@@ -99,18 +119,21 @@ function Signup() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {[
-              { name: "name", placeholder: "Ism Familiya", type: "text" },
+              { name: "name", placeholder: "Ism", type: "text" },
+              { name: "surname", placeholder: "Familiya", type: "text" },
+              { name: "username", placeholder: "Foydalanuvchi nomi", type: "text" },
               { name: "email", placeholder: "Email manzil", type: "email" },
-              { name: "phone", placeholder: "Telefon (+998...)", type: "tel" },
-              {
-                name: "address",
-                placeholder: "Manzil (Shahar, mamlakat)",
-                type: "text",
-              },
               {
                 name: "password",
                 placeholder: "Parol (kamida 6 ta belgi)",
                 type: "password",
+              },
+              {
+                name: "age",
+                placeholder: "Yoshingiz",
+                type: "number",
+                min: "10",
+                max: "100",
               },
             ].map((field) => (
               <div key={field.name}>
@@ -120,11 +143,29 @@ function Signup() {
                   placeholder={field.placeholder}
                   value={formData[field.name]}
                   onChange={handleChange}
+                  min={field.min}
+                  max={field.max}
                   className="w-full bg-transparent border-0 border-b border-gray-300 py-3 px-1 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-indigo-500 transition-colors"
                   required
                 />
               </div>
             ))}
+
+            <div>
+              <label className="block text-gray-600 text-sm mb-1">Rol tanlang</label>
+              <select
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                className="w-full bg-transparent border-0 border-b border-gray-300 py-3 px-1 text-gray-700 focus:outline-none focus:border-indigo-500"
+              >
+                <option value="customer">Mijoz</option>
+                <option value="seller">Sotuvchi</option>
+                <option value="support">Qo'llab-quvvatlash</option>
+                <option value="manager">Menejer</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
 
             <button
               type="submit"
