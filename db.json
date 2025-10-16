@@ -80,14 +80,6 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
       "id": "2",
       "name": "Samsung Galaxy S24",
       "price": 1099.99,
@@ -399,9 +391,28 @@
       "password": "akmstrike1231",
       "age": 16,
       "role": "customer"
+    },
+    {
+      "id": "0f61",
+      "name": "Ayyubkhon",
+      "surname": "Shukhratov",
+      "username": "ceph",
+      "email": "ayyub@gmail.com",
+      "password": "113355",
+      "age": 15,
+      "role": "customer"
     }
   ],
-  "productsArchieve": [],
+  "productsArchieve": [
+    {
+      "id": "9e97",
+      "title": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
+    }
+  ],
   "customersArchieve": [],
   "usersArchieve": [],
   "ordersArchieve": [],
