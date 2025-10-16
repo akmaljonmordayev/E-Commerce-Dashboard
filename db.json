@@ -379,7 +379,7 @@
       "email": "akmaljonmordayev@gmail.com",
       "phone": "905200350",
       "address": "asdvasdvasd",
-      "surname": "helloyev",  
+      "surname": "helloyev",
       "password": "123456"
     },
     {
@@ -397,6 +397,16 @@
       "phone": "+998 99 047 67 75",
       "address": "Sergeli 1-tor ko'chasi, Tashkent, Uzbekistan",
       "password": "12345678"
+    },
+    {
+      "id": "a9fd",
+      "name": "Akmal",
+      "surname": "Mordayev",
+      "username": "akmstrike",
+      "email": "akmaljonmordayev@gmail.com",
+      "password": "akmstrike1231",
+      "age": 16,
+      "role": "customer"
     }
   ],
   "productsArchieve": [],
