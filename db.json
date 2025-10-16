@@ -267,23 +267,23 @@
   "users": [
     {
       "id": "1",
-      "username": "azizbek_admin",
-      "email": "azizbek.admin@mail.com",
-      "role": "admin",
+      "username": "joxa_nigga",
+      "email": "joha.nigga@gmail.com",
+      "role": "farrosh",
       "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
+      "name": "joxa",
+      "surname": "toxtayev",
+      "password": "katya)"
     },
     {
       "id": "2",
-      "username": "dilnoza_manager",
-      "email": "dilnoza.manager@mail.com",
-      "role": "manager",
-      "age": 30,
-      "name": "hello",
-      "surname": "helloyev",
-      "password": "12345"
+      "username": "Alisher_qorovul",
+      "email": "alisher.qorovul@gmail.com",
+      "role": "qorovul",
+      "age": 66,
+      "name": "Alish",
+      "surname": "Asqarov",
+      "password": "kalish2010"
     },
     {
       "id": "3",
@@ -372,6 +372,22 @@
       "phone": "905200350",
       "address": "asdvasdvasd",
       "password": "123456"
+    },
+    {
+      "id": "6c00",
+      "name": "Adham",
+      "email": "jabborovadhamjon97@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Uzbekistan,Tashkent,Yangihayot",
+      "password": "123456"
+    },
+    {
+      "id": "0c43",
+      "name": "sardar",
+      "email": "adhamjonjabborov387@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Sergeli 1-tor ko'chasi, Tashkent, Uzbekistan",
+      "password": "12345678"
     }
   ],
   "productsArchieve": [],
@@ -385,9 +401,9 @@
       "response": "salom! Qalaysiz😅"
     },
     {
-      "id": "8c29",
-      "command": "hello",
-      "response": "assalomu alaykum"
+      "id": "bb53",
+      "command": "Bilol",
+      "response": "hello bilol"
     }
   ]
 }
