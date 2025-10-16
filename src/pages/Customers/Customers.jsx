@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
-import { toast } from "react-toastify";
-import "./Customers.css";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Custumers.css";
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -18,6 +18,7 @@ function Customers() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5;
 
+  // Ma'lumotlarni olish
   const fetchCustomers = async () => {
     try {
       const res = await axios.get("http://localhost:5000/customers");
@@ -32,8 +33,10 @@ function Customers() {
     fetchCustomers();
   }, []);
 
+  // Qo‘shish yoki Tahrirlash
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!form.name || !form.email || !form.phone || !form.address) {
       toast.warning("⚠️ Barcha maydonlarni to‘ldiring!");
       return;
@@ -52,11 +55,18 @@ function Customers() {
       setForm({ name: "", email: "", phone: "", address: "" });
       fetchCustomers();
     } catch (err) {
-      toast.error("❌ Xatolik yuz berdi!");
+      toast.error("❌ Saqlashda xatolik yuz berdi!");
       console.error(err);
     }
   };
 
+  // Tahrirlash uchun forma to‘ldirish
+  const handleEdit = (customer) => {
+    setForm(customer);
+    setEditId(customer.id);
+  };
+
+  // O‘chirish
   const handleDelete = async (id) => {
     if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
       try {
@@ -70,11 +80,7 @@ function Customers() {
     }
   };
 
-  const handleEdit = (customer) => {
-    setForm(customer);
-    setEditId(customer.id);
-  };
-
+  // Qidiruv
   const filtered = customers.filter(
     (c) =>
       c.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -82,16 +88,20 @@ function Customers() {
       c.address.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Pagination hisoblash
   const offset = currentPage * itemsPerPage;
   const paginatedCustomers = filtered.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(filtered.length / itemsPerPage);
 
-  const handlePageClick = ({ selected }) => setCurrentPage(selected);
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
 
   return (
     <div className="customers-container">
+      <h1 className="customers-title">Customers</h1>
+
       <div className="customers-header">
-        <h1 className="customers-title">Customers</h1>
         <input
           type="text"
           className="search-input"
@@ -101,6 +111,7 @@ function Customers() {
         />
       </div>
 
+      {/* Forma */}
       <form onSubmit={handleSubmit} className="customer-form">
         <input
           type="text"
@@ -131,6 +142,7 @@ function Customers() {
         </button>
       </form>
 
+      {/* Jadval */}
       <div className="table-container">
         <table className="customers-table">
           <thead>
@@ -192,17 +204,19 @@ function Customers() {
           breakClassName={"page-item"}
           disabledClassName={"disabled"}
         />
-         <ToastContainer
-      position="top-right"        
-      autoClose={2000}             
-      hideProgressBar={false}      
-      newestOnTop={true}           
-      closeOnClick                
-      pauseOnHover                 
-      draggable                   
-      theme="colored"              
-    />
       </div>
+
+      
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
     </div>
   );
 }
