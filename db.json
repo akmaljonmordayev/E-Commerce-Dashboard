@@ -284,6 +284,16 @@
       "password": "113355",
       "age": 15,
       "role": "customer"
+    },
+    {
+      "id": "3ebd",
+      "name": "Adham",
+      "surname": "Jabborov",
+      "username": "Notarius",
+      "email": "jabborovadhamjon97@gmail.com",
+      "password": "notariuscs2",
+      "age": 15,
+      "role": "admin"
     }
   ],
   "productsArchieve": [
