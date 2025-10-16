@@ -4,8 +4,24 @@ import { Button } from "antd";
 import { Github, Chrome } from "lucide-react";
 import imageLogo from "../header/img/mainLogo.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 export default function WelcomePage() {
   const [enter, setEnter] = useState(false);
+  const [token, setToken] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
+
+  const handeLogin = () => {
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-950 text-white relative overflow-hidden">
@@ -85,11 +101,12 @@ export default function WelcomePage() {
             </h2>
 
             <div className="flex flex-col gap-4 w-72">
-              <Link to={"/login"}>
-                <Button className="bg-red-500 w-[290px] hover:bg-red-600 text-white py-3 px-6 rounded-lg font-semibold shadow-md">
-                  Login
-                </Button>
-              </Link>
+              <Button
+                onClick={handeLogin}
+                className="bg-red-500 w-[290px] hover:bg-red-600 text-white py-3 px-6 rounded-lg font-semibold shadow-md"
+              >
+                Login
+              </Button>
               <Link to={"signup"}>
                 <Button className="bg-blue-500 w-[290px] hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold shadow-md">
                   Sign up
