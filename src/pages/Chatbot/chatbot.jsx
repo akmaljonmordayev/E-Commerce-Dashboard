@@ -7,7 +7,9 @@ const Chatbot = () => {
   const [newResponse, setNewResponse] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/commands").then((res) => setCommands(res.data));
+    axios
+      .get("http://localhost:5000/commands")
+      .then((res) => setCommands(res.data));
   }, []);
 
   const addCommand = async () => {

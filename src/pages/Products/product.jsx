@@ -8,10 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function ProductPage() {
-  const { data } = useGet("/products");
+  const { data, refetch } = useGet("/products");
   const { deleteData } = useDelete("/products");
   const { updateData } = useUpdate("/products");
   const { postData } = usePost("/products");
+  const { postData: postArchive } = usePost("/productsArchieve");
 
   const [show, setShow] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -26,7 +27,18 @@ export default function ProductPage() {
   const [search, setSearch] = useState("");
 
   const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]:
+        e.target.name === "price" || e.target.name === "stock"
+          ? Number(e.target.value)
+          : e.target.value,
+    });
+
+  const resetForm = () => {
+    setForm({ name: "", price: "", stock: "", category: "", brand: "" });
+    setEditId(null);
+  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -41,22 +53,25 @@ export default function ProductPage() {
       return;
     }
 
-    if (editId) {
-      await updateData(editId, form);
-      toast.info("Edited!", {
-        style: { background: "#2563eb", color: "#fff" },
-      });
-      setEditId(null);
-    } else {
-      await postData(form);
-      toast.success("Added!", {
-        style: { background: "#22c55e", color: "#fff" },
-      });
+    try {
+      if (editId) {
+        await updateData(editId, form);
+        toast.info("Edited!", {
+          style: { background: "#2563eb", color: "#fff" },
+        });
+      } else {
+        await postData(form);
+        toast.success("Added!", {
+          style: { background: "#22c55e", color: "#fff" },
+        });
+      }
+      resetForm();
+      setShow(false);
+      refetch();
+    } catch (err) {
+      toast.error("Error");
+      console.error(err);
     }
-
-    setForm({ name: "", price: "", stock: "", category: "", brand: "" });
-    setShow(false);
-    setTimeout(() => window.location.reload(), 800);
   };
 
   const editItem = (i) => {
@@ -66,18 +81,32 @@ export default function ProductPage() {
   };
 
   const delConfirm = async () => {
-    await deleteData(delItem.id);
-    toast.error("Deleted!", {
-      style: { background: "#dc2626", color: "#fff" },
-    });
-    setDelItem(null);
-    setTimeout(() => window.location.reload(), 800);
+    if (!delItem) return;
+    try {
+      await postArchive({
+        title: delItem.name,
+        price: delItem.price,
+        stock: delItem.stock,
+        category: delItem.category,
+        brand: delItem.brand,
+      });
+
+      await deleteData(delItem.id);
+
+      toast.error("Deleted!", {
+        style: { background: "#dc2626", color: "#fff" },
+      });
+      setDelItem(null);
+      refetch();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const filtered = data?.filter(
     (i) =>
-      i.name.toLowerCase().includes(search.toLowerCase()) ||
-      i.category.toLowerCase().includes(search.toLowerCase())
+      (i.name || "").toLowerCase().includes(search.toLowerCase()) ||
+      (i.category || "").toLowerCase().includes(search.toLowerCase())
   );
 
   const cols = [
@@ -91,7 +120,7 @@ export default function ProductPage() {
 
   return (
     <div className="p-5 bg-[#1f2a40] min-h-screen text-white">
-      <div className="flex justify-between mb-5">
+      <div className="flex justify-between mb-5 items-center">
         <h2 className="text-xl font-bold">Products</h2>
         <input
           placeholder="Search..."
@@ -102,14 +131,7 @@ export default function ProductPage() {
         <button
           onClick={() => {
             setShow(!show);
-            setForm({
-              name: "",
-              price: "",
-              stock: "",
-              category: "",
-              brand: "",
-            });
-            setEditId(null);
+            resetForm();
           }}
           className="bg-blue-600 px-4 py-2 rounded"
         >
@@ -134,6 +156,7 @@ export default function ProductPage() {
             value={form.price}
             onChange={handleChange}
             placeholder="Price"
+            type="number"
             className="p-2 bg-[#1f2a40] border border-gray-600 rounded"
           />
           <input
@@ -141,11 +164,12 @@ export default function ProductPage() {
             value={form.stock}
             onChange={handleChange}
             placeholder="Stock"
+            type="number"
             className="p-2 bg-[#1f2a40] border border-gray-600 rounded"
           />
           <input
             name="category"
-            value={form.category}
+            value={form.category}gi
             onChange={handleChange}
             placeholder="Category"
             className="p-2 bg-[#1f2a40] border border-gray-600 rounded"
