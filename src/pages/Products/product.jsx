@@ -169,7 +169,11 @@ export default function ProductPage() {
           />
           <input
             name="category"
+<<<<<<< HEAD
             value={form.category}
+=======
+            value={form.category}gi
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
             onChange={handleChange}
             placeholder="Category"
             className="p-2 bg-[#1f2a40] border border-gray-600 rounded"

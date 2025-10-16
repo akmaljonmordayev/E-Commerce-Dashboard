@@ -10,6 +10,7 @@ export default function Login() {
   const [showPwd, setShowPwd] = useState(false);
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
+<<<<<<< HEAD
 
   const { data, loading, error } = useGet("/users");
 
@@ -23,6 +24,20 @@ export default function Login() {
   //     window.location.href = "/dashboard";
   //   }, 900);
   // }
+=======
+  const { data, loading, error } = useGet("/users");
+
+  if (username === useGet("/users/username")  && password === useGet("/users/password")) {
+    const token =
+      "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", username);
+    setMsg("Muvaffaqiyatli: token saqlandi. Redirect qilinadi...");
+    setTimeout(() => {
+      window.location.href = "/dashboard";
+    }, 900);
+  }
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
 
   const handleSubmit = (e) => {
     const filterUser = data.filter(

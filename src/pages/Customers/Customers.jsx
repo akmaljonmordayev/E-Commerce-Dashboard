@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Custumers.css";
 
+
 function Customers() {
   const [customers, setCustomers] = useState([]);
   const [search, setSearch] = useState("");
@@ -18,13 +19,13 @@ function Customers() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5;
 
-  // Ma'lumotlarni olish
+
   const fetchCustomers = async () => {
     try {
       const res = await axios.get("http://localhost:5000/customers");
       setCustomers(res.data);
     } catch (err) {
-      toast.error("❌ Ma'lumotlarni olishda xatolik!");
+
       console.error(err);
     }
   };
@@ -32,6 +33,7 @@ function Customers() {
   useEffect(() => {
     fetchCustomers();
   }, []);
+
 
   // Qo‘shish yoki Tahrirlash
   const handleSubmit = async (e) => {
@@ -56,9 +58,28 @@ function Customers() {
       fetchCustomers();
     } catch (err) {
       toast.error("❌ Saqlashda xatolik yuz berdi!");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.phone || !form.address) {
+      alert("Iltimos, barcha maydonlarni to‘ldiring!");
+      return;
+    }
+    try {
+      if (editId) {
+        await axios.put(`http://localhost:5000/customers/${editId}`, form);
+        setEditId(null);
+      } else {
+        await axios.post("http://localhost:5000/customers", form);
+      }
+      setForm({ name: "", email: "", phone: "", address: "" });
+      fetchCustomers();
+    } catch (err) {
+
       console.error(err);
     }
   };
+
 
   // Tahrirlash uchun forma to‘ldirish
   const handleEdit = (customer) => {
@@ -76,11 +97,29 @@ function Customers() {
       } catch (err) {
         toast.error("❌ O‘chirishda xatolik yuz berdi!");
         console.error(err);
+
+  const handleDelete = async (id) => {
+    console.log(id);
+    
+    if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
+      try {
+        await axios.delete(`http://localhost:5000/customers/${id}`);
+        fetchCustomers();
+        toast.success("Mijoz muvaffaqiyatli o‘chirildi!");
+      } catch {
+
       }
     }
   };
 
-  // Qidiruv
+
+
+  const handleEdit = (customer) => {
+    setForm(customer);
+    setEditId(customer._id);
+  };
+
+
   const filtered = customers.filter(
     (c) =>
       c.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -88,7 +127,7 @@ function Customers() {
       c.address.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Pagination hisoblash
+
   const offset = currentPage * itemsPerPage;
   const paginatedCustomers = filtered.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(filtered.length / itemsPerPage);
@@ -99,9 +138,14 @@ function Customers() {
 
   return (
     <div className="customers-container">
+
       <h1 className="customers-title">Customers</h1>
 
       <div className="customers-header">
+
+      
+        <h1 className="customers-title">Customers</h1>
+
         <input
           type="text"
           className="search-input"
@@ -111,7 +155,10 @@ function Customers() {
         />
       </div>
 
+
       {/* Forma */}
+
+
       <form onSubmit={handleSubmit} className="customer-form">
         <input
           type="text"
@@ -138,11 +185,15 @@ function Customers() {
           onChange={(e) => setForm({ ...form, address: e.target.value })}
         />
         <button type="submit" className="btn-primary">
+
           {editId ? "💾 Save Changes" : "➕ Add Customer"}
         </button>
       </form>
 
-      {/* Jadval */}
+
+
+         
+
       <div className="table-container">
         <table className="customers-table">
           <thead>
@@ -187,6 +238,9 @@ function Customers() {
           </tbody>
         </table>
 
+
+
+
         <ReactPaginate
           previousLabel={"<"}
           nextLabel={">"}
@@ -206,6 +260,7 @@ function Customers() {
         />
       </div>
 
+
       
       <ToastContainer
         position="top-right"
@@ -217,8 +272,9 @@ function Customers() {
         draggable
         theme="colored"
       />
+
+
     </div>
   );
 }
-
 export default Customers;

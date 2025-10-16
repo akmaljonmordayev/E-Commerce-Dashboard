@@ -36,6 +36,16 @@
       "address": "Namangan, Uzbekistan"
     },
     {
+<<<<<<< HEAD
+=======
+      "id": "6",
+      "name": "Gulbahor Xudoyberdieva",
+      "email": "gulbahor.x@mail.com",
+      "phone": "+998931234567",
+      "address": "Fergana, Uzbekistan"
+    },
+    {
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
       "id": "8",
       "name": "Sevara Olimova",
       "email": "sevara.ol@mail.com",
@@ -191,6 +201,7 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
+<<<<<<< HEAD
     },
     {
       "id": "19",
@@ -207,6 +218,8 @@
       "stock": 13,
       "category": "Speakers",
       "brand": "JBL"
+=======
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
     }
   ],
   "orders": [
@@ -247,7 +260,11 @@
     },
     {
       "id": "6",
+<<<<<<< HEAD
       "customerId": null,
+=======
+      "customerId": "6",
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
       "status": "Pending",
       "totalAmount": 249.99,
       "createdAt": "2025-09-06"
@@ -284,10 +301,11 @@
   "users": [
     {
       "id": "1",
-      "username": "azizbek_admin",
-      "email": "azizbek.admin@mail.com",
-      "role": "admin",
+      "username": "joxa_nigga",
+      "email": "joha.nigga@gmail.com",
+      "role": "farrosh",
       "age": 30,
+<<<<<<< HEAD
       "name": "hello",
       "surname": "helloyev",
       "password": "12345"
@@ -301,6 +319,21 @@
       "name": "hello",
       "surname": "helloyev",
       "password": "12345"
+=======
+      "name": "joxa",
+      "surname": "toxtayev",
+      "password": "katya)"
+    },
+    {
+      "id": "2",
+      "username": "Alisher_qorovul",
+      "email": "alisher.qorovul@gmail.com",
+      "role": "qorovul",
+      "age": 66,
+      "name": "Alish",
+      "surname": "Asqarov",
+      "password": "kalish2010"
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
     },
     {
       "id": "3",
@@ -389,6 +422,7 @@
       "phone": "905200350",
       "address": "asdvasdvasd",
       "password": "123456"
+<<<<<<< HEAD
     }
   ],
   "archieve": {
@@ -414,6 +448,30 @@
       }
     ]
   },
+=======
+    },
+    {
+      "id": "6c00",
+      "name": "Adham",
+      "email": "jabborovadhamjon97@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Uzbekistan,Tashkent,Yangihayot",
+      "password": "123456"
+    },
+    {
+      "id": "0c43",
+      "name": "sardar",
+      "email": "adhamjonjabborov387@gmail.com",
+      "phone": "+998 99 047 67 75",
+      "address": "Sergeli 1-tor ko'chasi, Tashkent, Uzbekistan",
+      "password": "12345678"
+    }
+  ],
+  "productsArchieve": [],
+  "customersArchieve": [],
+  "usersArchieve": [],
+  "ordersArchieve": [],
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
   "commands": [
     {
       "id": "31e7",
@@ -426,4 +484,8 @@
       "response": "assalomu alaykum"
     }
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 26704205853013e37f71016b64dc87d809e9601b
