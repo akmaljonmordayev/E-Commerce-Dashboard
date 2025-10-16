@@ -80,15 +80,7 @@
   ],
   "products": [
     {
-      "id": 1,
-      "name": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
-      "id": 2,
+      "id": "2",
       "name": "Samsung Galaxy S24",
       "price": 1099.99,
       "stock": 30,
@@ -382,29 +374,24 @@
       "password": "123456"
     }
   ],
-  "archieve": {
-    "usersArchieve": [
-      {
-        "id": 1,
-        "name": "Akmal",
-        "date": "2025-10-04"
-      }
-    ],
-    "productsArchieve": [
-      {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
-      }
-    ],
-    "customersArchieve": [
-      {
-        "id": 201,
-        "fullname": "Ali Valiyev",
-        "date": "2025-10-01"
-      }
-    ]
-  },
+  "productsArchieve": [
+    {
+      "id": "17",
+      "name": "Amazon Echo Dot 5",
+      "price": 59,
+      "stock": 25,
+      "category": "Smart Home",
+      "brand": "Amazon"
+    },
+    {
+      "id": "af98",
+      "title": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
+    }
+  ],
   "commands": [
     {
       "id": "31e7",
@@ -412,9 +399,9 @@
       "response": "salom! Qalaysiz😅"
     },
     {
-      "id": "8c29",
-      "command": "hello",
-      "response": "assalomu alaykum"
+      "id": "bb53",
+      "command": "Bilol",
+      "response": "hello bilol"
     }
   ]
 }
