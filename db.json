@@ -80,14 +80,6 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
       "id": "2",
       "name": "Samsung Galaxy S24",
       "price": 1099.99,
@@ -184,20 +176,12 @@
       "brand": "DJI"
     },
     {
-      "id": "17",
+      "id": "0165",
       "name": "Amazon Echo Dot 5",
       "price": 59,
       "stock": 25,
       "category": "Smart Home",
       "brand": "Amazon"
-    },
-    {
-      "id": "18",
-      "name": "Microsoft Surface Pro 9",
-      "price": 1399,
-      "stock": 8,
-      "category": "Tablets",
-      "brand": "Microsoftbek"
     }
   ],
   "orders": [
@@ -300,61 +284,41 @@
       "password": "akmstrike1231",
       "age": 16,
       "role": "customer"
+    },
+    {
+      "id": "0f61",
+      "name": "Ayyubkhon",
+      "surname": "Shukhratov",
+      "username": "ceph",
+      "email": "ayyub@gmail.com",
+      "password": "113355",
+      "age": 15,
+      "role": "customer"
     }
   ],
+  "productsArchieve": [
+    {
+      "id": "9e97",
+      "title": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
+    }
+  ],
+  "customersArchieve": [],
+  "usersArchieve": [],
+  "ordersArchieve": [],
   "commands": [
     {
       "id": "31e7",
-      "command": "Salom",
-      "response": "Salom! Qalaysiz?🙂"
+      "command": "salom",
+      "response": "salom! Qalaysiz😅"
     },
     {
-      "id": "02cf",
-      "command": "Qanday qilib narsa olasam bo'ladi?",
-      "response": "Products sahifasiga kiring va sahifadan narsa buyurtma qiling"
-    },
-    {
-      "id": "8552",
-      "command": "Profilimni qanday qilib o'zgartirsam bo'ladi?",
-      "response": "Settings sahifasida o'zgartirsangiz bo'ladi"
-    },
-    {
-      "id": "9fa2",
-      "command": "Qalaysan?",
-      "response": "Men yaxshiman,o'zingizchi?😉"
-    },
-    {
-      "id": "876c",
-      "command": "Menga yordam ber",
-      "response": "Qanday yordam berishim mumkin?🙂"
-    },
-    {
-      "id": "d8f8",
-      "command": "Menga komandalaringni bor? ",
-      "response": "Yaratuvchidan so'rang 😉"
+      "id": "bb53",
+      "command": "Bilol",
+      "response": "hello bilol"
     }
-  ],
-  "archieve": {
-    "usersArchieve": [
-      {
-        "id": 1,
-        "name": "Akmal",
-        "date": "2025-10-04"
-      }
-    ],
-    "productsArchieve": [
-      {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
-      }
-    ],
-    "customersArchieve": [
-      {
-        "id": 201,
-        "fullname": "Ali Valiyev",
-        "date": "2025-10-01"
-      }
-    ]
-  }
+  ]
 }
