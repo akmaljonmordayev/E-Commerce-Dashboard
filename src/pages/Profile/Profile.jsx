@@ -2,6 +2,13 @@ import React, { useState } from "react";
 
 function Profile() {
   const [darkMode, setDarkMode] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "Sofiya Rasulova",
+    email: "sofiya@example.com",
+    profession: "Frontend Developer",
+    bio: "Creative developer passionate about building elegant, dynamic, and user-friendly web interfaces using React and Tailwind CSS.",
+  });
 
   let bgClass = "bg-gradient-to-br from-indigo-900 via-blue-950 to-indigo-900 text-white";
   let cardClass = "bg-blue-950/70 border-blue-800";
@@ -26,7 +33,9 @@ function Profile() {
   }
 
   return (
-    <div className={`min-h-screen flex items-center justify-center px-4 relative overflow-hidden transition-all duration-700 ${bgClass}`}>
+    <div
+      className={`min-h-screen flex items-center justify-center px-4 relative overflow-hidden transition-all duration-700 ${bgClass}`}
+    >
       <button className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-lg transition-all duration-300 hover:scale-105 bg-red-600 hover:bg-red-500 text-white">
         Logout
       </button>
@@ -38,7 +47,9 @@ function Profile() {
         {darkMode ? "☀ Light" : "🌙 Dark"}
       </button>
 
-      <div className={`rounded-2xl p-8 w-full max-w-md text-center backdrop-blur-lg shadow-2xl border transition-all duration-700 ${cardClass}`}>
+      <div
+        className={`rounded-2xl p-8 w-full max-w-md text-center backdrop-blur-lg shadow-2xl border transition-all duration-700 ${cardClass}`}
+      >
         <div className="flex justify-center mb-6">
           <img
             src="https://i.ibb.co/3N6CkTb/profile-avatar.png"
@@ -47,12 +58,9 @@ function Profile() {
           />
         </div>
 
-        <h1 className="text-3xl font-bold mb-2 tracking-wide">Sofiya Rasulova</h1>
-        <p className={`mb-6 text-sm uppercase tracking-widest ${textMuted}`}>Frontend Developer</p>
-        <p className={`leading-relaxed mb-6 text-sm ${textSoft}`}>
-          Creative developer passionate about building elegant, dynamic, and user-friendly web interfaces using React and Tailwind CSS. Dedicated
-          to turning ideas into seamless digital experiences.
-        </p>
+        <h1 className="text-3xl font-bold mb-2 tracking-wide">{formData.name}</h1>
+        <p className={`mb-6 text-sm uppercase tracking-widest ${textMuted}`}>{formData.profession}</p>
+        <p className={`leading-relaxed mb-6 text-sm ${textSoft}`}>{formData.bio}</p>
 
         <div className="grid grid-cols-3 gap-4 mb-6">
           {[
@@ -68,10 +76,15 @@ function Profile() {
         </div>
 
         <div className="flex justify-center gap-4">
-          <button className={`px-5 py-2 rounded-xl font-semibold transition duration-300 hover:shadow-lg hover:scale-105 ${btnPrimary}`}>
+          <button
+            onClick={() => setShowModal(true)}
+            className={`px-5 py-2 rounded-xl font-semibold transition duration-300 hover:shadow-lg hover:scale-105 ${btnPrimary}`}
+          >
             Edit Profile
           </button>
-          <button className={`px-5 py-2 rounded-xl font-semibold border transition duration-300 hover:shadow-md hover:scale-105 ${btnOutline}`}>
+          <button
+            className={`px-5 py-2 rounded-xl font-semibold border transition duration-300 hover:shadow-md hover:scale-105 ${btnOutline}`}
+          >
             Message
           </button>
         </div>
@@ -88,6 +101,114 @@ function Profile() {
           </a>
         </div>
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fadeIn">
+          <div
+            className={`p-6 rounded-2xl shadow-2xl w-full max-w-md border transition-all duration-500 ${
+              darkMode
+                ? "bg-blue-950/90 border-blue-500 text-white"
+                : "bg-white/90 border-gray-300 text-gray-900"
+            }`}
+          >
+            <h2
+              className={`text-2xl font-bold mb-6 text-center ${
+                darkMode ? "text-blue-300" : "text-gray-900"
+              }`}
+            >
+              Edit Profile
+            </h2>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setShowModal(false);
+              }}
+              className="space-y-5"
+            >
+              <div className="flex flex-col items-start">
+                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
+                    darkMode
+                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
+                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
+                  }`}
+                />
+              </div>
+
+              <div className="flex flex-col items-start">
+                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
+                    darkMode
+                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
+                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
+                  }`}
+                />
+              </div>
+
+              <div className="flex flex-col items-start">
+                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
+                  Profession
+                </label>
+                <input
+                  type="text"
+                  value={formData.profession}
+                  onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
+                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
+                    darkMode
+                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
+                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
+                  }`}
+                />
+              </div>
+
+              <div className="flex flex-col items-start">
+                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
+                  About You
+                </label>
+                <textarea
+                  rows="3"
+                  value={formData.bio}
+                  onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
+                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
+                    darkMode
+                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
+                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
+                  }`}
+                ></textarea>
+              </div>
+
+              <div className="flex justify-between pt-3">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2 rounded-lg bg-gray-400 hover:bg-gray-500 text-white font-semibold transition duration-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition duration-300"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
