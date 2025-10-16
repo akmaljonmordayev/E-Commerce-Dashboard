@@ -14,7 +14,6 @@ function Orders() {
     toast.success("Order deleted!");
   };
 
-  // ✅ Status color helper
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
       case "completed":

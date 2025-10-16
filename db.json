@@ -302,15 +302,10 @@
       "role": "customer"
     }
   ],
-<<<<<<< HEAD
-  "productsArchieve": [],
-  "customersArchieve": [],
-  "usersArchieve": [],
-  "ordersArchieve": [],
   "commands": [
     {
       "id": "31e7",
-      "command": "salom",
+      "command": "Salom",
       "response": "Salom! Qalaysiz?🙂"
     },
     {
@@ -338,9 +333,7 @@
       "command": "Menga komandalaringni bor? ",
       "response": "Yaratuvchidan so'rang 😉"
     }
-  ]
-}
-=======
+  ],
   "archieve": {
     "usersArchieve": [
       {
@@ -365,4 +358,3 @@
     ]
   }
 }
->>>>>>> f29a4d730fc2e069e25521007c67342d1db20db4
