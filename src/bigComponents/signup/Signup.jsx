@@ -28,7 +28,6 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Majburiy maydonlarni tekshirish
     const requiredFields = ["name", "surname", "username", "email", "password", "age", "role"];
     for (const field of requiredFields) {
       if (!formData[field]?.toString().trim()) {
