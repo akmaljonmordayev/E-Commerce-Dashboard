@@ -36,11 +36,11 @@
       "address": "Namangan, Uzbekistan"
     },
     {
-      "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
       "phone": "+998931234567",
-      "address": "Fergana, Uzbekistan"
+      "address": " Uzbekistan",
+      "id": "6"
     },
     {
       "id": "8",
@@ -69,13 +69,6 @@
       "email": "asdvasdv@gmail.com",
       "phone": "121212",
       "address": "asdvasdvasd"
-    },
-    {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+",
-      "address": "Khiva"
     }
   ],
   "products": [
@@ -235,7 +228,7 @@
     },
     {
       "id": "7",
-      "customerId": "7",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 1799,
       "createdAt": "2025-09-07",
@@ -319,6 +312,24 @@
       "id": "bb53",
       "command": "Bilol",
       "response": "hello bilol"
+    }
+  ],
+  "archivedCustomers": [
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva",
+      "deletedAt": "2025-10-18T08:27:55.379Z"
+    },
+    {
+      "id": "3cd8",
+      "name": "aaaaaaaa",
+      "email": "aaa@gamil.com",
+      "phone": "555555555555555",
+      "address": "lllllllllllllllllll",
+      "deletedAt": "2025-10-18T08:28:43.505Z"
     }
   ]
 }
