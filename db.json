@@ -187,19 +187,12 @@
       "id": "18",
       "name": "Microsoft Surface Pro 9",
       "price": 1399,
-      "stock": 8,"category": "Tablets",
+      "stock": 8,
+      "category": "Tablets",
       "brand": "Microsoftbek"
     }
   ],
   "orders": [
-    {
-      "id": "1",
-      "customerId": "1",
-      "status": "Completed",
-      "totalAmount": 2599.98,
-      "createdAt": "2025-09-01",
-      "name": "JBL Charge 5"
-    },
     {
       "id": "2",
       "customerId": "2",

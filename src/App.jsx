@@ -83,10 +83,10 @@ function App() {
             </ProtectedRoute>
           }
         >
-          <Route path="usersarchieve" element={<UsersArchieve />} />
-          <Route path="customersarchieve" element={<CustomersArchieve />} />
-          <Route path="ordersarchieve" element={<OrdersArchieve />} />
-          <Route path="productsarchieve" element={<ProductsArchieve />} />
+          <Route path="/archieve/usersarchieve" element={<UsersArchieve />} />
+          <Route path="/archieve/customersarchieve" element={<CustomersArchieve />} />
+          <Route path="/archieve/ordersarchieve" element={<OrdersArchieve />} />
+          <Route path="/archieve/productsarchieve" element={<ProductsArchieve />} />
         </Route>
         <Route
           path="/orders"
