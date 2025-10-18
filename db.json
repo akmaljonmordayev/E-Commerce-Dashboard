@@ -190,70 +190,88 @@
       "customerId": "1",
       "status": "Completed",
       "totalAmount": 2599.98,
-      "createdAt": "2025-09-01"
+      "createdAt": "2025-09-01",
+      "name": "JBL Charge 5"
     },
     {
       "id": "2",
       "customerId": "2",
       "status": "Pending",
       "totalAmount": 399.99,
-      "createdAt": "2025-09-02"
+      "createdAt": "2025-09-02",
+      "name": "Microsoft Surface Pro 9"
     },
     {
       "id": "3",
       "customerId": "3",
       "status": "Shipped",
       "totalAmount": 1099.99,
-      "createdAt": "2025-09-03"
+      "createdAt": "2025-09-03",
+      "name": "Computer"
     },
     {
       "id": "4",
       "customerId": "4",
       "status": "Cancelled",
       "totalAmount": 179.99,
-      "createdAt": "2025-09-04"
+      "createdAt": "2025-09-04",
+      "name": "Razer BlackWidow V4"
     },
     {
       "id": "5",
       "customerId": "5",
       "status": "Completed",
       "totalAmount": 1499,
-      "createdAt": "2025-09-05"
+      "createdAt": "2025-09-05",
+      "name": "Redmi Note 13 Pro"
     },
     {
       "id": "6",
       "customerId": "6",
       "status": "Pending",
       "totalAmount": 249.99,
-      "createdAt": "2025-09-06"
+      "createdAt": "2025-09-06",
+      "name": "Headphones"
     },
     {
       "id": "7",
       "customerId": "7",
       "status": "Completed",
       "totalAmount": 1799,
-      "createdAt": "2025-09-07"
+      "createdAt": "2025-09-07",
+      "name": "Laptop HP"
     },
     {
       "id": "8",
       "customerId": "8",
       "status": "Shipped",
       "totalAmount": 899.99,
-      "createdAt": "2025-09-08"
+      "createdAt": "2025-09-08",
+      "name": "Air pods pro"
     },
     {
       "id": "9",
       "customerId": "9",
       "status": "Completed",
       "totalAmount": 199.99,
-      "createdAt": "2025-09-09"
+      "createdAt": "2025-09-09",
+      "name": "IPhone 17 pro"
     },
     {
       "id": "10",
       "customerId": "10",
       "status": "Pending",
       "totalAmount": 179.99,
-      "createdAt": "2025-09-10"
+      "createdAt": "2025-09-10",
+      "name": "Xiomi 14"
+    },
+    {
+      "id": "11",
+      "customerId": "10",
+      "status": "Completed",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-10",
+      "name": "Acer laptop"
     }
   ],
   "users": [
