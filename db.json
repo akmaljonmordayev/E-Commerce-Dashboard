@@ -296,6 +296,16 @@
       "password": "12345678fir",
       "age": 60,
       "role": "support"
+    },
+    {
+      "id": "ed85",
+      "name": "fire212345678",
+      "surname": "Roziyev",
+      "username": "f2124695@gmail.com",
+      "email": "firdavsbek347@gmail.com",
+      "password": "12345678",
+      "age": 16,
+      "role": "customer"
     }
   ],
   "productsArchieve": [
@@ -326,6 +336,31 @@
       "id": "730c",
       "command": "dinnaxuy",
       "response": "idinaxuy jalab"
+    },
+    {
+      "id": "f4c0",
+      "command": "pasholnaxuy",
+      "response": "amini ye"
+    },
+    {
+      "id": "1a11",
+      "command": "gey",
+      "response": "manmas humo gey"
+    },
+    {
+      "id": "84ff",
+      "command": "ikkalen gey ",
+      "response": "qotogimmi yebsan"
+    },
+    {
+      "id": "d78f",
+      "command": "ogzinga sikaman",
+      "response": "korili"
+    },
+    {
+      "id": "a762",
+      "command": "ke jonim",
+      "response": "qult qult qult"
     }
   ]
 }

@@ -1,6 +1,11 @@
+// src/signup/Signup.jsx
+
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // 👈 navigatsiya uchun
 
 function Signup() {
+  const navigate = useNavigate(); // 👈 hook
+
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -73,15 +78,11 @@ function Signup() {
       if (response.ok) {
         setSuccess(true);
         setError("");
-        setFormData({
-          name: "",
-          surname: "",
-          username: "",
-          email: "",
-          password: "",
-          age: "",
-          role: "customer",
-        });
+
+        // 👇 1.5 soniyadan keyin login sahifasiga yo'naltirish
+        setTimeout(() => {
+          navigate("/login");
+        }, 1500);
       } else {
         const errorText = await response.text();
         setError(`Xatolik: ${errorText || "Ro'yxatdan o'tishda muammo"}`);
