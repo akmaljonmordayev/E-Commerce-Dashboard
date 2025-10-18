@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
-import { toast } from "react-toastify";
-import './Customers.css'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import'./Customers.css'
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -32,41 +33,60 @@ function Customers() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!form.name || !form.email || !form.phone || !form.address) {
-      alert("Iltimos, barcha maydonlarni to‘ldiring!");
+      toast.warning("⚠️ Barcha maydonlarni to‘ldiring!");
       return;
     }
+
     try {
       if (editId) {
         await axios.put(`http://localhost:5000/customers/${editId}`, form);
+        toast.success("✅ Mijoz ma'lumotlari yangilandi!");
         setEditId(null);
       } else {
         await axios.post("http://localhost:5000/customers", form);
+        toast.success("✅ Yangi mijoz qo‘shildi!");
       }
+
       setForm({ name: "", email: "", phone: "", address: "" });
       fetchCustomers();
     } catch (err) {
+      toast.error("❌ Saqlashda xatolik yuz berdi!");
       console.error(err);
     }
   };
 
-  const handleDelete = async (id) => {
-    console.log(id);
-    
-    if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
-      try {
-        await axios.delete(`http://localhost:5000/customers/${id}`);
-        fetchCustomers();
-        toast.success("Mijoz muvaffaqiyatli o‘chirildi!");
-      } catch {
-        toast.error("Xatolik yuz berdi!");
-      }
-    }
+  const handleEdit = (customer) => {
+    setForm({
+      name: customer.name,
+      email: customer.email,
+      phone: customer.phone,
+      address: customer.address,
+    });
+    setEditId(customer.id);
   };
 
-  const handleEdit = (customer) => {
-    setForm(customer);
-    setEditId(customer._id);
+  const handleDelete = async (id) => {
+    if (window.confirm("Haqiqatan ham o‘chirmoqchimisiz?")) {
+      try {
+        const customerToDelete = customers.find((c) => c.id === id);
+        if (!customerToDelete) return;
+
+        await axios.post("http://localhost:5000/archivedCustomers", {
+          ...customerToDelete,
+          deletedAt: new Date().toISOString(),
+        });
+
+        await axios.delete(`http://localhost:5000/customers/${id}`);
+
+        toast.success("🗑️ Mijoz o‘chirildi va arxivga saqlandi!");
+        fetchCustomers();
+      } catch (err) {
+        toast.error("❌ O‘chirish yoki arxivlashda xatolik!");
+        console.error(err);
+      }
+    }
   };
 
   const filtered = customers.filter(
@@ -86,8 +106,9 @@ function Customers() {
 
   return (
     <div className="customers-container">
+      <h1 className="customers-title">Customers</h1>
+
       <div className="customers-header">
-        <h1 className="customers-title">Customers</h1>
         <input
           type="text"
           className="search-input"
@@ -96,6 +117,7 @@ function Customers() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
+
       <form onSubmit={handleSubmit} className="customer-form">
         <input
           type="text"
@@ -122,9 +144,10 @@ function Customers() {
           onChange={(e) => setForm({ ...form, address: e.target.value })}
         />
         <button type="submit" className="btn-primary">
-          {editId ? "Save Changes" : "Add Customer"}
+          {editId ? "💾 Save Changes" : "➕ Add Customer"}
         </button>
       </form>
+
       <div className="table-container">
         <table className="customers-table">
           <thead>
@@ -168,6 +191,7 @@ function Customers() {
             )}
           </tbody>
         </table>
+
         <ReactPaginate
           previousLabel={"<"}
           nextLabel={">"}
@@ -186,6 +210,17 @@ function Customers() {
           disabledClassName={"disabled"}
         />
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
     </div>
   );
 }
