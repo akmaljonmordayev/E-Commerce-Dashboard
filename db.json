@@ -96,6 +96,31 @@
       "brand": "Samsung"
     },
     {
+      "id":"3",
+      "name": "Sony WH-1000XM5",
+      "price": 349.99,
+      "stock": 15,
+      "category": "Headphones",
+      "brand": "Sony"
+    },
+    
+    {
+      "id": "4",
+      "name": "MacBook Pro 16\"",
+      "price": 2499.99,
+      "stock": 10,
+      "category": "Laptops",
+      "brand": "Apple"
+    },
+    {
+      "id": "5",
+      "name": "Samsung QN90B Neo QLED TV",
+      "price": 1999.99,
+      "stock": 8,
+      "category": "Televisions",
+      "brand": "Samsung"
+    },
+    {
       "id": "6",
       "name": "Logitech MX Master 3S",
       "price": 119,
@@ -283,11 +308,19 @@
     },
     {
       "id": "11",
-      "customerId": "10",
+      "customerId": "11",
       "status": "Completed",
       "totalAmount": 179.99,
       "createdAt": "2025-09-10",
       "name": "Acer laptop"
+    }
+        {
+      "id": "12",
+      "customerId": "12",
+      "status": "Cancelled",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-10",
+      "name": "IPad Pro laptop"
     }
   ],
   "users": [
@@ -300,6 +333,16 @@
       "password": "akmstrike1231",
       "age": 16,
       "role": "customer"
+    },
+    {
+      "id": "68f9",
+      "name": "Muhammadyusuf",
+      "surname": "Ro'ziyev",
+      "username": "Myruziyev",
+      "email": "myruziyev@gmail.com",
+      "password": "123457",
+      "age": 14,
+      "role": "admin"
     }
   ],
   "commands": [
@@ -330,8 +373,8 @@
     },
     {
       "id": "d8f8",
-      "command": "Menga komandalaringni bor? ",
-      "response": "Yaratuvchidan so'rang 😉"
+      "command": "Menga komandalaringni ko'rsat? ",
+      "response": "Yaratuvchidan so'rang 😁"
     }
   ],
   "archieve": {
