@@ -52,7 +52,6 @@ const Chatbot = () => {
           result.data[0].length > 0 &&
           result.data[0][result.data[0].length - 1].role === "assistant"
         ) {
-          // If API returns chat history, get the last assistant message
           assistantMsg = result.data[0][result.data[0].length - 1].content;
         } else if (
           typeof result.data[0] === "object" &&
@@ -90,7 +89,7 @@ const Chatbot = () => {
       <h1 className="text-xl font-semibold mb-4">AI Chatbot</h1>
       <div className="border rounded-lg p-4 h-96 overflow-y-auto bg-white mb-4">
         {messages.length === 0 && (
-          <div className="text-gray-400">Yangi suhbat boshlang...</div>
+          <div className="text-gray-400">   </div>
         )}
         {messages.map((msg, idx) => (
           <div
