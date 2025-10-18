@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import CustomTableArchieve from "./customTableArchieve";
 import useGet from "../../customHooks/useGet";
 import useDelete from "../../customHooks/useDelete";
 import usePost from "../../customHooks/usePost";
