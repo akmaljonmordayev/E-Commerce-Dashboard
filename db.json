@@ -175,6 +175,14 @@
       "stock": 25,
       "category": "Smart Home",
       "brand": "Amazon"
+    },
+    {
+      "id": "18",
+      "name": "Microsoft Surface Pro 9",
+      "price": 1399,
+      "stock": 8,
+      "category": "Tablets",
+      "brand": "Microsoftbek"
     }
   ],
   "orders": [
@@ -287,6 +295,16 @@
       "password": "113355",
       "age": 15,
       "role": "customer"
+    },
+    {
+      "id": "3ebd",
+      "name": "Adham",
+      "surname": "Jabborov",
+      "username": "Notarius",
+      "email": "jabborovadhamjon97@gmail.com",
+      "password": "notariuscs2",
+      "age": 15,
+      "role": "admin"
     }
   ],
   "productsArchieve": [
