@@ -187,7 +187,155 @@
       "id": "18",
       "name": "Microsoft Surface Pro 9",
       "price": 1399,
-      "stock": 8
+      "stock": 8,"category": "Tablets",
+      "brand": "Microsoftbek"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "customerId": "1",
+      "status": "Completed",
+      "totalAmount": 2599.98,
+      "createdAt": "2025-09-01",
+      "name": "JBL Charge 5"
+    },
+    {
+      "id": "2",
+      "customerId": "2",
+      "status": "Pending",
+      "totalAmount": 399.99,
+      "createdAt": "2025-09-02",
+      "name": "Microsoft Surface Pro 9"
+    },
+    {
+      "id": "3",
+      "customerId": "3",
+      "status": "Shipped",
+      "totalAmount": 1099.99,
+      "createdAt": "2025-09-03",
+      "name": "Computer"
+    },
+    {
+      "id": "4",
+      "customerId": "4",
+      "status": "Cancelled",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-04",
+      "name": "Razer BlackWidow V4"
+    },
+    {
+      "id": "5",
+      "customerId": "5",
+      "status": "Completed",
+      "totalAmount": 1499,
+      "createdAt": "2025-09-05",
+      "name": "Redmi Note 13 Pro"
+    },
+    {
+      "id": "6",
+      "customerId": "6",
+      "status": "Pending",
+      "totalAmount": 249.99,
+      "createdAt": "2025-09-06",
+      "name": "Headphones"
+    },
+    {
+      "id": "7",
+      "customerId": "7",
+      "status": "Completed",
+      "totalAmount": 1799,
+      "createdAt": "2025-09-07",
+      "name": "Laptop HP"
+    },
+    {
+      "id": "8",
+      "customerId": "8",
+      "status": "Shipped",
+      "totalAmount": 899.99,
+      "createdAt": "2025-09-08",
+      "name": "Air pods pro"
+    },
+    {
+      "id": "9",
+      "customerId": "9",
+      "status": "Completed",
+      "totalAmount": 199.99,
+      "createdAt": "2025-09-09",
+      "name": "IPhone 17 pro"
+    },
+    {
+      "id": "10",
+      "customerId": "10",
+      "status": "Pending",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-10",
+      "name": "Xiomi 14"
+    },
+    {
+      "id": "11",
+      "customerId": "10",
+      "status": "Completed",
+      "totalAmount": 179.99,
+      "createdAt": "2025-09-10",
+      "name": "Acer laptop"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Akmal",
+      "surname": "Mordayev",
+      "username": "akmstrike",
+      "email": "akmaljonmordayev@gmail.com",
+      "password": "akmstrike1231",
+      "age": 16,
+      "role": "customer"
+    },
+    {
+      "id": "0f61",
+      "name": "Ayyubkhon",
+      "surname": "Shukhratov",
+      "username": "ceph",
+      "email": "ayyub@gmail.com",
+      "password": "113355",
+      "age": 15,
+      "role": "customer"
+    },
+    {
+      "id": "3ebd",
+      "name": "Adham",
+      "surname": "Jabborov",
+      "username": "Notarius",
+      "email": "jabborovadhamjon97@gmail.com",
+      "password": "notariuscs2",
+      "age": 15,
+      "role": "admin"
+    }
+  ],
+  "productsArchieve": [
+    {
+      "id": "9e97",
+      "title": "iPhone 15 Pro",
+      "price": 1299.99,
+      "stock": 25,
+      "category": "Smartphones",
+      "brand": "Apple"
+    }
+  ],
+  "customersArchieve": [],
+  "usersArchieve": [],
+  "ordersArchieve": [],
+  "commands": [
+    {
+      "id": "31e7",
+      "command": "salom",
+      "response": "salom! Qalaysiz😅"
+    },
+    {
+      "id": "bb53",
+      "command": "Bilol",
+      "response": "hello bilol"
     }
   ]
 }
