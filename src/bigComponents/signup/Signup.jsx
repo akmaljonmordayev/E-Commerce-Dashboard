@@ -1,5 +1,3 @@
-// src/signup/Signup.jsx
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -39,19 +37,16 @@ function Signup() {
       }
     }
 
-    // Yoshni tekshirish
     if (isNaN(formData.age) || formData.age < 10 || formData.age > 100) {
       setError("Yosh 10 dan 100 gacha bo'lishi kerak.");
       return;
     }
 
-    // Parol uzunligi
     if (formData.password.length < 6) {
       setError("Parol kamida 6 ta belgidan iborat bo'lishi kerak.");
       return;
     }
 
-    // Email formati
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setError("Yaroqsiz email manzili.");
@@ -59,7 +54,6 @@ function Signup() {
     }
 
     try {
-      // ✅ Email allaqachon mavjudligini tekshirish
       const emailCheckRes = await fetch(
         `http://localhost:5000/users?email=${encodeURIComponent(formData.email)}`
       );
@@ -71,7 +65,6 @@ function Signup() {
         return;
       }
 
-      // ✅ Username allaqachon mavjudligini tekshirish
       const usernameCheckRes = await fetch(
         `http://localhost:5000/users?username=${encodeURIComponent(formData.username)}`
       );
@@ -83,7 +76,6 @@ function Signup() {
         return;
       }
 
-      // ✅ Yangi foydalanuvchini yaratish
       const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
