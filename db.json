@@ -331,36 +331,6 @@
       "id": "bb53",
       "command": "Bilol",
       "response": "hello bilol"
-    },
-    {
-      "id": "730c",
-      "command": "dinnaxuy",
-      "response": "idinaxuy jalab"
-    },
-    {
-      "id": "f4c0",
-      "command": "pasholnaxuy",
-      "response": "amini ye"
-    },
-    {
-      "id": "1a11",
-      "command": "gey",
-      "response": "manmas humo gey"
-    },
-    {
-      "id": "84ff",
-      "command": "ikkalen gey ",
-      "response": "qotogimmi yebsan"
-    },
-    {
-      "id": "d78f",
-      "command": "ogzinga sikaman",
-      "response": "korili"
-    },
-    {
-      "id": "a762",
-      "command": "ke jonim",
-      "response": "qult qult qult"
     }
   ]
 }
