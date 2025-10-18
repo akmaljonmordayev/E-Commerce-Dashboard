@@ -194,14 +194,6 @@
       "name": "JBL Charge 5"
     },
     {
-      "id": "2",
-      "customerId": "2",
-      "status": "Pending",
-      "totalAmount": 399.99,
-      "createdAt": "2025-09-02",
-      "name": "Microsoft Surface Pro 9"
-    },
-    {
       "id": "3",
       "customerId": "3",
       "status": "Shipped",
@@ -312,7 +304,7 @@
       "username": "firdavsbek347",
       "email": "firdavsbek347@gmail.com",
       "password": "12345678fir",
-      "age": 60,
+      "age": 16,
       "role": "support"
     },
     {

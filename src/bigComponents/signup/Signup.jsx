@@ -1,10 +1,10 @@
 // src/signup/Signup.jsx
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 navigatsiya uchun
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const navigate = useNavigate(); // 👈 hook
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -30,16 +30,8 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const requiredFields = [
-      "name",
-      "surname",
-      "username",
-      "email",
-      "password",
-      "age",
-      "role",
-    ];
-
+    // Majburiy maydonlarni tekshirish
+    const requiredFields = ["name", "surname", "username", "email", "password", "age", "role"];
     for (const field of requiredFields) {
       if (!formData[field]?.toString().trim()) {
         setError("Barcha maydonlarni to'ldiring!");
@@ -47,16 +39,19 @@ function Signup() {
       }
     }
 
+    // Yoshni tekshirish
     if (isNaN(formData.age) || formData.age < 10 || formData.age > 100) {
       setError("Yosh 10 dan 100 gacha bo'lishi kerak.");
       return;
     }
 
+    // Parol uzunligi
     if (formData.password.length < 6) {
       setError("Parol kamida 6 ta belgidan iborat bo'lishi kerak.");
       return;
     }
 
+    // Email formati
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setError("Yaroqsiz email manzili.");
@@ -64,6 +59,31 @@ function Signup() {
     }
 
     try {
+      // ✅ Email allaqachon mavjudligini tekshirish
+      const emailCheckRes = await fetch(
+        `http://localhost:5000/users?email=${encodeURIComponent(formData.email)}`
+      );
+      if (!emailCheckRes.ok) throw new Error("Email tekshiruvida xatolik");
+      const emailExists = await emailCheckRes.json();
+
+      if (emailExists.length > 0) {
+        setError("Bu email manzili allaqachon ro'yxatdan o'tgan.");
+        return;
+      }
+
+      // ✅ Username allaqachon mavjudligini tekshirish
+      const usernameCheckRes = await fetch(
+        `http://localhost:5000/users?username=${encodeURIComponent(formData.username)}`
+      );
+      if (!usernameCheckRes.ok) throw new Error("Foydalanuvchi nomi tekshiruvida xatolik");
+      const usernameExists = await usernameCheckRes.json();
+
+      if (usernameExists.length > 0) {
+        setError("Bu foydalanuvchi nomi allaqachon mavjud.");
+        return;
+      }
+
+      // ✅ Yangi foydalanuvchini yaratish
       const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
@@ -79,7 +99,6 @@ function Signup() {
         setSuccess(true);
         setError("");
 
-        // 👇 1.5 soniyadan keyin login sahifasiga yo'naltirish
         setTimeout(() => {
           navigate("/login");
         }, 1500);
