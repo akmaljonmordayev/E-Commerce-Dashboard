@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -25,16 +28,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const requiredFields = [
-      "name",
-      "surname",
-      "username",
-      "email",
-      "password",
-      "age",
-      "role",
-    ];
-
+    const requiredFields = ["name", "surname", "username", "email", "password", "age", "role"];
     for (const field of requiredFields) {
       if (!formData[field]?.toString().trim()) {
         setError("Barcha maydonlarni to'ldiring!");
@@ -59,6 +53,28 @@ function Signup() {
     }
 
     try {
+      const emailCheckRes = await fetch(
+        `http://localhost:5000/users?email=${encodeURIComponent(formData.email)}`
+      );
+      if (!emailCheckRes.ok) throw new Error("Email tekshiruvida xatolik");
+      const emailExists = await emailCheckRes.json();
+
+      if (emailExists.length > 0) {
+        setError("Bu email manzili allaqachon ro'yxatdan o'tgan.");
+        return;
+      }
+
+      const usernameCheckRes = await fetch(
+        `http://localhost:5000/users?username=${encodeURIComponent(formData.username)}`
+      );
+      if (!usernameCheckRes.ok) throw new Error("Foydalanuvchi nomi tekshiruvida xatolik");
+      const usernameExists = await usernameCheckRes.json();
+
+      if (usernameExists.length > 0) {
+        setError("Bu foydalanuvchi nomi allaqachon mavjud.");
+        return;
+      }
+
       const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
@@ -73,15 +89,10 @@ function Signup() {
       if (response.ok) {
         setSuccess(true);
         setError("");
-        setFormData({
-          name: "",
-          surname: "",
-          username: "",
-          email: "",
-          password: "",
-          age: "",
-          role: "customer",
-        });
+
+        setTimeout(() => {
+          navigate("/login");
+        }, 1500);
       } else {
         const errorText = await response.text();
         setError(`Xatolik: ${errorText || "Ro'yxatdan o'tishda muammo"}`);

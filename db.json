@@ -80,44 +80,11 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    },
-    {
       "id": "2",
       "name": "Samsung Galaxy S24",
       "price": 1099.99,
       "stock": 30,
       "category": "Smartphones",
-      "brand": "Samsung"
-    },
-    {
-      "id":"3",
-      "name": "Sony WH-1000XM5",
-      "price": 349.99,
-      "stock": 15,
-      "category": "Headphones",
-      "brand": "Sony"
-    },
-    
-    {
-      "id": "4",
-      "name": "MacBook Pro 16\"",
-      "price": 2499.99,
-      "stock": 10,
-      "category": "Laptops",
-      "brand": "Apple"
-    },
-    {
-      "id": "5",
-      "name": "Samsung QN90B Neo QLED TV",
-      "price": 1999.99,
-      "stock": 8,
-      "category": "Televisions",
       "brand": "Samsung"
     },
     {
@@ -209,7 +176,7 @@
       "brand": "DJI"
     },
     {
-      "id": "17",
+      "id": "0165",
       "name": "Amazon Echo Dot 5",
       "price": 59,
       "stock": 25,
@@ -220,184 +187,7 @@
       "id": "18",
       "name": "Microsoft Surface Pro 9",
       "price": 1399,
-      "stock": 8,
-      "category": "Tablets",
-      "brand": "Microsoftbek"
+      "stock": 8
     }
-  ],
-  "orders": [
-    {
-      "id": "1",
-      "customerId": "1",
-      "status": "Completed",
-      "totalAmount": 2599.98,
-      "createdAt": "2025-09-01",
-      "name": "JBL Charge 5"
-    },
-    {
-      "id": "2",
-      "customerId": "2",
-      "status": "Pending",
-      "totalAmount": 399.99,
-      "createdAt": "2025-09-02",
-      "name": "Microsoft Surface Pro 9"
-    },
-    {
-      "id": "3",
-      "customerId": "3",
-      "status": "Shipped",
-      "totalAmount": 1099.99,
-      "createdAt": "2025-09-03",
-      "name": "Computer"
-    },
-    {
-      "id": "4",
-      "customerId": "4",
-      "status": "Cancelled",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-04",
-      "name": "Razer BlackWidow V4"
-    },
-    {
-      "id": "5",
-      "customerId": "5",
-      "status": "Completed",
-      "totalAmount": 1499,
-      "createdAt": "2025-09-05",
-      "name": "Redmi Note 13 Pro"
-    },
-    {
-      "id": "6",
-      "customerId": "6",
-      "status": "Pending",
-      "totalAmount": 249.99,
-      "createdAt": "2025-09-06",
-      "name": "Headphones"
-    },
-    {
-      "id": "7",
-      "customerId": "7",
-      "status": "Completed",
-      "totalAmount": 1799,
-      "createdAt": "2025-09-07",
-      "name": "Laptop HP"
-    },
-    {
-      "id": "8",
-      "customerId": "8",
-      "status": "Shipped",
-      "totalAmount": 899.99,
-      "createdAt": "2025-09-08",
-      "name": "Air pods pro"
-    },
-    {
-      "id": "9",
-      "customerId": "9",
-      "status": "Completed",
-      "totalAmount": 199.99,
-      "createdAt": "2025-09-09",
-      "name": "IPhone 17 pro"
-    },
-    {
-      "id": "10",
-      "customerId": "10",
-      "status": "Pending",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Xiomi 14"
-    },
-    {
-      "id": "11",
-      "customerId": "11",
-      "status": "Completed",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Acer laptop"
-    },
-        {
-      "id": "12",
-      "customerId": "12",
-      "status": "Cancelled",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "IPad Pro laptop"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "name": "Akmal",
-      "surname": "Mordayev",
-      "username": "akmstrike",
-      "email": "akmaljonmordayev@gmail.com",
-      "password": "akmstrike1231",
-      "age": 16,
-      "role": "customer"
-    },
-    {
-      "id": "68f9",
-      "name": "Muhammadyusuf",
-      "surname": "Ro'ziyev",
-      "username": "Myruziyev",
-      "email": "myruziyev@gmail.com",
-      "password": "123457",
-      "age": 14,
-      "role": "admin"
-    }
-  ],
-  "commands": [
-    {
-      "id": "31e7",
-      "command": "Salom",
-      "response": "Salom! Qalaysiz?🙂"
-    },
-    {
-      "id": "02cf",
-      "command": "Qanday qilib narsa olasam bo'ladi?",
-      "response": "Products sahifasiga kiring va sahifadan narsa buyurtma qiling"
-    },
-    {
-      "id": "8552",
-      "command": "Profilimni qanday qilib o'zgartirsam bo'ladi?",
-      "response": "Settings sahifasida o'zgartirsangiz bo'ladi"
-    },
-    {
-      "id": "9fa2",
-      "command": "Qalaysan?",
-      "response": "Men yaxshiman,o'zingizchi?😉"
-    },
-    {
-      "id": "876c",
-      "command": "Menga yordam ber",
-      "response": "Qanday yordam berishim mumkin?🙂"
-    },
-    {
-      "id": "d8f8",
-      "command": "Menga komandalaringni ko'rsat? ",
-      "response": "Yaratuvchidan so'rang 😁"
-    }
-  ],
-  "archieve": {
-    "usersArchieve": [
-      {
-        "id": 1,
-        "name": "Akmal",
-        "date": "2025-10-04"
-      }
-    ],
-    "productsArchieve": [
-      {
-        "id": 101,
-        "title": "Telefon",
-        "date": "2025-10-02"
-      }
-    ],
-    "customersArchieve": [
-      {
-        "id": 201,
-        "fullname": "Ali Valiyev",
-        "date": "2025-10-01"
-      }
-    ]
-  }
+  ]
 }
