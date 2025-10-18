@@ -29,11 +29,11 @@
       "address": "Namangan, Uzbekistan"
     },
     {
+      "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
       "phone": "+998931234567",
-      "address": " Uzbekistan",
-      "id": "6"
+      "address": "Fergana, Uzbekistan"
     },
     {
       "id": "8",
@@ -62,6 +62,13 @@
       "email": "asdvasdv@gmail.com",
       "phone": "121212",
       "address": "asdvasdvasd"
+    },
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva"
     }
   ],
   "products": [
@@ -229,7 +236,7 @@
     },
     {
       "id": "7",
-      "customerId": null,
+      "customerId": "7",
       "status": "Completed",
       "totalAmount": 1799,
       "createdAt": "2025-09-07",
