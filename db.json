@@ -180,23 +180,15 @@
       "id": "18",
       "name": "Microsoft Surface Pro 9",
       "price": 1399,
-<<<<<<< HEAD
       "stock": 8,
       "category": "Tablets",
-=======
-      "stock": 8,"category": "Tablets",
->>>>>>> 493c573a763a117f0e0bf1468f8653f95675c13c
       "brand": "Microsoftbek"
     }
   ],
   "orders": [
     {
       "id": "1",
-<<<<<<< HEAD
       "customerId": null,
-=======
-      "customerId": "1",
->>>>>>> 493c573a763a117f0e0bf1468f8653f95675c13c
       "status": "Completed",
       "totalAmount": 2599.98,
       "createdAt": "2025-09-01",
@@ -338,7 +330,6 @@
       "id": "bb53",
       "command": "Bilol",
       "response": "hello bilol"
-<<<<<<< HEAD
     }
   ],
   "archivedCustomers": [
@@ -373,8 +364,6 @@
       "phone": "dddddddddd",
       "address": "ddddddd",
       "deletedAt": "2025-10-18T11:49:34.609Z"
-=======
->>>>>>> 493c573a763a117f0e0bf1468f8653f95675c13c
     }
   ]
 }
