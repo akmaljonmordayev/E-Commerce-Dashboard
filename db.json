@@ -1,27 +1,6 @@
 {
   "customers": [
     {
-      "id": "1",
-      "name": "Azizbek Karimov",
-      "email": "azizbek.karimov@mail.com",
-      "phone": "+998901234567",
-      "address": "Tashkent, Uzbekistan"
-    },
-    {
-      "id": "2",
-      "name": "Dilnoza Rasulova",
-      "email": "dilnoza.rasulova@mail.com",
-      "phone": "+998909887766",
-      "address": "Samarkand, Uzbekistan"
-    },
-    {
-      "id": "3",
-      "name": "Javohir Ismoilov",
-      "email": "javohir.ismoilov@mail.com",
-      "phone": "+998935552211",
-      "address": "Bukhara, Uzbekistan"
-    },
-    {
       "id": "4",
       "name": "Malika Toshpulatova",
       "email": "malika.tosh@mail.com",
@@ -76,24 +55,23 @@
       "email": "bobur.m@mail.com",
       "phone": "+",
       "address": "Khiva"
+    },
+    {
+      "id": "77a2",
+      "name": "ramazon",
+      "email": "ramazon@gmail.com",
+      "phone": "654345678",
+      "address": "vasd avsd "
     }
   ],
   "products": [
-    {
-      "id": "2",
-      "name": "Samsung Galaxy S24",
-      "price": 1099.99,
-      "stock": 30,
-      "category": "Smartphones",
-      "brand": "Samsung"
-    },
     {
       "id": "6",
       "name": "Logitech MX Master 3S",
       "price": 119,
       "stock": 22,
       "category": "Accessories",
-      "brand": "Logitech"
+      "brand": "hellobot"
     },
     {
       "id": "7",
@@ -182,12 +160,36 @@
       "stock": 213123,
       "category": "213",
       "brand": "123"
+    },
+  {
+      "id": "0165",
+      "name": "Amazon Echo Dot 5",
+      "price": 59,
+      "stock": 25,
+      "category": "Smart Home",
+      "brand": "Amazon"
+    },
+    {
+      "id": "18",
+      "name": "Microsoft Surface Pro 9",
+      "price": 1399,
+      "stock": 8,
+      "category": "Tablets",
+      "brand": "Microsoftbek"
+    },
+    {
+      "id": "45e1",
+      "name": "Samsung Galaxy S24",
+      "price": 1099.99,
+      "stock": 30,
+      "category": "Smartphones",
+      "brand": "Samsung"
     }
   ],
   "orders": [
     {
       "id": "2",
-      "customerId": "2",
+      "customerId": null,
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
@@ -195,7 +197,7 @@
     },
     {
       "id": "3",
-      "customerId": "3",
+      "customerId": null,
       "status": "Shipped",
       "totalAmount": 1099.99,
       "createdAt": "2025-09-03",
@@ -324,7 +326,16 @@
       "brand": "Amazon"
     }
   ],
-  "customersArchieve": [],
+  "customersArchieve": [
+    {
+      "id": "3",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan",
+      "deletedAt": "2025-10-21T12:09:23.475Z"
+    }
+  ],
   "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [

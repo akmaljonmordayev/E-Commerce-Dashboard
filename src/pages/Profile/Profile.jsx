@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-
+import useGet from "../../customHooks/useGet";
+import { useNavigate } from "react-router-dom";
 function Profile() {
+  let id = localStorage.getItem("userId");
+  const { data: user, error, success } = useGet(`/users/${id}`);
+
+  let navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    name: "Sofiya Rasulova",
+    name: "hello",
     email: "sofiya@example.com",
     profession: "Frontend Developer",
     bio: "Creative developer passionate about building elegant, dynamic, and user-friendly web interfaces using React and Tailwind CSS.",
   });
 
-  let bgClass = "bg-gradient-to-br from-indigo-900 via-blue-950 to-indigo-900 text-white";
+  let bgClass =
+    "bg-gradient-to-br from-indigo-900 via-blue-950 to-indigo-900 text-white";
   let cardClass = "bg-blue-950/70 border-blue-800";
   let textMuted = "text-blue-300";
   let textSoft = "text-blue-200";
@@ -21,7 +27,8 @@ function Profile() {
   let linkColor = "text-blue-400 hover:text-blue-300";
 
   if (!darkMode) {
-    bgClass = "bg-gradient-to-br from-gray-100 via-white to-gray-200 text-gray-900";
+    bgClass =
+      "bg-gradient-to-br from-gray-100 via-white to-gray-200 text-gray-900";
     cardClass = "bg-white/70 border-gray-300";
     textMuted = "text-blue-700";
     textSoft = "text-gray-700";
@@ -32,11 +39,19 @@ function Profile() {
     linkColor = "text-blue-600 hover:text-blue-500";
   }
 
+  let logOut = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <div
       className={`min-h-screen flex items-center justify-center px-4 relative overflow-hidden transition-all duration-700 ${bgClass}`}
     >
-      <button className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-lg transition-all duration-300 hover:scale-105 bg-red-600 hover:bg-red-500 text-white">
+      <button
+        onClick={logOut}
+        className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-lg transition-all duration-300 hover:scale-105 bg-red-600 hover:bg-red-500 text-white"
+      >
         Logout
       </button>
 
@@ -47,165 +62,43 @@ function Profile() {
         {darkMode ? "☀ Light" : "🌙 Dark"}
       </button>
 
-      <div
-        className={`rounded-2xl p-8 w-full max-w-md text-center backdrop-blur-lg shadow-2xl border transition-all duration-700 ${cardClass}`}
-      >
-        <div className="flex justify-center mb-6">
-          <img
-            src="https://i.ibb.co/3N6CkTb/profile-avatar.png"
-            alt="Profile Avatar"
-            className={`w-28 h-28 rounded-full border-4 shadow-lg hover:scale-105 transition-transform duration-300 ${borderColor}`}
-          />
-        </div>
+      {user && (
+        <div className="max-w-md w-full bg-white dark:bg-slate-800 rounded-2xl shadow-md p-4 flex items-center gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <h3 className="text-slate-900 dark:text-slate-100 font-semibold text-lg leading-tight truncate">
+                  {user.name} {user.surname}
+                </h3>
+                <p className="text-sm text-slate-500 dark:text-slate-300">
+                  @{user.username}
+                </p>
+              </div>
 
-        <h1 className="text-3xl font-bold mb-2 tracking-wide">{formData.name}</h1>
-        <p className={`mb-6 text-sm uppercase tracking-widest ${textMuted}`}>{formData.profession}</p>
-        <p className={`leading-relaxed mb-6 text-sm ${textSoft}`}>{formData.bio}</p>
-
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          {[
-            { label: "Projects", value: "120" },
-            { label: "Clients", value: "85" },
-            { label: "Years Exp", value: "5+" },
-          ].map((stat, i) => (
-            <div key={i} className={`rounded-lg py-3 transition duration-300 ${statBg}`}>
-              <h3 className="text-xl font-bold">{stat.value}</h3>
-              <p className={`text-xs ${textMuted}`}>{stat.label}</p>
+              <div className="flex items-center gap-2">
+                <span
+                  className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    user.role === "admin"
+                      ? "bg-amber-100 text-amber-800"
+                      : "bg-slate-100 text-slate-800"
+                  } dark:bg-slate-700 dark:text-slate-200`}
+                >
+                  {user.role}
+                </span>
+              </div>
             </div>
-          ))}
-        </div>
 
-        <div className="flex justify-center gap-4">
-          <button
-            onClick={() => setShowModal(true)}
-            className={`px-5 py-2 rounded-xl font-semibold transition duration-300 hover:shadow-lg hover:scale-105 ${btnPrimary}`}
-          >
-            Edit Profile
-          </button>
-          <button
-            className={`px-5 py-2 rounded-xl font-semibold border transition duration-300 hover:shadow-md hover:scale-105 ${btnOutline}`}
-          >
-            Message
-          </button>
-        </div>
-
-        <div className="flex justify-center gap-5 mt-6 text-sm">
-          <a href="#" className={linkColor}>
-            🌐 Website
-          </a>
-          <a href="#" className={linkColor}>
-            💼 LinkedIn
-          </a>
-          <a href="#" className={linkColor}>
-            🐙 GitHub
-          </a>
-        </div>
-      </div>
-
-      {showModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fadeIn">
-          <div
-            className={`p-6 rounded-2xl shadow-2xl w-full max-w-md border transition-all duration-500 ${
-              darkMode
-                ? "bg-blue-950/90 border-blue-500 text-white"
-                : "bg-white/90 border-gray-300 text-gray-900"
-            }`}
-          >
-            <h2
-              className={`text-2xl font-bold mb-6 text-center ${
-                darkMode ? "text-blue-300" : "text-gray-900"
-              }`}
-            >
-              Edit Profile
-            </h2>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setShowModal(false);
-              }}
-              className="space-y-5"
-            >
-              <div className="flex flex-col items-start">
-                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
-                    darkMode
-                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
-                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
-                  }`}
-                />
+            <div className="mt-2 text-sm text-slate-600 dark:text-slate-300 grid grid-cols-2 gap-2">
+              <div className="truncate">
+                <div className="text-xs text-slate-400">Email</div>
+                <div className="truncate">{user.email}</div>
               </div>
 
-              <div className="flex flex-col items-start">
-                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
-                    darkMode
-                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
-                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
-                  }`}
-                />
+              <div>
+                <div className="text-xs text-slate-400">Age</div>
+                <div>{user.age}</div>
               </div>
-
-              <div className="flex flex-col items-start">
-                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
-                  Profession
-                </label>
-                <input
-                  type="text"
-                  value={formData.profession}
-                  onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
-                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
-                    darkMode
-                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
-                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
-                  }`}
-                />
-              </div>
-
-              <div className="flex flex-col items-start">
-                <label className={`text-sm mb-1 ${darkMode ? "text-blue-200" : "text-gray-800"}`}>
-                  About You
-                </label>
-                <textarea
-                  rows="3"
-                  value={formData.bio}
-                  onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-                  className={`w-full p-2 rounded-lg border focus:outline-none focus:ring-2 ${
-                    darkMode
-                      ? "border-blue-500 bg-blue-900/40 text-white focus:ring-blue-400"
-                      : "border-gray-300 bg-gray-100 text-gray-900 focus:ring-blue-500"
-                  }`}
-                ></textarea>
-              </div>
-
-              <div className="flex justify-between pt-3">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 rounded-lg bg-gray-400 hover:bg-gray-500 text-white font-semibold transition duration-300"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition duration-300"
-                >
-                  Save
-                </button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       )}

@@ -39,7 +39,7 @@ export default function CustomTableArchieve({ columns = [], data = [], onRestore
   ];
 
   return (
-    <div className="bg-[#1f2a40] p-4 rounded-xl shadow-lg border border-gray-700">
+    <div className="bg-[#1f2a40] p-4 rounded-xl shadow-lg border border-gray-700 mt-[30px]">
       <Table
         columns={updatedColumns}
         dataSource={data}
