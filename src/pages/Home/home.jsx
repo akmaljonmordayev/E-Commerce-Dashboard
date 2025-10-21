@@ -3,6 +3,7 @@ import ProductCard from "../../bigComponents/productCard";
 import useGet from "../../customHooks/useGet";
 import Loader from "../../smallComponents/loader";
 import ErrorMessage from "../../bigComponents/errorMessage";
+import { Link } from "react-router-dom";
 function HomePage() {
   const {
     data: customers,
@@ -36,16 +37,28 @@ function HomePage() {
 
   return (
     <div className="flex gap-[30px] justify-evenly flex-wrap">
-      <ProductCard
-        title="Total Products"
-        count={products ? products.length : 0}
-      />
-      <ProductCard
-        title="Total Customers"
-        count={customers ? customers.length : 0}
-      />
-      <ProductCard title="Total Orders" count={orders ? orders.length : 0} />
-      <ProductCard title="Total Users" count={users ? users.length : 0} />
+      <Link to={"/products"}>
+        {" "}
+        <ProductCard
+          title="Total Products"
+          count={products ? products.length : 0}
+        />
+      </Link>
+      <Link to={"/customers"}>
+        {" "}
+        <ProductCard
+          title="Total Customers"
+          count={customers ? customers.length : 0}
+        />
+      </Link>
+      <Link to={"/orders"}>
+        {" "}
+        <ProductCard title="Total Orders" count={orders ? orders.length : 0} />
+      </Link>
+      <Link to={"/users"}>
+        {" "}
+        <ProductCard title="Total Users" count={users ? users.length : 0} />
+      </Link>
     </div>
   );
 }
