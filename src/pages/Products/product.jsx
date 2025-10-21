@@ -100,7 +100,7 @@ export default function ProductPage() {
       });
 
       await deleteData(delItem.id);
-      setList((prev) => prev.filter((item) => item.id !== delItem.id)); // 💥 Удаляем локально
+      setList((prev) => prev.filter((item) => item.id !== delItem.id)); 
 
       toast.error("Deleted!", {
         style: { background: "#dc2626", color: "#fff" },
