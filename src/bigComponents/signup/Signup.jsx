@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
   const navigate = useNavigate();
@@ -13,8 +15,6 @@ function Signup() {
     age: "",
     role: "customer",
   });
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,59 +22,57 @@ function Signup() {
       ...formData,
       [name]: value,
     });
-    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const requiredFields = ["name", "surname", "username", "email", "password", "age", "role"];
+    const requiredFields = ["name", "surname", "username", "email", "password", "age"];
     for (const field of requiredFields) {
       if (!formData[field]?.toString().trim()) {
-        setError("Barcha maydonlarni to'ldiring!");
+        toast.error("Barcha maydonlarni to'ldiring!");
         return;
       }
     }
 
     if (isNaN(formData.age) || formData.age < 10 || formData.age > 100) {
-      setError("Yosh 10 dan 100 gacha bo'lishi kerak.");
+      toast.error("Yosh 10 dan 100 gacha bo'lishi kerak.");
       return;
     }
 
     if (formData.password.length < 6) {
-      setError("Parol kamida 6 ta belgidan iborat bo'lishi kerak.");
+      toast.error("Parol kamida 6 ta belgidan iborat bo'lishi kerak.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setError("Yaroqsiz email manzili.");
+      toast.error("Yaroqsiz email manzili.");
       return;
     }
 
     try {
+      // Email mavjudligini tekshirish
       const emailCheckRes = await fetch(
         `http://localhost:5000/users?email=${encodeURIComponent(formData.email)}`
       );
-      if (!emailCheckRes.ok) throw new Error("Email tekshiruvida xatolik");
       const emailExists = await emailCheckRes.json();
-
       if (emailExists.length > 0) {
-        setError("Bu email manzili allaqachon ro'yxatdan o'tgan.");
+        toast.error("Bu email allaqachon ro'yxatdan o'tgan.");
         return;
       }
 
+      // Username mavjudligini tekshirish
       const usernameCheckRes = await fetch(
         `http://localhost:5000/users?username=${encodeURIComponent(formData.username)}`
       );
-      if (!usernameCheckRes.ok) throw new Error("Foydalanuvchi nomi tekshiruvida xatolik");
       const usernameExists = await usernameCheckRes.json();
-
       if (usernameExists.length > 0) {
-        setError("Bu foydalanuvchi nomi allaqachon mavjud.");
+        toast.error("Bu foydalanuvchi nomi allaqachon mavjud.");
         return;
       }
 
+      // Yangi foydalanuvchini yaratish
       const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
@@ -87,118 +85,107 @@ function Signup() {
       });
 
       if (response.ok) {
-        setSuccess(true);
-        setError("");
-
+        toast.success("Muvaffaqiyatli ro'yxatdan o'tildi!");
         setTimeout(() => {
           navigate("/login");
         }, 1500);
       } else {
-        const errorText = await response.text();
-        setError(`Xatolik: ${errorText || "Ro'yxatdan o'tishda muammo"}`);
+        toast.error("Ro'yxatdan o'tishda xatolik yuz berdi.");
       }
     } catch (err) {
-      setError("Serverga ulanishda xatolik. JSON Server ishlayaptimi?");
       console.error(err);
+      toast.error("Serverga ulanishda xatolik. JSON Server ishlayaptimi?");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-100 py-8 px-4 sm:px-6">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800">
-              Ro'yxatdan o'tish
-            </h2>
-            <p className="mt-2 text-gray-500 text-sm">
-              Kerakli ma'lumotlarni kiriting.
-            </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f172a] via-[#071024] to-[#0b1020] p-6">
+      {/* Orqa fon effektlari */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -left-24 -top-24 w-80 h-80 rounded-full bg-gradient-to-tr from-purple-600 via-pink-500 to-yellow-400 opacity-30 blur-3xl transform rotate-12"></div>
+        <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-gradient-to-br from-emerald-400 via-sky-400 to-indigo-500 opacity-25 blur-3xl transform -rotate-6"></div>
+      </div>
+
+      <ToastContainer />
+
+      <main className="w-full max-w-md p-6">
+        <section className="bg-white/6 backdrop-blur-sm border border-white/8 rounded-3xl shadow-[0_10px_30px_rgba(2,6,23,0.6)] p-8">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-400 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
+              S
+            </div>
+            <div>
+              <h1 className="text-2xl font-semibold text-white">Ro'yxatdan o'tish</h1>
+            </div>
           </div>
-
-          {error && (
-            <div className="mb-6 p-3 bg-red-50 text-red-600 rounded-lg text-sm border border-red-100">
-              {error}
-            </div>
-          )}
-
-          {success && (
-            <div className="mb-6 p-3 bg-green-50 text-green-600 rounded-lg text-sm border border-green-100">
-              Muvaffaqiyatli ro'yxatdan o'tildi! Endi tizimga kira olasiz.
-            </div>
-          )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {[
               { name: "name", placeholder: "Ism", type: "text" },
               { name: "surname", placeholder: "Familiya", type: "text" },
               { name: "username", placeholder: "Foydalanuvchi nomi", type: "text" },
-              { name: "email", placeholder: "Email manzil", type: "email" },
-              {
-                name: "password",
-                placeholder: "Parol (kamida 6 ta belgi)",
-                type: "password",
-              },
-              {
-                name: "age",
-                placeholder: "Yoshingiz",
-                type: "number",
-                min: "10",
-                max: "100",
-              },
+              { name: "email", placeholder: "Email", type: "email" },
+              { name: "password", placeholder: "Parol (kamida 6 ta)", type: "password" },
+              { name: "age", placeholder: "Yosh (10–100)", type: "number" },
             ].map((field) => (
               <div key={field.name}>
+                <label className="block text-sm font-medium text-slate-300">
+                  {field.placeholder}
+                </label>
                 <input
                   name={field.name}
                   type={field.type}
-                  placeholder={field.placeholder}
                   value={formData[field.name]}
                   onChange={handleChange}
-                  min={field.min}
-                  max={field.max}
-                  className="w-full bg-transparent border-0 border-b border-gray-300 py-3 px-1 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-indigo-500 transition-colors"
+                  min={field.name === "age" ? "10" : undefined}
+                  max={field.name === "age" ? "100" : undefined}
                   required
+                  className="mt-2 block w-full rounded-xl bg-white/6 border border-white/12 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 px-4 py-3 text-white"
+                  placeholder={field.placeholder}
                 />
               </div>
             ))}
 
+            {/* Role tanlash */}
             <div>
-              <label className="block text-gray-600 text-sm mb-1">Rol tanlang</label>
+              <label className="block text-sm font-medium text-slate-300">
+                Rol
+              </label>
               <select
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full bg-transparent border-0 border-b border-gray-300 py-3 px-1 text-gray-700 focus:outline-none focus:border-indigo-500"
+                className="mt-2 block w-full rounded-xl bg-white/6 border border-white/12 text-white placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 px-4 py-3"
               >
-                <option value="customer">Mijoz</option>
-                <option value="seller">Sotuvchi</option>
-                <option value="support">Qo'llab-quvvatlash</option>
-                <option value="manager">Menejer</option>
-                <option value="admin">Admin</option>
+                <option value="customer" className="bg-[#0f172a] text-white">Mijoz</option>
+                <option value="seller" className="bg-[#0f172a] text-white">Sotuvchi</option>
+                <option value="support" className="bg-[#0f172a] text-white">Qo'llab-quvvatlash</option>
+                <option value="manager" className="bg-[#0f172a] text-white">Menejer</option>
+                <option value="admin" className="bg-[#0f172a] text-white">Admin</option>
               </select>
             </div>
 
-            <button
-              type="submit"
-              className="w-full mt-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              Ro'yxatdan o'tish
-            </button>
+            <div>
+              <button
+                type="submit"
+                className="w-full py-3 rounded-xl font-semibold shadow-lg hover:shadow-2xl transition bg-gradient-to-r from-indigo-500 to-pink-500 text-white"
+              >
+                Ro'yxatdan o'tish
+              </button>
+            </div>
           </form>
 
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 text-sm">
-              Hisobingiz bormi?{" "}
-              <a
-                href="/login"
-                className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors"
-              >
-                Kirish
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
+          <hr className="my-6 border-white/6" />
+          <p className="text-xs text-slate-400 text-center">
+            Hisobingiz bormi?{" "}
+            <a href="/login" className="text-indigo-300 hover:underline">
+              Tizimga kirish
+            </a>
+          </p>
+        </section>
+      </main>
+
+      
     </div>
   );
 }
