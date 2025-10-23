@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "9",
-      "name": "Sherzod Usmonov",
-      "email": "sherzod.u@mail.com",
-      "phone": "+998935550099",
-      "address": "Navoiy, Uzbekistan"
-    },
-    {
       "id": "bd58",
       "name": "ramazon",
       "email": "ramazon@gmail.com",
@@ -27,6 +20,13 @@
       "email": "malika.tosh@mail.com",
       "phone": "+998935554433",
       "address": "Andijan, Uzbekistan"
+    },
+    {
+      "id": "291e",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva"
     }
   ],
   "products": [
@@ -210,7 +210,7 @@
     },
     {
       "id": "9",
-      "customerId": "9",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 199.99,
       "createdAt": "2025-09-09",
@@ -239,6 +239,14 @@
       "totalAmount": 12000,
       "createdAt": "2025-10-23",
       "name": "olma"
+    },
+    {
+      "id": "1761222745578",
+      "customerId": "970668821",
+      "status": "Kutilmoqda",
+      "totalAmount": 15000,
+      "createdAt": "2025-10-23",
+      "name": "asliddin"
     }
   ],
   "users": [
@@ -253,14 +261,14 @@
       "id": "1"
     },
     {
-      "id": "0f61",
       "name": "Ayyubkhon",
       "surname": "Shukhratov",
-      "username": "ceph",
+      "username": "sher",
       "email": "ayyub@gmail.com",
-      "password": "113355",
       "age": 15,
-      "role": "customer"
+      "role": "customer",
+      "password": "1234",
+      "id": "0f61"
     },
     {
       "name": "Adham",
@@ -317,12 +325,12 @@
       "deletedAt": "2025-10-23T11:53:03.250Z"
     },
     {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+",
-      "address": "Khiva",
-      "deletedAt": "2025-10-23T11:53:07.000Z"
+      "id": "9",
+      "name": "Sherzod Usmonov",
+      "email": "sherzod.u@mail.com",
+      "phone": "+998935550099",
+      "address": "Navoiy, Uzbekistan",
+      "deletedAt": "2025-10-23T12:33:18.203Z"
     }
   ],
   "usersArchieve": [],
@@ -373,6 +381,5 @@
       "deletedAt": "2025-10-18T11:49:34.609Z"
     }
   ],
-
   "message": []
 }
