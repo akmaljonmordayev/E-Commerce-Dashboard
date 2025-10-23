@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useGet from "../../customHooks/useGet";
 import useDelete from "../../customHooks/useDelete";
 import usePost from "../../customHooks/usePost";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CustomTable from "./CustomTableArchieve";
 import CustomTableArchieve from "./CustomTableArchieve";
 
 function ProductsArchieve() {
-  const { data, refetch } = useGet("/productsArchieve");
+  const { data } = useGet("/productsArchieve");
   const { deleteData } = useDelete("/productsArchieve");
   const { postData } = usePost("/products");
+
+  const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
 
-  const filtered = data?.filter((i) =>
-    (i.title || "").toLowerCase().includes(search.toLowerCase()) ||
-    (i.category || "").toLowerCase().includes(search.toLowerCase()) ||
-    (i.brand || "").toLowerCase().includes(search.toLowerCase())
+  useEffect(() => {
+    if (data) setList(data);
+  }, [data]);
+
+  const filtered = list?.filter(
+    (i) =>
+      (i.title || "").toLowerCase().includes(search.toLowerCase()) ||
+      (i.category || "").toLowerCase().includes(search.toLowerCase()) ||
+      (i.brand || "").toLowerCase().includes(search.toLowerCase())
   );
 
   const handleRestore = async (item) => {
@@ -28,11 +34,13 @@ function ProductsArchieve() {
         category: item.category || "restored",
         brand: item.brand || "unknown",
       });
+
       await deleteData(item.id);
+      setList((prev) => prev.filter((i) => i.id !== item.id)); 
+
       toast.success("Product restored!", {
         style: { background: "#22c55e", color: "#fff" },
       });
-      await refetch();
     } catch (err) {
       console.error(err);
     }
@@ -41,10 +49,10 @@ function ProductsArchieve() {
   const handleDelete = async (item) => {
     try {
       await deleteData(item.id);
+      setList((prev) => prev.filter((i) => i.id !== item.id)); 
       toast.error("Deleted!", {
         style: { background: "#dc2626", color: "#fff" },
       });
-      await refetch();
     } catch (err) {
       console.error(err);
     }
@@ -81,5 +89,4 @@ function ProductsArchieve() {
   );
 }
 
-
-export default ProductsArchieve
+export default ProductsArchieve;

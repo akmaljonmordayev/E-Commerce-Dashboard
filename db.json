@@ -154,6 +154,14 @@
       "brand": "DJI"
     },
     {
+      "id": "bf90",
+      "name": "213",
+      "price": 123,
+      "stock": 213123,
+      "category": "213",
+      "brand": "123"
+    },
+    {
       "id": "0165",
       "name": "Amazon Echo Dot 5",
       "price": 59,
@@ -176,6 +184,14 @@
       "stock": 30,
       "category": "Smartphones",
       "brand": "Samsung"
+    },
+    {
+      "id": "e8ee",
+      "name": "Microsoft Surface Pro 9",
+      "price": 1399,
+      "stock": 8,
+      "category": "Tablets",
+      "brand": "Microsoftbek"
     }
   ],
   "orders": [
@@ -294,12 +310,12 @@
   ],
   "productsArchieve": [
     {
-      "id": "9e97",
-      "title": "iPhone 15 Pro",
-      "price": 1299.99,
+      "id": "13f3",
+      "title": "Amazon Echo Dot 5",
+      "price": 59,
       "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
+      "category": "Smart Home",
+      "brand": "Amazon"
     }
   ],
   "customersArchieve": [
