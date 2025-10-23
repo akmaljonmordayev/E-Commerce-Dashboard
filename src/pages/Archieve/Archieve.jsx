@@ -68,7 +68,9 @@ export default function Archieve() {
         </Link>
       </div>
 
-      <Outlet />
+      <div className="mt-[30px]">
+        <Outlet />
+      </div>
     </div>
   );
 }

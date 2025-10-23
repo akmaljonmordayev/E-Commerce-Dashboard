@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import CustomTableArchieve from "./customTableArchieve";
 import useGet from "../../customHooks/useGet";
 import useDelete from "../../customHooks/useDelete";
 import usePost from "../../customHooks/usePost";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CustomTable from "./CustomTableArchieve";
+import CustomTableArchieve from "./CustomTableArchieve";
 
-export default function ProductsArchieve() {
+function ProductsArchieve() {
   const { data, refetch } = useGet("/productsArchieve");
   const { deleteData } = useDelete("/productsArchieve");
   const { postData } = usePost("/products");
@@ -79,3 +80,6 @@ export default function ProductsArchieve() {
     </div>
   );
 }
+
+
+export default ProductsArchieve

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import useGet from "../../customHooks/useGet";
 import { ToastContainer } from "react-toastify";
@@ -12,26 +12,19 @@ export default function Login() {
   const navigate = useNavigate();
   const { data, loading, error } = useGet("/users");
 
-  if (username === useGet("/users/username")  && password === useGet("/users/password")) {
-    const token =
-      "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", username);
-    setMsg("Muvaffaqiyatli: token saqlandi. Redirect qilinadi...");
-    setTimeout(() => {
-      window.location.href = "/dashboard";
-    }, 900);
-  }
-
   const handleSubmit = (e) => {
+    e.preventDefault();
     const filterUser = data.filter(
       (user) => user.username == username && user.password == password
     );
+    console.log(filterUser);
+
     e.preventDefault();
     if (filterUser.length > 0) {
       const token =
         "fake-jwt-" + Math.random().toString(36).slice(2) + "-" + Date.now();
       localStorage.setItem("token", token);
+      localStorage.setItem("userId", filterUser[0].id);
       toast.success("Successfully login");
       setTimeout(() => {
         navigate("/dashboard");

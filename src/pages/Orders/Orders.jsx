@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Trash2 } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +8,32 @@ import useDelete from "../../customHooks/useDelete";
 function Orders() {
   const { data } = useGet("/orders");
   const { deleteData } = useDelete("/orders");
+
+  const [query, setQuery] = useState("");
+  const [filterStatus, setFilterStatus] = useState("All");
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    let result = data || [];
+
+    if (filterStatus !== "All") {
+      result = result.filter(
+        (order) => order.status?.toLowerCase() === filterStatus.toLowerCase()
+      );
+    }
+
+    if (query.trim() !== "") {
+      const q = query.toLowerCase();
+      result = result.filter(
+        (order) =>
+          order.name?.toLowerCase().includes(q) ||
+          order.status?.toLowerCase().includes(q) ||
+          order.id?.toString().includes(q)
+      );
+    }
+
+    setFilteredData(result);
+  }, [query, filterStatus, data]);
 
   const handleDelete = (id) => {
     deleteData(id);
@@ -32,8 +58,35 @@ function Orders() {
   return (
     <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center">
       <div className="w-full max-w-6xl">
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex flex-col md:flex-row justify-between gap-4 items-center mb-6">
           <h2 className="text-white text-2xl font-bold">Orders</h2>
+
+          <div className="flex gap-3 w-full md:w-auto">
+            <input
+              type="text"
+              placeholder="Search for order..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full md:w-64 px-4 py-2 rounded-lg bg-[#0f172a] !text-white
+                         placeholder-gray-400 border border-gray-600
+                         focus:outline-none focus:ring-2 focus:ring-blue-500
+                         transition duration-200"
+            />
+
+            <select
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+              className="px-4 py-2 rounded-lg bg-[#0f172a] text-white border border-gray-600
+                         focus:outline-none focus:ring-2 focus:ring-blue-500
+                         transition duration-200"
+            >
+              <option value="All">All</option>
+              <option value="Completed">Completed</option>
+              <option value="Pending">Pending</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
         </div>
 
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -50,7 +103,7 @@ function Orders() {
             </thead>
 
             <tbody className="divide-y divide-gray-200">
-              {data?.map((order, index) => (
+              {filteredData?.map((order, index) => (
                 <tr
                   key={order.id}
                   className="hover:bg-gray-50 transition duration-150"
@@ -80,9 +133,12 @@ function Orders() {
                 </tr>
               ))}
 
-              {data?.length === 0 && (
+              {filteredData?.length === 0 && (
                 <tr>
-                  <td colSpan="6" className="p-6 text-center text-gray-500 italic">
+                  <td
+                    colSpan="6"
+                    className="p-6 text-center text-gray-500 italic"
+                  >
                     No orders found.
                   </td>
                 </tr>
@@ -90,7 +146,6 @@ function Orders() {
             </tbody>
           </table>
         </div>
-
       </div>
 
       <ToastContainer />
