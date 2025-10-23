@@ -6,6 +6,7 @@ import imageLogo from "../header/img/mainLogo.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import mainLogo from "./img/mainLogoWel.png"
 export default function WelcomePage() {
   const [enter, setEnter] = useState(false);
   const [token, setToken] = useState("");
@@ -56,9 +57,7 @@ export default function WelcomePage() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center z-10 p-6 text-center"
           >
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-6 shadow-xl backdrop-blur-lg">
-              <span className="text-2xl font-bold">LOGO</span>
-            </div>
+              <img className="w-[380px]" src={mainLogo} alt="" />
 
             <motion.h1
               initial={{ scale: 0.8, opacity: 0 }}
