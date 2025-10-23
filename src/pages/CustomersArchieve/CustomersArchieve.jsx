@@ -27,22 +27,23 @@ function CustomersArchive() {
   const handleRestore = async (customer) => {
     if (window.confirm("Bu mijozni qayta tiklamoqchimisiz?")) {
       try {
-        await axios.post("http://localhost:5000/customersArchieve", {
+        await axios.post("http://localhost:5000/customers", {
           name: customer.name,
           email: customer.email,
           phone: customer.phone,
           address: customer.address,
         });
-
+  
         await axios.delete(
           `http://localhost:5000/customersArchieve/${customer.id}`
         );
-
+        
+  
         fetchArchived();
         toast.success("♻️ Mijoz qayta tiklandi!", { theme: "colored" });
       } catch (err) {
         console.error("Tiklashda xatolik:", err);
-        toast.error("❌ Tiklashda xatolik!", { theme: "colored" });
+        toast.error(`❌ Tiklashda xatolik: ${err.message}`, { theme: "colored" });
       }
     }
   };
@@ -62,9 +63,9 @@ function CustomersArchive() {
 
   const filtered = archived.filter(
     (c) =>
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.email.toLowerCase().includes(search.toLowerCase()) ||
-      c.address.toLowerCase().includes(search.toLowerCase())
+      (c.name && c.name.toLowerCase().includes(search.toLowerCase())) ||
+      (c.email && c.email.toLowerCase().includes(search.toLowerCase())) ||
+      (c.address && c.address.toLowerCase().includes(search.toLowerCase()))
   );
 
   const offset = currentPage * itemsPerPage;
@@ -157,7 +158,6 @@ function CustomersArchive() {
         />
       </div>
 
-      {/* ✅ Toast container */}
       <ToastContainer
         position="top-right"
         autoClose={2000}

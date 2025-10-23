@@ -1,27 +1,6 @@
 {
   "customers": [
     {
-      "id": "2",
-      "name": "Dilnoza Rasulova",
-      "email": "dilnoza.rasulova@mail.com",
-      "phone": "+998909887766",
-      "address": "Samarkand, Uzbekistan"
-    },
-    {
-      "id": "3",
-      "name": "Javohir Ismoilov",
-      "email": "javohir.ismoilov@mail.com",
-      "phone": "+998935552211",
-      "address": "Bukhara, Uzbekistan"
-    },
-    {
-      "id": "4",
-      "name": "Malika Toshpulatova",
-      "email": "malika.tosh@mail.com",
-      "phone": "+998935554433",
-      "address": "Andijan, Uzbekistan"
-    },
-    {
       "id": "5",
       "name": "Shahzod Rahmonov",
       "email": "shahzod.rahmonov@mail.com",
@@ -71,11 +50,25 @@
       "address": "Khiva"
     },
     {
-      "id": "77a2",
+      "id": "bd58",
       "name": "ramazon",
       "email": "ramazon@gmail.com",
       "phone": "654345678",
       "address": "vasd avsd "
+    },
+    {
+      "id": "f2cb",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan"
+    },
+    {
+      "id": "32c7",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan"
     }
   ],
   "products": [
@@ -219,7 +212,7 @@
     },
     {
       "id": "4",
-      "customerId": "4",
+      "customerId": null,
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04",
@@ -324,16 +317,7 @@
       "brand": "Apple"
     }
   ],
-  "customersArchieve": [
-    {
-      "id": "3",
-      "name": "Javohir Ismoilov",
-      "email": "javohir.ismoilov@mail.com",
-      "phone": "+998935552211",
-      "address": "Bukhara, Uzbekistan",
-      "deletedAt": "2025-10-21T12:09:23.475Z"
-    }
-  ],
+  "customersArchieve": [],
   "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
