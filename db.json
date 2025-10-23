@@ -297,24 +297,14 @@
       "role": "customer"
     },
     {
-      "id": "3ebd",
       "name": "Adham",
       "surname": "Jabborov",
-      "username": "Notarius",
+      "username": "Notarius1",
       "email": "jabborovadhamjon97@gmail.com",
-      "password": "notariuscs2",
       "age": 15,
-      "role": "admin"
-    },
-    {
-      "id": "9a78",
-      "name": "Muhammadyusuf",
-      "surname": "Ro'ziyev",
-      "username": "Myruziyev",
-      "email": "myruziyev@gmail.com",
-      "password": "1223457",
-      "age": 12,
-      "role": "customer"
+      "role": "admin",
+      "password": "notariuscs2_",
+      "id": "3ebd"
     }
   ],
   "productsArchieve": [
