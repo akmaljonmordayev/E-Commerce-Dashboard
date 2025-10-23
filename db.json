@@ -305,9 +305,9 @@
       "surname": "Ro'ziyev",
       "username": "Myruziyev",
       "email": "myruziyev@gmail.com",
-      "password": "1223457",
+      "password": "123457",
       "age": 12,
-      "role": "customer"
+      "role": "admin"
     }
   ],
   "productsArchieve": [
