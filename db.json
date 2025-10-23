@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "4",
-      "name": "Malika Toshpulatova",
-      "email": "malika.tosh@mail.com",
-      "phone": "+998935554433",
-      "address": "Andijan, Uzbekistan"
-    },
-    {
       "id": "5",
       "name": "Shahzod Rahmonov",
       "email": "shahzod.rahmonov@mail.com",
@@ -57,11 +50,25 @@
       "address": "Khiva"
     },
     {
-      "id": "77a2",
+      "id": "bd58",
       "name": "ramazon",
       "email": "ramazon@gmail.com",
       "phone": "654345678",
       "address": "vasd avsd "
+    },
+    {
+      "id": "f2cb",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan"
+    },
+    {
+      "id": "32c7",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan"
     }
   ],
   "products": [
@@ -181,7 +188,7 @@
   "orders": [
     {
       "id": "1",
-      "customerId": "1",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 2599.98,
       "createdAt": "2025-09-01",
@@ -205,7 +212,7 @@
     },
     {
       "id": "4",
-      "customerId": "4",
+      "customerId": null,
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04",
@@ -333,6 +340,40 @@
       "id": "bb53",
       "command": "Bilol",
       "response": "hello bilol"
+    }
+  ],
+  "archivedCustomers": [
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva",
+      "deletedAt": "2025-10-18T08:27:55.379Z"
+    },
+    {
+      "id": "3cd8",
+      "name": "aaaaaaaa",
+      "email": "aaa@gamil.com",
+      "phone": "555555555555555",
+      "address": "lllllllllllllllllll",
+      "deletedAt": "2025-10-18T08:28:43.505Z"
+    },
+    {
+      "id": "1",
+      "name": "Azizbek Karimov",
+      "email": "azizbek.karimov@mail.com",
+      "phone": "+998901234567",
+      "address": "Tashkent, Uzbekistan",
+      "deletedAt": "2025-10-18T11:49:02.973Z"
+    },
+    {
+      "id": "01e8",
+      "name": "dddddddddddd",
+      "email": "dilnoza.rasulova@mail.com",
+      "phone": "dddddddddd",
+      "address": "ddddddd",
+      "deletedAt": "2025-10-18T11:49:34.609Z"
     }
   ]
 }
