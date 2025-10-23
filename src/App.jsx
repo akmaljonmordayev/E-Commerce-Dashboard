@@ -22,6 +22,7 @@ import ProductsArchieve from "./pages/ProductsArchieve/ProductsArchieve";
 import CustomersArchieve from "./pages/CustomersArchieve/CustomersArchieve";
 import OrdersArchieve from "./pages/OrderArchieve/OrdersArchieve";
 import Chatbot from "./pages/Chatbot/chatbot";
+import Message from "./pages/Message/Message";
 function App() {
   return (
     <>
@@ -84,9 +85,15 @@ function App() {
           }
         >
           <Route path="/archieve/usersarchieve" element={<UsersArchieve />} />
-          <Route path="/archieve/customersarchieve" element={<CustomersArchieve />} />
+          <Route
+            path="/archieve/customersarchieve"
+            element={<CustomersArchieve />}
+          />
           <Route path="/archieve/ordersarchieve" element={<OrdersArchieve />} />
-          <Route path="/archieve/productsarchieve" element={<ProductsArchieve />} />
+          <Route
+            path="/archieve/productsarchieve"
+            element={<ProductsArchieve />}
+          />
         </Route>
         <Route
           path="/orders"
@@ -134,6 +141,16 @@ function App() {
             <ProtectedRoute>
               <Layout>
                 <Chatbot />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/message"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Message />
               </Layout>
             </ProtectedRoute>
           }
