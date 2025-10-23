@@ -39,7 +39,7 @@ export default function Archieve() {
   return (
     <div className="p-6 text-white">
       <div className="flex gap-[30px] justify-evenly flex-wrap">
-        <Link to="/productsArchieve">
+        <Link to="/archieve/productsArchieve">
           <ProductCard
             title="Archived Products"
             count={archivedProducts ? archivedProducts.length : 0}
