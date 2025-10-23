@@ -235,14 +235,14 @@
   ],
   "users": [
     {
-      "id": "1",
       "name": "Akmal",
       "surname": "Mordayev",
-      "username": "akmstrike",
+      "username": "akmstrike1",
       "email": "akmaljonmordayev@gmail.com",
-      "password": "akmstrike1231",
       "age": 16,
-      "role": "customer"
+      "role": "customer",
+      "password": "akmstrike1",
+      "id": "1"
     },
     {
       "id": "0f61",
