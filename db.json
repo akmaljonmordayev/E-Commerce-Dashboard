@@ -161,6 +161,14 @@
       "brand": "DJI"
     },
     {
+      "id": "bf90",
+      "name": "213",
+      "price": 123,
+      "stock": 213123,
+      "category": "213",
+      "brand": "123"
+    },
+    {
       "id": "0165",
       "name": "Amazon Echo Dot 5",
       "price": 59,
@@ -175,14 +183,6 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
-    },
-    {
-      "id": "45e1",
-      "name": "Samsung Galaxy S24",
-      "price": 1099.99,
-      "stock": 30,
-      "category": "Smartphones",
-      "brand": "Samsung"
     }
   ],
   "orders": [
@@ -196,7 +196,7 @@
     },
     {
       "id": "2",
-      "customerId": null,
+      "customerId": "2",
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
@@ -204,7 +204,7 @@
     },
     {
       "id": "3",
-      "customerId": null,
+      "customerId": "3",
       "status": "Shipped",
       "totalAmount": 1099.99,
       "createdAt": "2025-09-03",
@@ -305,6 +305,16 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
+    },
+    {
+      "id": "9a78",
+      "name": "Muhammadyusuf",
+      "surname": "Ro'ziyev",
+      "username": "Myruziyev",
+      "email": "myruziyev@gmail.com",
+      "password": "1223457",
+      "age": 12,
+      "role": "customer"
     }
   ],
   "productsArchieve": [

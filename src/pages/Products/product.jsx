@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomTable from "../Products/customTable";
 import useGet from "../../customHooks/useGet";
 import useDelete from "../../customHooks/useDelete";
@@ -14,6 +14,7 @@ export default function ProductPage() {
   const { postData } = usePost("/products");
   const { postData: postArchive } = usePost("/productsArchieve");
 
+  const [list, setList] = useState([]);
   const [show, setShow] = useState(false);
   const [editId, setEditId] = useState(null);
   const [form, setForm] = useState({
@@ -25,6 +26,10 @@ export default function ProductPage() {
   });
   const [delItem, setDelItem] = useState(null);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (data) setList(data);
+  }, [data]);
 
   const handleChange = (e) =>
     setForm({
@@ -56,18 +61,21 @@ export default function ProductPage() {
     try {
       if (editId) {
         await updateData(editId, form);
+        setList((prev) =>
+          prev.map((item) => (item.id === editId ? { ...item, ...form } : item))
+        );
         toast.info("Edited!", {
           style: { background: "#2563eb", color: "#fff" },
         });
       } else {
-        await postData(form);
+        const res = await postData(form);
+        setList((prev) => [...prev, res]);
         toast.success("Added!", {
           style: { background: "#22c55e", color: "#fff" },
         });
       }
       resetForm();
       setShow(false);
-      refetch();
     } catch (err) {
       toast.error("Error");
       console.error(err);
@@ -92,18 +100,18 @@ export default function ProductPage() {
       });
 
       await deleteData(delItem.id);
+      setList((prev) => prev.filter((item) => item.id !== delItem.id)); 
 
       toast.error("Deleted!", {
         style: { background: "#dc2626", color: "#fff" },
       });
       setDelItem(null);
-      refetch();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const filtered = data?.filter(
+  const filtered = list?.filter(
     (i) =>
       (i.name || "").toLowerCase().includes(search.toLowerCase()) ||
       (i.category || "").toLowerCase().includes(search.toLowerCase())
@@ -169,7 +177,7 @@ export default function ProductPage() {
           />
           <input
             name="category"
-            value={form.category}gi
+            value={form.category}
             onChange={handleChange}
             placeholder="Category"
             className="p-2 bg-[#1f2a40] border border-gray-600 rounded"
