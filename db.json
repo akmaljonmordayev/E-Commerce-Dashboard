@@ -1,6 +1,7 @@
 {
   "customers": [
     {
+<<<<<<< HEAD
       "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
@@ -15,32 +16,13 @@
       "address": "Jizzakh, Uzbekistan"
     },
     {
+=======
+>>>>>>> 82a03280f05d7c3c70d3079a57b39db5efc01bb0
       "id": "9",
       "name": "Sherzod Usmonov",
       "email": "sherzod.u@mail.com",
       "phone": "+998935550099",
       "address": "Navoiy, Uzbekistan"
-    },
-    {
-      "id": "10",
-      "name": "Madina Akbarova",
-      "email": "madina.ak@mail.com",
-      "phone": "+998977771212",
-      "address": "Tashkent, Uzbekistan"
-    },
-    {
-      "id": "d3fd",
-      "name": "asdvasdv",
-      "email": "asdvasdv@gmail.com",
-      "phone": "121212",
-      "address": "asdvasdvasd"
-    },
-    {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+",
-      "address": "Khiva"
     },
     {
       "id": "bd58",
@@ -221,7 +203,7 @@
     },
     {
       "id": "6",
-      "customerId": "6",
+      "customerId": null,
       "status": "Pending",
       "totalAmount": 249.99,
       "createdAt": "2025-09-06",
@@ -229,7 +211,7 @@
     },
     {
       "id": "7",
-      "customerId": "7",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 1799,
       "createdAt": "2025-09-07",
@@ -237,7 +219,7 @@
     },
     {
       "id": "8",
-      "customerId": "8",
+      "customerId": null,
       "status": "Shipped",
       "totalAmount": 899.99,
       "createdAt": "2025-09-08",
@@ -253,7 +235,7 @@
     },
     {
       "id": "10",
-      "customerId": "10",
+      "customerId": null,
       "status": "Pending",
       "totalAmount": 179.99,
       "createdAt": "2025-09-10",
@@ -261,7 +243,7 @@
     },
     {
       "id": "11",
-      "customerId": "10",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 179.99,
       "createdAt": "2025-09-10",
@@ -317,7 +299,43 @@
       "email": "shahzod.rahmonov@mail.com",
       "phone": "+998977788990",
       "address": "Namangan, Uzbekistan",
+<<<<<<< HEAD
       "deletedAt": "2025-10-23T11:52:29.962Z"
+=======
+      "deletedAt": "2025-10-23T11:52:48.860Z"
+    },
+    {
+      "id": "6",
+      "name": "Gulbahor Xudoyberdieva",
+      "email": "gulbahor.x@mail.com",
+      "phone": "+998931234567",
+      "address": "Fergana, Uzbekistan",
+      "deletedAt": "2025-10-23T11:52:58.984Z"
+    },
+    {
+      "id": "8",
+      "name": "Sevara Olimova",
+      "email": "sevara.ol@mail.com",
+      "phone": "+998998877665",
+      "address": "Jizzakh, Uzbekistan",
+      "deletedAt": "2025-10-23T11:53:01.178Z"
+    },
+    {
+      "id": "10",
+      "name": "Madina Akbarova",
+      "email": "madina.ak@mail.com",
+      "phone": "+998977771212",
+      "address": "Tashkent, Uzbekistan",
+      "deletedAt": "2025-10-23T11:53:03.250Z"
+    },
+    {
+      "id": "7",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva",
+      "deletedAt": "2025-10-23T11:53:07.000Z"
+>>>>>>> 82a03280f05d7c3c70d3079a57b39db5efc01bb0
     }
   ],
   "usersArchieve": [],
