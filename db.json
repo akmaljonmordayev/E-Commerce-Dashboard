@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "5",
-      "name": "Shahzod Rahmonov",
-      "email": "shahzod.rahmonov@mail.com",
-      "phone": "+998977788990",
-      "address": "Namangan, Uzbekistan"
-    },
-    {
       "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
@@ -220,7 +213,7 @@
     },
     {
       "id": "5",
-      "customerId": "5",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 1499,
       "createdAt": "2025-09-05",
@@ -327,7 +320,16 @@
       "brand": "Apple"
     }
   ],
-  "customersArchieve": [],
+  "customersArchieve": [
+    {
+      "id": "5",
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan",
+      "deletedAt": "2025-10-23T11:52:29.962Z"
+    }
+  ],
   "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
