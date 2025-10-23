@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import'./Customers.css'
+import "./Customers.css";
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -73,7 +73,7 @@ function Customers() {
         const customerToDelete = customers.find((c) => c.id === id);
         if (!customerToDelete) return;
 
-        await axios.post("http://localhost:5000/archivedCustomers", {
+        await axios.post("http://localhost:5000/customersArchieve", {
           ...customerToDelete,
           deletedAt: new Date().toISOString(),
         });
