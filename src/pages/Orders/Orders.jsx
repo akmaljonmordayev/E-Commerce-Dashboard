@@ -76,15 +76,15 @@ function Orders() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 rounded-lg bg-[#0f172a] text-white border border-gray-600
+              className="px-4 py-2 rounded-lg bg-[#0f172a] text-white  border-gray-600
                          focus:outline-none focus:ring-2 focus:ring-blue-500
                          transition duration-200"
             >
-              <option value="All">All</option>
-              <option value="Completed">Completed</option>
-              <option value="Pending">Pending</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Cancelled">Cancelled</option>
+              <option className="text-white" value="All">All</option>
+              <option className="text-white" value="Completed">Completed</option>
+              <option className="text-white" value="Pending">Pending</option>
+              <option className="text-white" value="Shipped">Shipped</option>
+              <option className="text-white" value="Cancelled">Cancelled</option>
             </select>
           </div>
         </div>

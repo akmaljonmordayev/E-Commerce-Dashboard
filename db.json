@@ -176,28 +176,20 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
-    },
-    {
-      "id": "45e1",
-      "name": "Samsung Galaxy S24",
-      "price": 1099.99,
-      "stock": 30,
-      "category": "Smartphones",
-      "brand": "Samsung"
-    },
-    {
-      "id": "e8ee",
-      "name": "Microsoft Surface Pro 9",
-      "price": 1399,
-      "stock": 8,
-      "category": "Tablets",
-      "brand": "Microsoftbek"
     }
   ],
   "orders": [
     {
+      "id": "1",
+      "customerId": "1",
+      "status": "Completed",
+      "totalAmount": 2599.98,
+      "createdAt": "2025-09-01",
+      "name": "JBL Charge 5"
+    },
+    {
       "id": "2",
-      "customerId": null,
+      "customerId": "2",
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
@@ -205,7 +197,7 @@
     },
     {
       "id": "3",
-      "customerId": null,
+      "customerId": "3",
       "status": "Shipped",
       "totalAmount": 1099.99,
       "createdAt": "2025-09-03",
@@ -306,28 +298,29 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
+    },
+    {
+      "id": "9a78",
+      "name": "Muhammadyusuf",
+      "surname": "Ro'ziyev",
+      "username": "Myruziyev",
+      "email": "myruziyev@gmail.com",
+      "password": "1223457",
+      "age": 12,
+      "role": "customer"
     }
   ],
   "productsArchieve": [
     {
-      "id": "13f3",
-      "title": "Amazon Echo Dot 5",
-      "price": 59,
+      "id": "9e97",
+      "title": "iPhone 15 Pro",
+      "price": 1299.99,
       "stock": 25,
-      "category": "Smart Home",
-      "brand": "Amazon"
+      "category": "Smartphones",
+      "brand": "Apple"
     }
   ],
-  "customersArchieve": [
-    {
-      "id": "3",
-      "name": "Javohir Ismoilov",
-      "email": "javohir.ismoilov@mail.com",
-      "phone": "+998935552211",
-      "address": "Bukhara, Uzbekistan",
-      "deletedAt": "2025-10-21T12:09:23.475Z"
-    }
-  ],
+  "customersArchieve": [],
   "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
