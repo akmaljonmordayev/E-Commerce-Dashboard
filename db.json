@@ -250,22 +250,6 @@
       "totalAmount": 199.99,
       "createdAt": "2025-09-09",
       "name": "IPhone 17 pro"
-    },
-    {
-      "id": "10",
-      "customerId": "10",
-      "status": "Pending",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Xiomi 14"
-    },
-    {
-      "id": "11",
-      "customerId": "10",
-      "status": "Completed",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Acer laptop"
     }
   ],
   "users": [

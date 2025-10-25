@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Trash2 } from "lucide-react";
+import { Archive } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGet from "../../customHooks/useGet";
 import useDelete from "../../customHooks/useDelete";
+import usePost from "../../customHooks/usePost";
 
 function Orders() {
-  // If your useGet returns { data, refetch } this will use refetch.
-  // If it only returns { data }, refetch will be undefined and we fallback to local filter update.
   const { data, refetch } = useGet("/orders");
   const { deleteData } = useDelete("/orders");
+  const { postData } = usePost("/ordersArchive");
 
   const [query, setQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
@@ -37,23 +37,27 @@ function Orders() {
     setFilteredData(result);
   }, [query, filterStatus, data]);
 
-  // safer delete handler
-  const handleDelete = async (id) => {
+  const handleArchive = async (id) => {
     try {
+      const orderToArchive = data.find((o) => o.id === id);
+      if (!orderToArchive) return toast.error("Order not found!");
+
+      // ✅ 1. Post to archive
+      await postData(orderToArchive);
+
+      // ✅ 2. Delete from orders
       await deleteData(id);
 
-      // if your useGet provides refetch, call it
       if (typeof refetch === "function") {
         refetch();
       } else {
-        // otherwise update local filteredData so UI updates immediately
         setFilteredData((prev) => prev.filter((o) => o.id !== id));
       }
 
-      toast.success("🗑️ Order deleted!");
+      toast.success("✅ Order moved to archive!");
     } catch (err) {
-      console.error("Delete error:", err);
-      toast.error("❌ Failed to delete order.");
+      console.error(err);
+      toast.error("❌ Failed to move order to archive.");
     }
   };
 
@@ -110,7 +114,7 @@ function Orders() {
           <table className="w-full text-left text-gray-800">
             <thead className="bg-gray-100 text-gray-600 text-sm uppercase border-b">
               <tr>
-                <th className="p-3 font-semibold">ID</th>
+                <th className="p-3 font-semibold">#</th>
                 <th className="p-3 font-semibold">Status</th>
                 <th className="p-3 font-semibold">Name</th>
                 <th className="p-3 font-semibold">Date</th>
@@ -140,11 +144,11 @@ function Orders() {
                   <td className="p-3">${order.totalAmount}</td>
                   <td className="p-3 text-center">
                     <button
-                      onClick={() => handleDelete(order.id)}
-                      className="bg-red-500 hover:bg-red-600 transition p-2 rounded-md text-white"
-                      title="Delete"
+                      onClick={() => handleArchive(order.id)}
+                      className="bg-blue-500 hover:bg-blue-600 transition p-2 rounded-md text-white"
+                      title="Move to Archive"
                     >
-                      <Trash2 size={16} />
+                      <Archive size={16} />
                     </button>
                   </td>
                 </tr>
