@@ -59,14 +59,6 @@
   ],
   "products": [
     {
-      "id": "6",
-      "name": "Logitech MX Master 3S",
-      "price": 119,
-      "stock": 22,
-      "category": "Accessories",
-      "brand": "hellobot"
-    },
-    {
       "id": "7",
       "name": "Apple Watch Ultra 2",
       "price": 799,
@@ -202,6 +194,7 @@
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04",
+
       "name": "Razer BlackWidow V4"
     },
     {
@@ -251,9 +244,28 @@
       "totalAmount": 899.99,
       "createdAt": "2025-09-08",
       "name": "Air pods pro"
+    },
+    {
+      "id": "1761393637587",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
     }
   ],
   "users": [
+    {
+      "name": "Akmal",
+      "surname": "Mordayev",
+      "username": "akmstrike1",
+      "email": "akmaljonmordayev@gmail.com",
+      "age": 16,
+      "role": "customer",
+      "password": "akmstrike1231",
+      "image": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+      "id": "1"
+    },
     {
       "id": "0f61",
       "name": "Ayyubkhon",
@@ -273,37 +285,6 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
-    }
-  ],
-  "productsArchieve": [],
-  "customersArchieve": [],
-  "usersArchieve": [
-    {
-      "id": "1",
-      "name": "Akmal",
-      "surname": "Mordayev",
-      "username": "akmstrike",
-      "email": "akmaljonmordayev@gmail.com",
-      "password": "akmstrike1231",
-      "age": 16,
-      "role": "customer",
-      "deletedAt": "2025-10-25T12:09:16.477Z"
-    },
-    {
-      "id": "5",
-      "name": "Shahzod Rahmonov",
-      "email": "shahzod.rahmonov@mail.com",
-      "phone": "+998977788990",
-      "address": "Namangan, Uzbekistan",
-      "deletedAt": "2025-10-25T12:11:16.692Z"
-    },
-    {
-      "id": "4",
-      "name": "Malika Toshpulatova",
-      "email": "malika.tosh@mail.com",
-      "phone": "+998935554433",
-      "address": "Andijan, Uzbekistan",
-      "deletedAt": "2025-10-25T12:13:55.788Z"
     },
     {
       "id": "3",
@@ -311,9 +292,46 @@
       "email": "javohir.ismoilov@mail.com",
       "phone": "+998935552211",
       "address": "Bukhara, Uzbekistan",
-      "deletedAt": "2025-10-25T12:14:08.997Z"
+      "deletedAt": "2025-10-21T12:09:23.475Z"
+    },
+    {
+      "id": "4",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan",
+      "deletedAt": "2025-10-25T11:59:46.542Z"
+    },
+    {
+      "id": "5",
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan",
+      "deletedAt": "2025-10-25T11:59:55.804Z"
     }
   ],
+  "productsArchieve": [
+    {
+      "id": "b1e4",
+      "title": "Logitech MX Master 3S",
+      "price": 119,
+      "stock": 22,
+      "category": "Accessories",
+      "brand": "hellobot"
+    }
+  ],
+  "customersArchieve": [
+    {
+      "id": "5",
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan",
+      "deletedAt": "2025-10-25T12:03:27.491Z"
+    }
+  ],
+  "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
     {
@@ -355,6 +373,7 @@
         {
           "from": "user",
           "text": "ishga kirmoqchiman",
+
           "time": "25/10/2025, 4:44:06 pm"
         },
         {

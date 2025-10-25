@@ -17,6 +17,7 @@ function Profile() {
     age: "",
     role: "",
     password: "",
+    image: "",
   });
 
   useEffect(() => {
@@ -28,7 +29,10 @@ function Profile() {
         email: user.email || "",
         age: user.age || "",
         role: user.role || "",
-        password: "",
+        password: user.password || "",
+        image:
+          user.image ||
+          "https://cdn-icons-png.flaticon.com/512/149/149071.png",
       });
     }
   }, [user]);
@@ -38,11 +42,7 @@ function Profile() {
     navigate("/login");
   };
 
-  const handleEdit = () => {
-    if (user && Object.keys(user).length > 0) {
-      setShowModal(true);
-    }
-  };
+  const handleEdit = () => setShowModal(true);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -53,10 +53,7 @@ function Profile() {
 
   const handleSave = async () => {
     try {
-      const updatedData = { ...formData };
-      if (!updatedData.password) delete updatedData.password;
-
-      await api.put(`/users/${id}`, updatedData);
+      await api.put(`/users/${id}`, formData);
       alert("Profil muvaffaqiyatli yangilandi ✅");
       setShowModal(false);
       window.location.reload();
@@ -83,70 +80,94 @@ function Profile() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 relative bg-gradient-to-br from-indigo-50 via-white to-indigo-100 text-gray-900">
+    <div className="min-h-screen relative flex flex-col items-center bg-gray-50 text-gray-900">
+      {/* Logout tugmasi */}
       <button
         onClick={logOut}
-        className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-lg 
-                   transition-all duration-300 hover:scale-105 bg-red-600 hover:bg-red-500 text-white"
+        className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-md transition-all duration-300 bg-red-600 hover:bg-red-500 text-white"
       >
         Logout
       </button>
 
       {user && Object.keys(user).length > 0 ? (
-        <div className="max-w-md w-full bg-white border border-indigo-200 rounded-2xl shadow-xl p-6 
-                        hover:shadow-2xl transition-all duration-500">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-2xl font-semibold text-indigo-800">User Profile</h2>
-            <button
-              onClick={handleEdit}
-              className="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm hover:bg-indigo-500 transition-all"
-            >
-              Edit Profile
-            </button>
+        <div className="mt-20 max-w-md w-full bg-white border border-gray-200 rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+          {/* Profil rasmi */}
+          <div className="flex flex-col items-center mb-6">
+            <img
+              src={
+                user.image ||
+                "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              }
+              alt="User Avatar"
+              className="w-28 h-28 rounded-full border-4 border-indigo-300 shadow-md object-cover"
+            />
+            <h2 className="text-2xl font-bold text-indigo-700 mt-3 text-center">
+              {user.name} {user.surname}
+            </h2>
+            <p className="text-gray-500 text-sm break-all text-center">
+              @{user.username}
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-y-3 text-sm text-gray-800">
-            <div>
-              <span className="text-gray-400 text-xs uppercase">Name</span>
-              <div>{user.name}</div>
-            </div>
-            <div>
-              <span className="text-gray-400 text-xs uppercase">Surname</span>
-              <div>{user.surname}</div>
-            </div>
-            <div>
-              <span className="text-gray-400 text-xs uppercase">Username</span>
-              <div>@{user.username}</div>
-            </div>
+          {/* Ma’lumotlar */}
+          <div className="grid grid-cols-2 gap-y-4 text-sm text-gray-800">
             <div>
               <span className="text-gray-400 text-xs uppercase">Email</span>
-              <div>{user.email}</div>
+              <div className="truncate max-w-[140px]" title={user.email}>
+                {user.email}
+              </div>
             </div>
             <div>
-              <span className="text-gray-400 text-xs uppercase">Age</span>
+              <span className="text-gray-400 text-xs uppercase">Yosh</span>
               <div>{user.age}</div>
             </div>
             <div>
               <span className="text-gray-400 text-xs uppercase">Role</span>
               <div>{user.role}</div>
             </div>
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Parol</span>
+              <div className="font-mono tracking-wide">
+                {user.password ? "••••••••" : "N/A"}
+              </div>
+            </div>
+          </div>
+
+          {/* Edit tugmasi */}
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleEdit}
+              className="px-6 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all duration-300 shadow-md"
+            >
+              Edit Profile
+            </button>
           </div>
         </div>
       ) : (
-        <p className="text-gray-600 text-lg font-medium animate-pulse">
+        <p className="text-gray-600 text-lg font-medium mt-20 animate-pulse">
           Foydalanuvchi topilmadi
         </p>
       )}
 
+      {/* Modal oynasi */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 shadow-2xl w-full max-w-md">
-            <h3 className="text-xl font-semibold text-indigo-800 mb-4">
-              Edit Profile
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl p-6 shadow-2xl w-full max-w-md">
+            <h3 className="text-xl font-semibold text-indigo-800 mb-4 text-center">
+              Profilni tahrirlash
             </h3>
 
             <div className="space-y-3">
-              {["name", "surname", "username", "email", "age", "role", "password"].map((field) => (
+              {[
+                "name",
+                "surname",
+                "username",
+                "email",
+                "age",
+                "role",
+                "password",
+                "image",
+              ].map((field) => (
                 <div key={field}>
                   <label
                     className="text-sm text-gray-600 capitalize"
@@ -155,17 +176,17 @@ function Profile() {
                     {field}
                   </label>
                   <input
-                    type={field === "age" ? "number" : field === "password" ? "password" : "text"}
+                    type={
+                      field === "age"
+                        ? "number"
+                        : field === "password"
+                        ? "text"
+                        : "text"
+                    }
                     name={field}
                     value={formData[field]}
                     onChange={handleChange}
-                    placeholder={
-                      field === "password"
-                        ? "Yangi parol kiriting (ixtiyoriy)"
-                        : ""
-                    }
-                    className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 
-                               focus:ring-indigo-400 focus:outline-none"
+                    className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-400 focus:outline-none"
                   />
                 </div>
               ))}
@@ -176,13 +197,13 @@ function Profile() {
                 onClick={() => setShowModal(false)}
                 className="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100"
               >
-                Cancel
+                Bekor qilish
               </button>
               <button
                 onClick={handleSave}
                 className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500"
               >
-                Save
+                Saqlash
               </button>
             </div>
           </div>
