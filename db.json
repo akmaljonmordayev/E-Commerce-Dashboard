@@ -41,6 +41,13 @@
       "email": "malika.tosh@mail.com",
       "phone": "+998935554433",
       "address": "Andijan, Uzbekistan"
+    },
+    {
+      "id": "291e",
+      "name": "Bobur Mamadaliyev",
+      "email": "bobur.m@mail.com",
+      "phone": "+",
+      "address": "Khiva"
     }
   ],
   "products": [
@@ -224,7 +231,7 @@
     },
     {
       "id": "9",
-      "customerId": "9",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 199.99,
       "createdAt": "2025-09-09",
@@ -245,28 +252,44 @@
       "totalAmount": 179.99,
       "createdAt": "2025-09-10",
       "name": "Acer laptop"
+    },
+    {
+      "id": "1761222062665",
+      "customerId": "970668821",
+      "status": "Kutilmoqda",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-23",
+      "name": "olma"
+    },
+    {
+      "id": "1761222745578",
+      "customerId": "970668821",
+      "status": "Kutilmoqda",
+      "totalAmount": 15000,
+      "createdAt": "2025-10-23",
+      "name": "asliddin"
     }
   ],
   "users": [
     {
-      "id": "1",
       "name": "Akmal",
       "surname": "Mordayev",
-      "username": "akmstrike",
+      "username": "akmstrike1",
       "email": "akmaljonmordayev@gmail.com",
-      "password": "akmstrike1231",
       "age": 16,
-      "role": "customer"
+      "role": "customer",
+      "password": "akmstrike1",
+      "id": "1"
     },
     {
-      "id": "0f61",
       "name": "Ayyubkhon",
       "surname": "Shukhratov",
-      "username": "ceph",
+      "username": "sher",
       "email": "ayyub@gmail.com",
-      "password": "113355",
       "age": 15,
-      "role": "customer"
+      "role": "customer",
+      "password": "1234",
+      "id": "0f61"
     },
     {
       "name": "Adham",
@@ -346,5 +369,6 @@
       "address": "ddddddd",
       "deletedAt": "2025-10-18T11:49:34.609Z"
     }
-  ]
+  ],
+  "message": []
 }
