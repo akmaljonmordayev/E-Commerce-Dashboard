@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "5",
-      "name": "Shahzod Rahmonov",
-      "email": "shahzod.rahmonov@mail.com",
-      "phone": "+998977788990",
-      "address": "Namangan, Uzbekistan"
-    },
-    {
       "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
@@ -50,21 +43,14 @@
       "address": "Khiva"
     },
     {
-      "id": "bd58",
+      "id": "77a2",
       "name": "ramazon",
       "email": "ramazon@gmail.com",
       "phone": "654345678",
       "address": "vasd avsd "
     },
     {
-      "id": "f2cb",
-      "name": "Javohir Ismoilov",
-      "email": "javohir.ismoilov@mail.com",
-      "phone": "+998935552211",
-      "address": "Bukhara, Uzbekistan"
-    },
-    {
-      "id": "32c7",
+      "id": "e127",
       "name": "Malika Toshpulatova",
       "email": "malika.tosh@mail.com",
       "phone": "+998935554433",
@@ -103,14 +89,6 @@
       "stock": 6,
       "category": "Laptops",
       "brand": "Dell"
-    },
-    {
-      "id": "10",
-      "name": "Razer BlackWidow V4",
-      "price": 179,
-      "stock": 18,
-      "category": "Accessories",
-      "brand": "Razer"
     },
     {
       "id": "11",
@@ -183,12 +161,20 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
+    },
+    {
+      "id": "94f7",
+      "name": "Razer BlackWidow V4",
+      "price": 179,
+      "stock": 18,
+      "category": "Accessories",
+      "brand": "Razer"
     }
   ],
   "orders": [
     {
       "id": "1",
-      "customerId": null,
+      "customerId": "1",
       "status": "Completed",
       "totalAmount": 2599.98,
       "createdAt": "2025-09-01",
@@ -200,6 +186,7 @@
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
+
       "name": "Microsoft Surface Pro 9"
     },
     {
@@ -220,7 +207,7 @@
     },
     {
       "id": "5",
-      "customerId": "5",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 1499,
       "createdAt": "2025-09-05",
@@ -251,28 +238,20 @@
       "name": "Air pods pro"
     },
     {
-      "id": "9",
-      "customerId": "9",
+      "id": "e9d9",
+      "customerId": "3",
       "status": "Completed",
-      "totalAmount": 199.99,
-      "createdAt": "2025-09-09",
-      "name": "IPhone 17 pro"
+      "totalAmount": 499.99,
+      "createdAt": "2024-05-15",
+      "name": "Wireless Mouse"
     },
     {
-      "id": "10",
-      "customerId": "10",
-      "status": "Pending",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Xiomi 14"
-    },
-    {
-      "id": "11",
-      "customerId": "10",
-      "status": "Completed",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Acer laptop"
+      "id": "c214",
+      "customerId": "8",
+      "status": "Shipped",
+      "totalAmount": 899.99,
+      "createdAt": "2025-09-08",
+      "name": "Air pods pro"
     }
   ],
   "users": [
@@ -297,26 +276,41 @@
       "role": "customer"
     },
     {
+      "id": "3ebd",
       "name": "Adham",
       "surname": "Jabborov",
-      "username": "Notarius1",
+      "username": "Notarius",
       "email": "jabborovadhamjon97@gmail.com",
+      "password": "notariuscs2",
       "age": 15,
-      "role": "admin",
-      "password": "notariuscs2_",
-      "id": "3ebd"
-    }
-  ],
-  "productsArchieve": [
+      "role": "admin"
+    },
     {
-      "id": "9e97",
-      "title": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
+      "id": "3",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan",
+      "deletedAt": "2025-10-21T12:09:23.475Z"
+    },
+    {
+      "id": "4",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan",
+      "deletedAt": "2025-10-25T11:59:46.542Z"
+    },
+    {
+      "id": "5",
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan",
+      "deletedAt": "2025-10-25T11:59:55.804Z"
     }
   ],
+  "productsArchieve": [],
   "customersArchieve": [],
   "usersArchieve": [],
   "ordersArchieve": [],
@@ -332,38 +326,42 @@
       "response": "hello bilol"
     }
   ],
-  "archivedCustomers": [
+  "message": [
     {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+",
-      "address": "Khiva",
-      "deletedAt": "2025-10-18T08:27:55.379Z"
+      "id": "1761392599735",
+      "userId": 970668821,
+      "username": "Mr_Akmal_dev",
+      "topic": "Tolov",
+      "messages": [
+        {
+          "from": "user",
+          "text": "salom qalaysz",
+          "time": "25/10/2025, 4:43:19 pm"
+        },
+        {
+          "from": "admin",
+          "text": "yaxshi rahmat",
+          "time": "10/25/2025, 4:45:41 PM"
+        }
+      ]
     },
     {
-      "id": "3cd8",
-      "name": "aaaaaaaa",
-      "email": "aaa@gamil.com",
-      "phone": "555555555555555",
-      "address": "lllllllllllllllllll",
-      "deletedAt": "2025-10-18T08:28:43.505Z"
-    },
-    {
-      "id": "1",
-      "name": "Azizbek Karimov",
-      "email": "azizbek.karimov@mail.com",
-      "phone": "+998901234567",
-      "address": "Tashkent, Uzbekistan",
-      "deletedAt": "2025-10-18T11:49:02.973Z"
-    },
-    {
-      "id": "01e8",
-      "name": "dddddddddddd",
-      "email": "dilnoza.rasulova@mail.com",
-      "phone": "dddddddddd",
-      "address": "ddddddd",
-      "deletedAt": "2025-10-18T11:49:34.609Z"
+      "id": "1761392646002",
+      "userId": 970668821,
+      "username": "Mr_Akmal_dev",
+      "topic": "Ish",
+      "messages": [
+        {
+          "from": "user",
+          "text": "ishga kirmoqchiman",
+          "time": "25/10/2025, 4:44:06 pm"
+        },
+        {
+          "from": "admin",
+          "text": "bizda bosh ish orni yuq",
+          "time": "10/25/2025, 4:46:11 PM"
+        }
+      ]
     }
   ]
 }

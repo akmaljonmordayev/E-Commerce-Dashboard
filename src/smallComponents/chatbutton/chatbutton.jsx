@@ -46,7 +46,7 @@ const ChatButton = () => {
       {isOpen && (
         <div className="fixed bottom-20 right-6 w-80 bg-white rounded-xl shadow-2xl border overflow-hidden animate-fadeIn z-50">
           <div className="bg-blue-600 text-white text-center py-2 font-semibold">
-            Chatsbot
+            Chatbot
           </div>
 
           <div className="h-64 overflow-y-auto p-3 space-y-2">

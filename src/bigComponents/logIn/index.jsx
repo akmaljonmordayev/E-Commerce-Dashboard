@@ -4,6 +4,8 @@ import useGet from "../../customHooks/useGet";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import { Navigate, useNavigate } from "react-router-dom";
+import mainLogo from "../welcomePage/img/mainLogoWel.png"
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -43,14 +45,9 @@ export default function Login() {
       <ToastContainer />
       <main className="w-full max-w-md p-6">
         <section className="bg-white/6 backdrop-blur-sm border border-white/8 rounded-3xl shadow-[0_10px_30px_rgba(2,6,23,0.6)] p-8">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-400 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
-              A
+            <div className="flex justify-center">
+              <img className="w-[320px] h-[260px] " src={mainLogo} alt="" />
             </div>
-            <div>
-              <h1 className="text-2xl font-semibold text-white">Admin Login</h1>
-            </div>
-          </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
@@ -66,7 +63,6 @@ export default function Login() {
                 placeholder="username"
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium text-slate-300">
                 Password
