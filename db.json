@@ -186,7 +186,6 @@
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
-
       "name": "Microsoft Surface Pro 9"
     },
     {
@@ -256,16 +255,6 @@
   ],
   "users": [
     {
-      "id": "1",
-      "name": "Akmal",
-      "surname": "Mordayev",
-      "username": "akmstrike",
-      "email": "akmaljonmordayev@gmail.com",
-      "password": "akmstrike1231",
-      "age": 16,
-      "role": "customer"
-    },
-    {
       "id": "0f61",
       "name": "Ayyubkhon",
       "surname": "Shukhratov",
@@ -284,22 +273,21 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
-    },
+    }
+  ],
+  "productsArchieve": [],
+  "customersArchieve": [],
+  "usersArchieve": [
     {
-      "id": "3",
-      "name": "Javohir Ismoilov",
-      "email": "javohir.ismoilov@mail.com",
-      "phone": "+998935552211",
-      "address": "Bukhara, Uzbekistan",
-      "deletedAt": "2025-10-21T12:09:23.475Z"
-    },
-    {
-      "id": "4",
-      "name": "Malika Toshpulatova",
-      "email": "malika.tosh@mail.com",
-      "phone": "+998935554433",
-      "address": "Andijan, Uzbekistan",
-      "deletedAt": "2025-10-25T11:59:46.542Z"
+      "id": "1",
+      "name": "Akmal",
+      "surname": "Mordayev",
+      "username": "akmstrike",
+      "email": "akmaljonmordayev@gmail.com",
+      "password": "akmstrike1231",
+      "age": 16,
+      "role": "customer",
+      "deletedAt": "2025-10-25T12:09:16.477Z"
     },
     {
       "id": "5",
@@ -307,12 +295,25 @@
       "email": "shahzod.rahmonov@mail.com",
       "phone": "+998977788990",
       "address": "Namangan, Uzbekistan",
-      "deletedAt": "2025-10-25T11:59:55.804Z"
+      "deletedAt": "2025-10-25T12:11:16.692Z"
+    },
+    {
+      "id": "4",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan",
+      "deletedAt": "2025-10-25T12:13:55.788Z"
+    },
+    {
+      "id": "3",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan",
+      "deletedAt": "2025-10-25T12:14:08.997Z"
     }
   ],
-  "productsArchieve": [],
-  "customersArchieve": [],
-  "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
     {
