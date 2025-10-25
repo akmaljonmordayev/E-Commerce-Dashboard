@@ -156,7 +156,6 @@ function App() {
           }
         />
       </Routes>
-
     </>
   );
 }
