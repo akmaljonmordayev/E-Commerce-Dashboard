@@ -203,7 +203,7 @@ export default function ProductPage() {
       />
 
       {delItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-3">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-3">
           <div className="bg-[#25314d] p-5 rounded text-center">
             <p>Delete "{delItem.name}"?</p>
             <div className="flex gap-3 justify-center mt-3">

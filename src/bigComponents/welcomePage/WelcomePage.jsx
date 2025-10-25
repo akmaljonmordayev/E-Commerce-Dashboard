@@ -57,7 +57,7 @@ export default function WelcomePage() {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center z-10 p-6 text-center"
           >
-              <img className="w-[380px] h-[260px]" src={mainLogo} alt="" />
+              <img className="w-[320px] h-[260px]" src={mainLogo} alt="" />
 
             <motion.h1
               initial={{ scale: 0.8, opacity: 0 }}
