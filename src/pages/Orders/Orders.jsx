@@ -3,12 +3,10 @@ import { Archive } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGet from "../../customHooks/useGet";
-import useDelete from "../../customHooks/useDelete";
 import usePost from "../../customHooks/usePost";
 
 function Orders() {
   const { data, refetch } = useGet("/orders");
-  const { deleteData } = useDelete("/orders");
   const { postData } = usePost("/ordersArchive");
 
   const [query, setQuery] = useState("");
@@ -37,29 +35,32 @@ function Orders() {
     setFilteredData(result);
   }, [query, filterStatus, data]);
 
-  const handleArchive = async (id) => {
-    try {
-      const orderToArchive = data.find((o) => o.id === id);
-      if (!orderToArchive) return toast.error("Order not found!");
+const handleArchive = async (id) => {
+  try {
+    // Find order to move
+    const orderToArchive = data.find((o) => o.id === id);
+    if (!orderToArchive) return toast.error("Order not found!");
 
-      // ✅ 1. Post to archive
-      await postData(orderToArchive);
+    // Remove the `id` because json-server will assign a new one when posting
+    const { id: _, ...orderWithoutId } = orderToArchive;
 
-      // ✅ 2. Delete from orders
-      await deleteData(id);
+    // 1️⃣ Post to archive
+    await postData(orderWithoutId);
 
-      if (typeof refetch === "function") {
-        refetch();
-      } else {
-        setFilteredData((prev) => prev.filter((o) => o.id !== id));
-      }
+    // 2️⃣ Delete from orders
+    await fetch(`http://localhost:3000/orders/${id}`, {
+      method: "DELETE",
+    });
 
-      toast.success("✅ Order moved to archive!");
-    } catch (err) {
-      console.error(err);
-      toast.error("❌ Failed to move order to archive.");
-    }
-  };
+    // 3️⃣ Refresh and notify
+    toast.success("✅ Order moved to archive!");
+    if (typeof refetch === "function") refetch();
+  } catch (err) {
+    console.error(err);
+    toast.error("❌ Failed to move order to archive.");
+  }
+};
+
 
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
@@ -77,8 +78,23 @@ function Orders() {
   };
 
   return (
-    <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center">
-      <div className="w-full max-w-6xl">
+    <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center relative">
+      {/* Local text selection style */}
+      <style>
+        {`
+          .orders-page ::selection {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+          }
+          .orders-page ::-moz-selection {
+            background-color: #2563eb;
+            color: white;
+          }
+        `}
+      </style>
+
+      <div className="w-full max-w-6xl orders-page">
+        {/* Header */}
         <div className="flex flex-col md:flex-row justify-between gap-4 items-center mb-6">
           <h2 className="text-white text-2xl font-bold">Orders</h2>
 
@@ -110,6 +126,7 @@ function Orders() {
           </div>
         </div>
 
+        {/* Table */}
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <table className="w-full text-left text-gray-800">
             <thead className="bg-gray-100 text-gray-600 text-sm uppercase border-b">

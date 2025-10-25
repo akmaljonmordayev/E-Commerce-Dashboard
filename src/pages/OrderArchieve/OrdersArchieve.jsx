@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Archive } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGet from "../../customHooks/useGet";
 import useDelete from "../../customHooks/useDelete";
 import usePost from "../../customHooks/usePost";
 
-function Orders() {
-  const { data, refetch } = useGet("/orders");
-  const { deleteData } = useDelete("/orders");
-  const { postData } = usePost("/ordersArchive");
+function OrdersArchieve() {
+  const { data, refetch } = useGet("/ordersArchieve");
+  const { deleteData } = useDelete("/ordersArchieve");
+  const { postData } = usePost("/orders");
 
   const [query, setQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
@@ -37,27 +37,20 @@ function Orders() {
     setFilteredData(result);
   }, [query, filterStatus, data]);
 
-  const handleArchive = async (id) => {
+  const handleRestore = async (id) => {
     try {
-      const orderToArchive = data.find((o) => o.id === id);
-      if (!orderToArchive) return toast.error("Order not found!");
+      const orderToRestore = data.find((o) => o.id === id);
+      if (!orderToRestore) return toast.error("Order not found!");
 
-      // ✅ 1. Post to archive
-      await postData(orderToArchive);
+      const { id: _, ...orderWithoutId } = orderToRestore; // remove old id
+      await postData(orderWithoutId); // ✅ Add back to /orders
+      await deleteData(id); // ✅ Remove from archive
 
-      // ✅ 2. Delete from orders
-      await deleteData(id);
-
-      if (typeof refetch === "function") {
-        refetch();
-      } else {
-        setFilteredData((prev) => prev.filter((o) => o.id !== id));
-      }
-
-      toast.success("✅ Order moved to archive!");
+      refetch?.();
+      toast.success("✅ Order restored successfully!");
     } catch (err) {
       console.error(err);
-      toast.error("❌ Failed to move order to archive.");
+      toast.error("❌ Failed to restore order.");
     }
   };
 
@@ -80,12 +73,12 @@ function Orders() {
     <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center">
       <div className="w-full max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between gap-4 items-center mb-6">
-          <h2 className="text-white text-2xl font-bold">Orders</h2>
+          <h2 className="text-white text-2xl font-bold">Archived Orders</h2>
 
           <div className="flex gap-3 w-full md:w-auto">
             <input
               type="text"
-              placeholder="Search for order..."
+              placeholder="Search archived order..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full md:w-64 px-4 py-2 rounded-lg bg-[#0f172a] text-white
@@ -144,11 +137,11 @@ function Orders() {
                   <td className="p-3">${order.totalAmount}</td>
                   <td className="p-3 text-center">
                     <button
-                      onClick={() => handleArchive(order.id)}
-                      className="bg-blue-500 hover:bg-blue-600 transition p-2 rounded-md text-white"
-                      title="Move to Archive"
+                      onClick={() => handleRestore(order.id)}
+                      className="bg-purple-500 hover:bg-purple-600 transition p-2 rounded-md text-white"
+                      title="Restore Order"
                     >
-                      <Archive size={16} />
+                      <RotateCcw size={16} />
                     </button>
                   </td>
                 </tr>
@@ -160,7 +153,7 @@ function Orders() {
                     colSpan="6"
                     className="p-6 text-center text-gray-500 italic"
                   >
-                    No orders found.
+                    No archived orders found.
                   </td>
                 </tr>
               )}
@@ -174,4 +167,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default OrdersArchieve;
