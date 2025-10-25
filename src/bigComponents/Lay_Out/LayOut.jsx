@@ -21,7 +21,7 @@ export default function Layout({ children }) {
       <Header />
       <header className="bg-slate-700 text-white p-4 flex justify-between items-center shadow">
         <div
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex gap-2 cursor-pointer"
           onClick={toggleSidebarOpen}
         >
           <LayoutDashboard size={24} />
@@ -31,7 +31,7 @@ export default function Layout({ children }) {
         </div>
         <button
           onClick={toggleSidebarPosition}
-          className="bg-white text-blue-600 px-3 py-1 rounded shadow hover:bg-gray-100"
+          className="bg-slate-900 text-slate-400 px-3 py-1 rounded shadow cursor-pointer"
         >
           {sidebarPosition === "left" ? "Right" : "Left"} Sidebar
         </button>
