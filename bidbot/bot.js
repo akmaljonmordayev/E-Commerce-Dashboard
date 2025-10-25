@@ -46,7 +46,7 @@ bot.on("message", async (msg) => {
 
   if (text === "📨 Mening murojaatlarim") {
     try {
-      const res = await axios.get(`${API_URL}/messages?userId=${chatId}`);
+      const res = await axios.get(`${API_URL}/message?userId=${chatId}`);
       const msgs = res.data;
 
       if (msgs.length === 0)
@@ -99,7 +99,7 @@ bot.on("message", async (msg) => {
     };
 
     try {
-      await axios.post(`${API_URL}/messages`, messageData);
+      await axios.post(`${API_URL}/message`, messageData);
       await bot.sendMessage(
         chatId,
         `✅ Murojaatingiz yuborildi!\n📂 <b>${state.topic}</b>\nTez orada javob olasiz.`,
@@ -154,7 +154,7 @@ bot.on("message", async (msg) => {
   const openChat = state?.openChat;
   if (openChat) {
     try {
-      const res = await axios.get(`${API_URL}/messages/${openChat}`);
+      const res = await axios.get(`${API_URL}/message/${openChat}`);
       const chatData = res.data;
 
       chatData.messages.push({
@@ -179,7 +179,7 @@ bot.on("callback_query", async (query) => {
   if (data.startsWith("open_chat_")) {
     const id = data.replace("open_chat_", "");
     try {
-      const res = await axios.get(`${API_URL}/messages/${id}`);
+      const res = await axios.get(`${API_URL}/message/${id}`);
       const chatData = res.data;
       const history = chatData.messages
         .map(

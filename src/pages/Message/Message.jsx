@@ -11,7 +11,7 @@ export default function Message() {
   }, []);
 
   async function fetchTopics() {
-    const res = await axios.get("http://localhost:5000/messages");
+    const res = await axios.get("http://localhost:5000/message");
     setTopics(res.data);
   }
 
@@ -24,7 +24,7 @@ export default function Message() {
         { from: "admin", text: newMsg, time: new Date().toLocaleString() },
       ],
     };
-    await axios.put(`http://localhost:5000/messages/${activeChat.id}`, updatedChat);
+    await axios.put(`http://localhost:5000/message/${activeChat.id}`, updatedChat);
     setActiveChat(updatedChat);
     setNewMsg("");
   }
