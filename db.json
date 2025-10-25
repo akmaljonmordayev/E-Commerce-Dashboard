@@ -48,6 +48,13 @@
       "email": "ramazon@gmail.com",
       "phone": "654345678",
       "address": "vasd avsd "
+    },
+    {
+      "id": "e127",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan"
     }
   ],
   "products": [
@@ -82,14 +89,6 @@
       "stock": 6,
       "category": "Laptops",
       "brand": "Dell"
-    },
-    {
-      "id": "10",
-      "name": "Razer BlackWidow V4",
-      "price": 179,
-      "stock": 18,
-      "category": "Accessories",
-      "brand": "Razer"
     },
     {
       "id": "11",
@@ -140,6 +139,14 @@
       "brand": "DJI"
     },
     {
+      "id": "bf90",
+      "name": "213",
+      "price": 123,
+      "stock": 213123,
+      "category": "213",
+      "brand": "123"
+    },
+    {
       "id": "0165",
       "name": "Amazon Echo Dot 5",
       "price": 59,
@@ -156,26 +163,35 @@
       "brand": "Microsoftbek"
     },
     {
-      "id": "45e1",
-      "name": "Samsung Galaxy S24",
-      "price": 1099.99,
-      "stock": 30,
-      "category": "Smartphones",
-      "brand": "Samsung"
+      "id": "94f7",
+      "name": "Razer BlackWidow V4",
+      "price": 179,
+      "stock": 18,
+      "category": "Accessories",
+      "brand": "Razer"
     }
   ],
   "orders": [
     {
+      "id": "1",
+      "customerId": "1",
+      "status": "Completed",
+      "totalAmount": 2599.98,
+      "createdAt": "2025-09-01",
+      "name": "JBL Charge 5"
+    },
+    {
       "id": "2",
-      "customerId": null,
+      "customerId": "2",
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
+
       "name": "Microsoft Surface Pro 9"
     },
     {
       "id": "3",
-      "customerId": null,
+      "customerId": "3",
       "status": "Shipped",
       "totalAmount": 1099.99,
       "createdAt": "2025-09-03",
@@ -222,28 +238,20 @@
       "name": "Air pods pro"
     },
     {
-      "id": "9",
-      "customerId": "9",
+      "id": "e9d9",
+      "customerId": "3",
       "status": "Completed",
-      "totalAmount": 199.99,
-      "createdAt": "2025-09-09",
-      "name": "IPhone 17 pro"
+      "totalAmount": 499.99,
+      "createdAt": "2024-05-15",
+      "name": "Wireless Mouse"
     },
     {
-      "id": "10",
-      "customerId": "10",
-      "status": "Pending",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Xiomi 14"
-    },
-    {
-      "id": "11",
-      "customerId": "10",
-      "status": "Completed",
-      "totalAmount": 179.99,
-      "createdAt": "2025-09-10",
-      "name": "Acer laptop"
+      "id": "c214",
+      "customerId": "8",
+      "status": "Shipped",
+      "totalAmount": 899.99,
+      "createdAt": "2025-09-08",
+      "name": "Air pods pro"
     }
   ],
   "users": [
@@ -276,19 +284,7 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
-    }
-  ],
-  "productsArchieve": [
-    {
-      "id": "9e97",
-      "title": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    }
-  ],
-  "customersArchieve": [
+    },
     {
       "id": "3",
       "name": "Javohir Ismoilov",
@@ -314,6 +310,8 @@
       "deletedAt": "2025-10-25T11:59:55.804Z"
     }
   ],
+  "productsArchieve": [],
+  "customersArchieve": [],
   "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
@@ -326,6 +324,44 @@
       "id": "bb53",
       "command": "Bilol",
       "response": "hello bilol"
+    }
+  ],
+  "message": [
+    {
+      "id": "1761392599735",
+      "userId": 970668821,
+      "username": "Mr_Akmal_dev",
+      "topic": "Tolov",
+      "messages": [
+        {
+          "from": "user",
+          "text": "salom qalaysz",
+          "time": "25/10/2025, 4:43:19 pm"
+        },
+        {
+          "from": "admin",
+          "text": "yaxshi rahmat",
+          "time": "10/25/2025, 4:45:41 PM"
+        }
+      ]
+    },
+    {
+      "id": "1761392646002",
+      "userId": 970668821,
+      "username": "Mr_Akmal_dev",
+      "topic": "Ish",
+      "messages": [
+        {
+          "from": "user",
+          "text": "ishga kirmoqchiman",
+          "time": "25/10/2025, 4:44:06 pm"
+        },
+        {
+          "from": "admin",
+          "text": "bizda bosh ish orni yuq",
+          "time": "10/25/2025, 4:46:11 PM"
+        }
+      ]
     }
   ]
 }

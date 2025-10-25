@@ -1,103 +1,189 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useGet from "../../customHooks/useGet";
 import { useNavigate } from "react-router-dom";
-function Profile() {
-  let id = localStorage.getItem("userId");
-  const { data: user, error, success } = useGet(`/users/${id}`);
+import api from "../../service/axios";
 
-  let navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(true);
+function Profile() {
+  const id = localStorage.getItem("userId");
+  const { data: user, loading, error } = useGet(`/users/${id}`);
+  const navigate = useNavigate();
+
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    name: "hello",
-    email: "sofiya@example.com",
-    profession: "Frontend Developer",
-    bio: "Creative developer passionate about building elegant, dynamic, and user-friendly web interfaces using React and Tailwind CSS.",
+    name: "",
+    surname: "",
+    username: "",
+    email: "",
+    age: "",
+    role: "",
+    password: "",
   });
 
-  let bgClass =
-    "bg-gradient-to-br from-indigo-900 via-blue-950 to-indigo-900 text-white";
-  let cardClass = "bg-blue-950/70 border-blue-800";
-  let textMuted = "text-blue-300";
-  let textSoft = "text-blue-200";
-  let borderColor = "border-blue-500";
-  let statBg = "bg-blue-800/50 hover:bg-blue-700/50";
-  let btnPrimary = "bg-blue-600 hover:bg-blue-500 hover:shadow-blue-600/40";
-  let btnOutline = "border-blue-400 hover:bg-blue-800 hover:shadow-blue-500/40";
-  let linkColor = "text-blue-400 hover:text-blue-300";
+  useEffect(() => {
+    if (user && Object.keys(user).length > 0) {
+      setFormData({
+        name: user.name || "",
+        surname: user.surname || "",
+        username: user.username || "",
+        email: user.email || "",
+        age: user.age || "",
+        role: user.role || "",
+        password: "",
+      });
+    }
+  }, [user]);
 
-  if (!darkMode) {
-    bgClass =
-      "bg-gradient-to-br from-gray-100 via-white to-gray-200 text-gray-900";
-    cardClass = "bg-white/70 border-gray-300";
-    textMuted = "text-blue-700";
-    textSoft = "text-gray-700";
-    borderColor = "border-blue-400";
-    statBg = "bg-blue-100 hover:bg-blue-200";
-    btnPrimary = "bg-blue-500 text-white hover:bg-blue-400";
-    btnOutline = "border-blue-500 text-blue-800 hover:bg-blue-100";
-    linkColor = "text-blue-600 hover:text-blue-500";
-  }
-
-  let logOut = () => {
+  const logOut = () => {
     localStorage.clear();
     navigate("/login");
   };
 
+  const handleEdit = () => {
+    if (user && Object.keys(user).length > 0) {
+      setShowModal(true);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSave = async () => {
+    try {
+      const updatedData = { ...formData };
+      if (!updatedData.password) delete updatedData.password;
+
+      await api.put(`/users/${id}`, updatedData);
+      alert("Profil muvaffaqiyatli yangilandi ✅");
+      setShowModal(false);
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+      alert("Profilni yangilashda xatolik ❌");
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen text-indigo-600 font-semibold text-lg animate-pulse">
+        Ma’lumotlar yuklanmoqda...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen text-red-500 font-medium text-lg">
+        Xatolik yuz berdi: {error}
+      </div>
+    );
+  }
+
   return (
-    <div
-      className={`min-h-screen flex items-center justify-center px-4 relative overflow-hidden transition-all duration-700 ${bgClass}`}
-    >
+    <div className="min-h-screen flex items-center justify-center px-4 relative bg-gradient-to-br from-indigo-50 via-white to-indigo-100 text-gray-900">
       <button
         onClick={logOut}
-        className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-lg transition-all duration-300 hover:scale-105 bg-red-600 hover:bg-red-500 text-white"
+        className="absolute top-6 right-6 px-4 py-2 rounded-lg font-medium shadow-lg 
+                   transition-all duration-300 hover:scale-105 bg-red-600 hover:bg-red-500 text-white"
       >
         Logout
       </button>
 
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="absolute top-6 left-6 px-4 py-2 rounded-lg font-medium shadow-lg transition-all duration-300 hover:scale-105 bg-yellow-400 text-gray-900 hover:bg-yellow-300"
-      >
-        {darkMode ? "☀ Light" : "🌙 Dark"}
-      </button>
+      {user && Object.keys(user).length > 0 ? (
+        <div className="max-w-md w-full bg-white border border-indigo-200 rounded-2xl shadow-xl p-6 
+                        hover:shadow-2xl transition-all duration-500">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-2xl font-semibold text-indigo-800">User Profile</h2>
+            <button
+              onClick={handleEdit}
+              className="px-3 py-1 rounded-md bg-indigo-600 text-white text-sm hover:bg-indigo-500 transition-all"
+            >
+              Edit Profile
+            </button>
+          </div>
 
-      {user && (
-        <div className="max-w-md w-full bg-white dark:bg-slate-800 rounded-2xl shadow-md p-4 flex items-center gap-4">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between gap-2">
-              <div>
-                <h3 className="text-slate-900 dark:text-slate-100 font-semibold text-lg leading-tight truncate">
-                  {user.name} {user.surname}
-                </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-300">
-                  @{user.username}
-                </p>
-              </div>
+          <div className="grid grid-cols-2 gap-y-3 text-sm text-gray-800">
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Name</span>
+              <div>{user.name}</div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Surname</span>
+              <div>{user.surname}</div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Username</span>
+              <div>@{user.username}</div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Email</span>
+              <div>{user.email}</div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Age</span>
+              <div>{user.age}</div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xs uppercase">Role</span>
+              <div>{user.role}</div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <p className="text-gray-600 text-lg font-medium animate-pulse">
+          Foydalanuvchi topilmadi
+        </p>
+      )}
 
-              <div className="flex items-center gap-2">
-                <span
-                  className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    user.role === "admin"
-                      ? "bg-amber-100 text-amber-800"
-                      : "bg-slate-100 text-slate-800"
-                  } dark:bg-slate-700 dark:text-slate-200`}
-                >
-                  {user.role}
-                </span>
-              </div>
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 shadow-2xl w-full max-w-md">
+            <h3 className="text-xl font-semibold text-indigo-800 mb-4">
+              Edit Profile
+            </h3>
+
+            <div className="space-y-3">
+              {["name", "surname", "username", "email", "age", "role", "password"].map((field) => (
+                <div key={field}>
+                  <label
+                    className="text-sm text-gray-600 capitalize"
+                    htmlFor={field}
+                  >
+                    {field}
+                  </label>
+                  <input
+                    type={field === "age" ? "number" : field === "password" ? "password" : "text"}
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    placeholder={
+                      field === "password"
+                        ? "Yangi parol kiriting (ixtiyoriy)"
+                        : ""
+                    }
+                    className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 
+                               focus:ring-indigo-400 focus:outline-none"
+                  />
+                </div>
+              ))}
             </div>
 
-            <div className="mt-2 text-sm text-slate-600 dark:text-slate-300 grid grid-cols-2 gap-2">
-              <div className="truncate">
-                <div className="text-xs text-slate-400">Email</div>
-                <div className="truncate">{user.email}</div>
-              </div>
-
-              <div>
-                <div className="text-xs text-slate-400">Age</div>
-                <div>{user.age}</div>
-              </div>
+            <div className="flex justify-end gap-3 mt-5">
+              <button
+                onClick={() => setShowModal(false)}
+                className="px-4 py-2 rounded-md border border-gray-300 hover:bg-gray-100"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSave}
+                className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500"
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
