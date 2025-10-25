@@ -194,6 +194,7 @@
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04",
+
       "name": "Razer BlackWidow V4"
     },
     {
@@ -255,14 +256,15 @@
   ],
   "users": [
     {
-      "id": "1",
       "name": "Akmal",
       "surname": "Mordayev",
-      "username": "akmstrike",
+      "username": "akmstrike1",
       "email": "akmaljonmordayev@gmail.com",
-      "password": "akmstrike1231",
       "age": 16,
-      "role": "customer"
+      "role": "customer",
+      "password": "akmstrike1231",
+      "image": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+      "id": "1"
     },
     {
       "id": "0f61",
@@ -371,6 +373,7 @@
         {
           "from": "user",
           "text": "ishga kirmoqchiman",
+
           "time": "25/10/2025, 4:44:06 pm"
         },
         {
