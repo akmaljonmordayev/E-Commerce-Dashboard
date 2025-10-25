@@ -300,6 +300,16 @@
       "role": "admin",
       "password": "notariuscs2_",
       "id": "3ebd"
+    },
+    {
+      "id": "a930",
+      "name": "Qosim",
+      "surname": "Nematjonov",
+      "username": "qosim1234",
+      "email": "qosim@gmail.com",
+      "password": "123456",
+      "age": 14,
+      "role": "customer"
     }
   ],
   "productsArchieve": [
