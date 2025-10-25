@@ -13,6 +13,8 @@ export default function UserPage() {
   const { updateData } = useUpdate("/users");
   const { deleteData } = useDelete("/users");
 
+  const { postData: archiveUser } = usePost("/usersArchieve");
+
   const [show, setShow] = useState(false);
   const [editId, setEditId] = useState(null);
   const [search, setSearch] = useState("");
@@ -90,15 +92,22 @@ export default function UserPage() {
   const delConfirm = async () => {
     if (!delItem) return;
     try {
+      await archiveUser({
+        ...delItem,
+        deletedAt: new Date().toISOString(),
+      });
+
       await deleteData(delItem.id);
+
       toast.error("User deleted!", {
         style: { background: "#dc2626", color: "#fff" },
       });
+
       setDelItem(null);
       refetch();
     } catch (err) {
       console.error(err);
-      toast.error("Error deleting!");
+      toast.error("Error deleting or archiving user!");
     }
   };
 
