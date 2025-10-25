@@ -410,6 +410,11 @@
           "from": "user",
           "text": "salom qalaysz",
           "time": "25/10/2025, 4:43:19 pm"
+        },
+        {
+          "from": "admin",
+          "text": "yaxshi rahmat",
+          "time": "10/25/2025, 4:45:41 PM"
         }
       ]
     },
@@ -423,6 +428,11 @@
           "from": "user",
           "text": "ishga kirmoqchiman",
           "time": "25/10/2025, 4:44:06 pm"
+        },
+        {
+          "from": "admin",
+          "text": "bizda bosh ish orni yuq",
+          "time": "10/25/2025, 4:46:11 PM"
         }
       ]
     }
