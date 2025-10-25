@@ -285,14 +285,28 @@
       "role": "admin"
     },
     {
-      "id": "9a78",
-      "name": "Muhammadyusuf",
-      "surname": "Ro'ziyev",
-      "username": "Myruziyev",
-      "email": "myruziyev@gmail.com",
-      "password": "123457",
-      "age": 14,
-      "role": "admin"
+      "id": "3",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan",
+      "deletedAt": "2025-10-21T12:09:23.475Z"
+    },
+    {
+      "id": "4",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan",
+      "deletedAt": "2025-10-25T11:59:46.542Z"
+    },
+    {
+      "id": "5",
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan",
+      "deletedAt": "2025-10-25T11:59:55.804Z"
     }
   ],
   "productsArchieve": [
