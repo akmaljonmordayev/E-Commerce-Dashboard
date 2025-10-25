@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "4",
-      "name": "Malika Toshpulatova",
-      "email": "malika.tosh@mail.com",
-      "phone": "+998935554433",
-      "address": "Andijan, Uzbekistan"
-    },
-    {
       "id": "5",
       "name": "Shahzod Rahmonov",
       "email": "shahzod.rahmonov@mail.com",
@@ -62,6 +55,13 @@
       "email": "ramazon@gmail.com",
       "phone": "654345678",
       "address": "vasd avsd "
+    },
+    {
+      "id": "e127",
+      "name": "Malika Toshpulatova",
+      "email": "malika.tosh@mail.com",
+      "phone": "+998935554433",
+      "address": "Andijan, Uzbekistan"
     }
   ],
   "products": [
@@ -96,14 +96,6 @@
       "stock": 6,
       "category": "Laptops",
       "brand": "Dell"
-    },
-    {
-      "id": "10",
-      "name": "Razer BlackWidow V4",
-      "price": 179,
-      "stock": 18,
-      "category": "Accessories",
-      "brand": "Razer"
     },
     {
       "id": "11",
@@ -176,6 +168,14 @@
       "stock": 8,
       "category": "Tablets",
       "brand": "Microsoftbek"
+    },
+    {
+      "id": "94f7",
+      "name": "Razer BlackWidow V4",
+      "price": 179,
+      "stock": 18,
+      "category": "Accessories",
+      "brand": "Razer"
     }
   ],
   "orders": [
@@ -205,7 +205,7 @@
     },
     {
       "id": "4",
-      "customerId": "4",
+      "customerId": null,
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04",
@@ -234,22 +234,6 @@
       "totalAmount": 1799,
       "createdAt": "2025-09-07",
       "name": "Laptop HP"
-    },
-    {
-      "id": "8",
-      "customerId": "8",
-      "status": "Shipped",
-      "totalAmount": 899.99,
-      "createdAt": "2025-09-08",
-      "name": "Air pods pro"
-    },
-    {
-      "id": "9",
-      "customerId": "9",
-      "status": "Completed",
-      "totalAmount": 199.99,
-      "createdAt": "2025-09-09",
-      "name": "IPhone 17 pro"
     }
   ],
   "users": [
@@ -290,20 +274,11 @@
       "username": "Myruziyev",
       "email": "myruziyev@gmail.com",
       "password": "123457",
-      "age": 12,
+      "age": 14,
       "role": "admin"
     }
   ],
-  "productsArchieve": [
-    {
-      "id": "9e97",
-      "title": "iPhone 15 Pro",
-      "price": 1299.99,
-      "stock": 25,
-      "category": "Smartphones",
-      "brand": "Apple"
-    }
-  ],
+  "productsArchieve": [],
   "customersArchieve": [],
   "usersArchieve": [],
   "ordersArchieve": [],

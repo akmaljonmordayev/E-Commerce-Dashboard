@@ -35,7 +35,8 @@ function SidebarNavigation() {
     { label: "Settings", icon: <IoMdSettings /> },
     { label: "Archieve", icon: <MdDelete /> },
     { label: "Profile", icon: <CgProfile /> },
-    { label: "Chatbot", icon: <TbMessageChatbot /> },
+    // { label: "Chatbot", icon: <TbMessageChatbot /> },
+    { label: "Message", icon: <TbMessageChatbot /> },
   ];
 
   const toggleSidebar = () => {
