@@ -1,13 +1,6 @@
 {
   "customers": [
     {
-      "id": "5",
-      "name": "Shahzod Rahmonov",
-      "email": "shahzod.rahmonov@mail.com",
-      "phone": "+998977788990",
-      "address": "Namangan, Uzbekistan"
-    },
-    {
       "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
@@ -65,14 +58,6 @@
     }
   ],
   "products": [
-    {
-      "id": "6",
-      "name": "Logitech MX Master 3S",
-      "price": 119,
-      "stock": 22,
-      "category": "Accessories",
-      "brand": "hellobot"
-    },
     {
       "id": "7",
       "name": "Apple Watch Ultra 2",
@@ -193,7 +178,6 @@
       "status": "Pending",
       "totalAmount": 399.99,
       "createdAt": "2025-09-02",
-
       "name": "Microsoft Surface Pro 9"
     },
     {
@@ -214,7 +198,7 @@
     },
     {
       "id": "5",
-      "customerId": "5",
+      "customerId": null,
       "status": "Completed",
       "totalAmount": 1499,
       "createdAt": "2025-09-05",
@@ -259,6 +243,14 @@
       "totalAmount": 899.99,
       "createdAt": "2025-09-08",
       "name": "Air pods pro"
+    },
+    {
+      "id": "1761393637587",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
     }
   ],
   "users": [
@@ -303,8 +295,26 @@
       "role": "admin"
     }
   ],
-  "productsArchieve": [],
-  "customersArchieve": [],
+  "productsArchieve": [
+    {
+      "id": "b1e4",
+      "title": "Logitech MX Master 3S",
+      "price": 119,
+      "stock": 22,
+      "category": "Accessories",
+      "brand": "hellobot"
+    }
+  ],
+  "customersArchieve": [
+    {
+      "id": "5",
+      "name": "Shahzod Rahmonov",
+      "email": "shahzod.rahmonov@mail.com",
+      "phone": "+998977788990",
+      "address": "Namangan, Uzbekistan",
+      "deletedAt": "2025-10-25T12:03:27.491Z"
+    }
+  ],
   "usersArchieve": [],
   "ordersArchieve": [],
   "commands": [
