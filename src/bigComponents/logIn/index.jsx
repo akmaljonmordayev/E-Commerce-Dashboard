@@ -46,7 +46,7 @@ export default function Login() {
       <main className="w-full max-w-md p-6">
         <section className="bg-white/6 backdrop-blur-sm border border-white/8 rounded-3xl shadow-[0_10px_30px_rgba(2,6,23,0.6)] p-8">
             <div className="flex justify-center">
-              <img className="w-[320px] h-[180px] " src={mainLogo} alt="" />
+              <img className="w-[320px] h-[260px] " src={mainLogo} alt="" />
             </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
