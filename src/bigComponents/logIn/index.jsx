@@ -63,7 +63,6 @@ export default function Login() {
                 placeholder="username"
               />
             </div>
-
             <div>
               <label className="block text-sm font-medium text-slate-300">
                 Password
