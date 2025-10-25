@@ -1,7 +1,6 @@
 {
   "customers": [
     {
-<<<<<<< HEAD
       "id": "6",
       "name": "Gulbahor Xudoyberdieva",
       "email": "gulbahor.x@mail.com",
@@ -16,8 +15,6 @@
       "address": "Jizzakh, Uzbekistan"
     },
     {
-=======
->>>>>>> 82a03280f05d7c3c70d3079a57b39db5efc01bb0
       "id": "9",
       "name": "Sherzod Usmonov",
       "email": "sherzod.u@mail.com",
@@ -299,43 +296,7 @@
       "email": "shahzod.rahmonov@mail.com",
       "phone": "+998977788990",
       "address": "Namangan, Uzbekistan",
-<<<<<<< HEAD
       "deletedAt": "2025-10-23T11:52:29.962Z"
-=======
-      "deletedAt": "2025-10-23T11:52:48.860Z"
-    },
-    {
-      "id": "6",
-      "name": "Gulbahor Xudoyberdieva",
-      "email": "gulbahor.x@mail.com",
-      "phone": "+998931234567",
-      "address": "Fergana, Uzbekistan",
-      "deletedAt": "2025-10-23T11:52:58.984Z"
-    },
-    {
-      "id": "8",
-      "name": "Sevara Olimova",
-      "email": "sevara.ol@mail.com",
-      "phone": "+998998877665",
-      "address": "Jizzakh, Uzbekistan",
-      "deletedAt": "2025-10-23T11:53:01.178Z"
-    },
-    {
-      "id": "10",
-      "name": "Madina Akbarova",
-      "email": "madina.ak@mail.com",
-      "phone": "+998977771212",
-      "address": "Tashkent, Uzbekistan",
-      "deletedAt": "2025-10-23T11:53:03.250Z"
-    },
-    {
-      "id": "7",
-      "name": "Bobur Mamadaliyev",
-      "email": "bobur.m@mail.com",
-      "phone": "+",
-      "address": "Khiva",
-      "deletedAt": "2025-10-23T11:53:07.000Z"
->>>>>>> 82a03280f05d7c3c70d3079a57b39db5efc01bb0
     }
   ],
   "usersArchieve": [],
