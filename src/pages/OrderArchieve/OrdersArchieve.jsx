@@ -3,26 +3,17 @@ import { RotateCcw } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useGet from "../../customHooks/useGet";
-import useDelete from "../../customHooks/useDelete";
 import usePost from "../../customHooks/usePost";
 
 function OrdersArchieve() {
   const { data, refetch } = useGet("/ordersArchieve");
-  const { deleteData } = useDelete("/ordersArchieve");
   const { postData } = usePost("/orders");
 
   const [query, setQuery] = useState("");
-  const [filterStatus, setFilterStatus] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     let result = data || [];
-
-    if (filterStatus !== "All") {
-      result = result.filter(
-        (order) => order.status?.toLowerCase() === filterStatus.toLowerCase()
-      );
-    }
 
     if (query.trim() !== "") {
       const q = query.toLowerCase();
@@ -35,19 +26,26 @@ function OrdersArchieve() {
     }
 
     setFilteredData(result);
-  }, [query, filterStatus, data]);
+  }, [query, data]);
 
   const handleRestore = async (id) => {
     try {
-      const orderToRestore = data.find((o) => o.id === id);
-      if (!orderToRestore) return toast.error("Order not found!");
+      const archivedOrder = data.find((o) => o.id === id);
+      if (!archivedOrder) return toast.error("Order not found!");
 
-      const { id: _, ...orderWithoutId } = orderToRestore; // remove old id
-      await postData(orderWithoutId); // ✅ Add back to /orders
-      await deleteData(id); // ✅ Remove from archive
+      const { id: _, ...orderWithoutId } = archivedOrder;
 
-      refetch?.();
-      toast.success("✅ Order restored successfully!");
+      // 1️⃣ Move back to /orders
+      await postData(orderWithoutId);
+
+      // 2️⃣ Delete from archive
+      await fetch(`http://localhost:3000/ordersArchieve/${id}`, {
+        method: "DELETE",
+      });
+
+      // 3️⃣ Refresh + notify
+      toast.success("✅ Order restored!");
+      if (typeof refetch === "function") refetch();
     } catch (err) {
       console.error(err);
       toast.error("❌ Failed to restore order.");
@@ -70,8 +68,22 @@ function OrdersArchieve() {
   };
 
   return (
-    <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center">
-      <div className="w-full max-w-6xl">
+    <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center relative">
+      <style>
+        {`
+          .archive-page ::selection {
+            background-color: #2563eb;
+            color: white;
+          }
+          .archive-page ::-moz-selection {
+            background-color: #2563eb;
+            color: white;
+          }
+        `}
+      </style>
+
+      <div className="w-full max-w-6xl archive-page">
+        {/* Header */}
         <div className="flex flex-col md:flex-row justify-between gap-4 items-center mb-6">
           <h2 className="text-white text-2xl font-bold">Archived Orders</h2>
 
@@ -86,23 +98,10 @@ function OrdersArchieve() {
                          focus:outline-none focus:ring-2 focus:ring-blue-500
                          transition duration-200"
             />
-
-            <select
-              value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 rounded-lg bg-[#0f172a] text-white border-gray-600
-                         focus:outline-none focus:ring-2 focus:ring-blue-500
-                         transition duration-200"
-            >
-              <option value="All">All</option>
-              <option value="Completed">Completed</option>
-              <option value="Pending">Pending</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Cancelled">Cancelled</option>
-            </select>
           </div>
         </div>
 
+        {/* Table */}
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <table className="w-full text-left text-gray-800">
             <thead className="bg-gray-100 text-gray-600 text-sm uppercase border-b">
@@ -138,7 +137,7 @@ function OrdersArchieve() {
                   <td className="p-3 text-center">
                     <button
                       onClick={() => handleRestore(order.id)}
-                      className="bg-purple-500 hover:bg-purple-600 transition p-2 rounded-md text-white"
+                      className="bg-green-500 hover:bg-green-600 transition p-2 rounded-md text-white"
                       title="Restore Order"
                     >
                       <RotateCcw size={16} />
