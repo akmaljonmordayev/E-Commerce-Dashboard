@@ -194,7 +194,6 @@
       "status": "Cancelled",
       "totalAmount": 179.99,
       "createdAt": "2025-09-04",
-
       "name": "Razer BlackWidow V4"
     },
     {
@@ -247,6 +246,62 @@
     },
     {
       "id": "1761393637587",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "e49c",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "6799",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "a408",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "6d61",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "20b0",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "ccd1",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "2cbd",
       "customerId": "970668821",
       "status": "Pending",
       "totalAmount": 12000,
@@ -316,7 +371,104 @@
     }
   ],
   "usersArchieve": [],
-  "ordersArchieve": [],
+  "ordersArchieve": [
+    {
+      "id": "c31f",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "7213",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "6d86",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "110b",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "460f",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "33da",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "ca89",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "19d9",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "5110",
+      "customerId": "970668821",
+      "status": "Pending",
+      "totalAmount": 12000,
+      "createdAt": "2025-10-25",
+      "name": "Olma"
+    },
+    {
+      "id": "5c35",
+      "customerId": "2",
+      "status": "Pending",
+      "totalAmount": 399.99,
+      "createdAt": "2025-09-02",
+      "name": "Microsoft Surface Pro 9"
+    },
+    {
+      "id": "1a21",
+      "customerId": "3",
+      "status": "Shipped",
+      "totalAmount": 1099.99,
+      "createdAt": "2025-09-03",
+      "name": "Computer"
+    },
+    {
+      "id": "1999",
+      "customerId": null,
+      "status": "Completed",
+      "totalAmount": 1499,
+      "createdAt": "2025-09-05",
+      "name": "Redmi Note 13 Pro"
+    }
+  ],
   "commands": [
     {
       "id": "31e7",
@@ -345,6 +497,11 @@
           "from": "admin",
           "text": "yaxshi rahmat",
           "time": "10/25/2025, 4:45:41 PM"
+        },
+        {
+          "from": "admin",
+          "text": "lox",
+          "time": "28.10.2025, 15:58:39"
         }
       ]
     },
@@ -357,7 +514,6 @@
         {
           "from": "user",
           "text": "ishga kirmoqchiman",
-
           "time": "25/10/2025, 4:44:06 pm"
         },
         {

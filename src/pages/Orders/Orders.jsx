@@ -7,14 +7,17 @@ import usePost from "../../customHooks/usePost";
 
 function Orders() {
   const { data, refetch } = useGet("/orders");
-  const { postData } = usePost("/ordersArchive");
+  const { postData } = usePost("/ordersArchieve");
 
   const [query, setQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [filteredData, setFilteredData] = useState([]);
 
+  // 🔍 Filtering + search
   useEffect(() => {
-    let result = data || [];
+    if (!data) return;
+
+    let result = [...data];
 
     if (filterStatus !== "All") {
       result = result.filter(
@@ -35,32 +38,31 @@ function Orders() {
     setFilteredData(result);
   }, [query, filterStatus, data]);
 
-const handleArchive = async (id) => {
-  try {
-    // Find order to move
-    const orderToArchive = data.find((o) => o.id === id);
-    if (!orderToArchive) return toast.error("Order not found!");
+  // 📦 Move order to archive
+  const handleArchive = async (id) => {
+    try {
+      const orderToArchive = data.find((o) => o.id === id);
+      if (!orderToArchive) return toast.error("Order not found!");
 
-    // Remove the `id` because json-server will assign a new one when posting
-    const { id: _, ...orderWithoutId } = orderToArchive;
+      const { id: _, ...orderWithoutId } = orderToArchive;
 
-    // 1️⃣ Post to archive
-    await postData(orderWithoutId);
+      // 1️⃣ Add to archive
+      await postData(orderWithoutId);
 
-    // 2️⃣ Delete from orders
-    await fetch(`http://localhost:3000/orders/${id}`, {
-      method: "DELETE",
-    });
+      // 2️⃣ Delete from active orders
+      const res = await fetch(`http://localhost:3000/orders/${id}`, {
+        method: "DELETE",
+      });
+      if (!res.ok) throw new Error("Delete failed");
 
-    // 3️⃣ Refresh and notify
-    toast.success("✅ Order moved to archive!");
-    if (typeof refetch === "function") refetch();
-  } catch (err) {
-    console.error(err);
-    toast.error("❌ Failed to move order to archive.");
-  }
-};
-
+      // 3️⃣ Refresh UI
+      toast.success("✅ Order moved to archive!");
+      if (typeof refetch === "function") refetch();
+    } catch (err) {
+      console.error(err);
+      toast.error("❌ Failed to move order to archive.");
+    }
+  };
 
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
@@ -79,11 +81,11 @@ const handleArchive = async (id) => {
 
   return (
     <div className="p-8 bg-[#1b2335] min-h-screen flex justify-center relative">
-      {/* Local text selection style */}
+      {/* Selection styles */}
       <style>
         {`
           .orders-page ::selection {
-            background-color: #2563eb; /* blue-600 */
+            background-color: #2563eb;
             color: white;
           }
           .orders-page ::-moz-selection {
