@@ -273,6 +273,16 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
+    },
+    {
+      "id": "c1af",
+      "username": "f2124695@gmail.com",
+      "email": "firdavsbek347@gmail.com",
+      "role": "support",
+      "age": 16,
+      "name": "fire212345678",
+      "surname": "Roziyev",
+      "password": "12345678"
     }
   ],
   "productsArchieve": [],
@@ -312,6 +322,17 @@
       "phone": "+998935552211",
       "address": "Bukhara, Uzbekistan",
       "deletedAt": "2025-10-25T12:14:08.997Z"
+    },
+    {
+      "id": "5bf4",
+      "username": "f2124695@gmail.com",
+      "email": "firdavsbek347@gmail.com",
+      "role": "support",
+      "age": 16,
+      "name": "fire212345678",
+      "surname": "Roziyev",
+      "password": "12345678",
+      "deletedAt": "2025-10-25T12:25:04.244Z"
     }
   ],
   "ordersArchieve": [],

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import CustomTable from "../Products/customTable";
 import useGet from "../../customHooks/useGet";
@@ -53,7 +54,7 @@ export default function UserPage() {
       !form.username ||
       !form.email ||
       !form.role ||
-      !form.age ||
+      form.age === "" || 
       !form.name ||
       !form.surname ||
       !form.password
@@ -85,12 +86,13 @@ export default function UserPage() {
 
   const editItem = (record) => {
     setEditId(record.id);
-    setForm(record);
+    setForm({ ...record });
     setShow(true);
   };
 
   const delConfirm = async () => {
     if (!delItem) return;
+
     try {
       await archiveUser({
         ...delItem,
@@ -99,15 +101,15 @@ export default function UserPage() {
 
       await deleteData(delItem.id);
 
-      toast.error("User deleted!", {
-        style: { background: "#dc2626", color: "#fff" },
+      toast.success("✅ User deleted and archived!", {
+        style: { background: "#16a34a", color: "#fff" },
       });
 
       setDelItem(null);
       refetch();
     } catch (err) {
-      console.error(err);
-      toast.error("Error deleting or archiving user!");
+      console.error("Error during delete/archive:", err);
+      setDelItem(null); // Xavfli holatni tozalash
     }
   };
 
@@ -223,17 +225,19 @@ export default function UserPage() {
       {delItem && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center">
           <div className="bg-[#25314d] p-5 rounded text-center">
-            <p>Delete user "{delItem.username}"?</p>
+            <p className="text-white">
+              Delete user "<span className="font-bold">{delItem.username}</span>"?
+            </p>
             <div className="flex gap-3 justify-center mt-3">
               <button
                 onClick={delConfirm}
-                className="bg-red-500 px-4 py-2 rounded"
+                className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white transition"
               >
                 Yes
               </button>
               <button
                 onClick={() => setDelItem(null)}
-                className="bg-gray-500 px-4 py-2 rounded"
+                className="bg-gray-500 hover:bg-gray-600 px-4 py-2 rounded text-white transition"
               >
                 No
               </button>
@@ -242,7 +246,7 @@ export default function UserPage() {
         </div>
       )}
 
-      <ToastContainer />
+      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
     </div>
   );
 }
