@@ -285,7 +285,11 @@
       "password": "notariuscs2",
       "age": 15,
       "role": "admin"
-    },
+    }
+  ],
+  "productsArchieve": [],
+  "customersArchieve": [],
+  "usersArchieve": [
     {
       "id": "3",
       "name": "Javohir Ismoilov",
@@ -303,32 +307,12 @@
       "deletedAt": "2025-10-25T11:59:46.542Z"
     },
     {
-      "id": "5",
-      "name": "Shahzod Rahmonov",
-      "email": "shahzod.rahmonov@mail.com",
-      "phone": "+998977788990",
-      "address": "Namangan, Uzbekistan",
-      "deletedAt": "2025-10-25T11:59:55.804Z"
-    }
-  ],
-  "productsArchieve": [
-    {
-      "id": "b1e4",
-      "title": "Logitech MX Master 3S",
-      "price": 119,
-      "stock": 22,
-      "category": "Accessories",
-      "brand": "hellobot"
-    }
-  ],
-  "customersArchieve": [
-    {
-      "id": "5",
-      "name": "Shahzod Rahmonov",
-      "email": "shahzod.rahmonov@mail.com",
-      "phone": "+998977788990",
-      "address": "Namangan, Uzbekistan",
-      "deletedAt": "2025-10-25T12:03:27.491Z"
+      "id": "3",
+      "name": "Javohir Ismoilov",
+      "email": "javohir.ismoilov@mail.com",
+      "phone": "+998935552211",
+      "address": "Bukhara, Uzbekistan",
+      "deletedAt": "2025-10-25T12:14:08.997Z"
     }
   ],
   "usersArchieve": [],
