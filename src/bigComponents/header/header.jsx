@@ -3,11 +3,11 @@ import mainLogo from "../../bigComponents/header/img/mainLogo7.png";
 import userLogo from "../../bigComponents/header/img/userLogo2.png";
 import { IoMdSettings } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom"; 
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useGet from "../../customHooks/useGet";
 
 export default function Header({ namePage }) {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   let id = localStorage.getItem("userId");
   const { data: user } = useGet(`/users/${id}`);
   const location = useLocation();
@@ -21,7 +21,7 @@ export default function Header({ namePage }) {
 
   const logOut = () => {
     localStorage.clear();
-    navigate("/login"); 
+    navigate("/login");
   };
 
   return (
@@ -51,9 +51,11 @@ export default function Header({ namePage }) {
           </div>
         </Link>
 
-        <div className="w-9 h-9 flex items-center justify-center rounded-full bg-pink-100 cursor-pointer relative">
-          <FaBell className="text-[22px] text-[#FE5C73]" />
-        </div>
+        <Link to={"/message"}>
+          <div className="w-9 h-9 flex items-center justify-center rounded-full bg-pink-100 cursor-pointer relative">
+            <FaBell className="text-[22px] text-[#FE5C73]" />
+          </div>
+        </Link>
 
         <div className="relative">
           <img
